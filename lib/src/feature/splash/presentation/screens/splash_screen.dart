@@ -43,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
         Positioned.fill(
           child: DecoratedBox(
             decoration: BoxDecoration(
-              image: DecorationImage(
+              image:  DecorationImage(
                 image: AssetImage(IconProvider.splash.buildImageUrl()),
                 fit: BoxFit.cover,
               ),
