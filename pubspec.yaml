@@ -1,0 +1,48 @@
+name: the_eye_of_the_world
+description: "the eye of the world"
+publish_to: 'none'
+version: 0.0.101
+
+environment:
+  sdk: ">=3.1.0 <4.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  go_router: ^14.1.4
+  logger: ^2.0.2+1
+  flutter_bloc: ^8.1.5
+  gap: ^3.0.1
+  get_it: ^7.7.0
+  equatable: ^2.0.5
+  shared_preferences: ^2.3.1
+  cupertino_icons: ^1.0.8
+  flutter_localizations:
+    sdk: flutter
+  flutter_svg: ^2.0.17
+  advertising_id: ^2.7.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  lint: ^2.3.0
+
+flutter:
+  uses-material-design: true
+  assets:
+     - assets/
+     - assets/images/
+     - assets/fonts/
+     - assets/json/
+     - assets/audio/
+
+  fonts:
+      - family: Jersey25
+        fonts:
+          - asset: assets/fonts/Jersey25-Regular.ttf
+      - family: Orbitron
+        fonts:
+          - asset: assets/fonts/Orbitron-Regular.ttf
+
+

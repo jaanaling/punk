@@ -1,0 +1,25 @@
+include: package:lint/strict.yaml
+
+linter:
+  rules:
+    sort_pub_dependencies: false
+    directives_ordering: false
+    prefer_single_quotes: true
+    always_use_package_imports: false
+    empty_statements: true
+    empty_catches: true
+    empty_constructor_bodies: true
+    avoid_empty_else: true
+    avoid_classes_with_only_static_members : false
+    curly_braces_in_flow_control_structures: true
+    parameter_assignments: false
+    require_trailing_commas: true
+
+    
+
+analyzer:
+  errors:
+    avoid_dynamic_calls: false
+    always_use_package_imports: ignore
+  exclude:
+    - "**/*.g.dart"
