@@ -6,7 +6,7 @@
             "VAIR",
             "RION"
         ],
-        "heroMentalState": "stable",
+        "heroMentalState": "normal",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -703,7 +703,7 @@
         "participantsIds": [
             "VAIR"
         ],
-        "heroMentalState": "breakdown",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -824,38 +824,18 @@
         "choices": [
             {
                 "choiceText": "Gather up and head to the Virtual World Evricon (Sphere).",
-                "nextDialogueBranchId": "branch_7"
-            }
-        ]
-    },
-    {
-        "branchId": "branch_7",
-        "location": "Virtual World",
-        "participantsIds": [
-            "VAIR"
-        ],
-        "heroMentalState": "breakdown",
-        "phrases": [
-            {
-                "speakerId": "NARRATOR",
-                "text": "Part 1 is concluded here. The next branches (8–1 continue in the upcoming segments, diving deeper into violent illusions, monstrous revelations, and the boundary-shattering horrors of Lira’s cradle.",
-                "emotion": "neutral"
-            }
-        ],
-        "choices": [
-            {
-                "choiceText": "END OF PART 1. (Await next segments...)",
                 "nextDialogueBranchId": "branch_8"
             }
         ]
     },
+
     {
         "branchId": "branch_8",
         "location": "Virtual World",
         "participantsIds": [
             "VAIR"
         ],
-        "heroMentalState": "breakdown",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -1000,7 +980,7 @@
         "participantsIds": [
             "VAIR"
         ],
-        "heroMentalState": "breakdown",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -1145,7 +1125,7 @@
         "participantsIds": [
             "VAIR"
         ],
-        "heroMentalState": "breakdown",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -1291,7 +1271,7 @@
             "VAIR",
             "NIKA"
         ],
-        "heroMentalState": "breakdown",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -1433,7 +1413,7 @@
             "VAIR",
             "RION"
         ],
-        "heroMentalState": "breakdown",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -1522,7 +1502,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "You’d hide her atrocities to protect LEXIS’s immaculate facade. You’d let an entire district drown in nightmare illusions just to keep your throne stable. That’s monstrous.",
+                "text": "You’d hide her atrocities to protect LEXIS’s immaculate facade. You’d let an entire district drown in nightmare illusions just to keep your throne normal. That’s monstrous.",
                 "emotion": "frightened"
             },
             {
@@ -1575,7 +1555,7 @@
             "VAIR",
             "NIKA"
         ],
-        "heroMentalState": "breakdown",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -1718,7 +1698,7 @@
             "NIKA",
             "LIRA"
         ],
-        "heroMentalState": "breakdown",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -1865,7 +1845,7 @@
             "NIKA",
             "LIRA"
         ],
-        "heroMentalState": "breakdown",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -2008,7 +1988,7 @@
             "NIKA",
             "LIRA"
         ],
-        "heroMentalState": "breakdown",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -2154,7 +2134,7 @@
             "VAIR",
             "NIKA"
         ],
-        "heroMentalState": "breakdown",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -2297,7 +2277,7 @@
             "NIKA",
             "LIRA"
         ],
-        "heroMentalState": "breakdown",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -2440,7 +2420,7 @@
             "NIKA",
             "LIRA"
         ],
-        "heroMentalState": "breakdown",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -2582,7 +2562,7 @@
             "VAIR",
             "NIKA"
         ],
-        "heroMentalState": "breakdown",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -3256,7 +3236,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "I accept the cost. Let them know how many souls we crushed for a stable lie. If we survive, maybe we can rebuild something real, free of illusions and fear.",
+                "text": "I accept the cost. Let them know how many souls we crushed for a normal lie. If we survive, maybe we can rebuild something real, free of illusions and fear.",
                 "emotion": "frightened"
             },
             {
@@ -3657,7 +3637,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "The console glows with a stable readout, illusions quarantined at 82%. Enough to keep the city functional, not enough to cleanse the root. A fragile bandage on a gaping wound.",
+                "text": "The console glows with a normal readout, illusions quarantined at 82%. Enough to keep the city functional, not enough to cleanse the root. A fragile bandage on a gaping wound.",
                 "emotion": "neutral"
             },
             {
@@ -5103,7 +5083,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Let’s confirm first. A meltdown or big blast might be impossible if the structure is too stable or if squads show up. Follow me—quietly.",
+                "text": "Let’s confirm first. A meltdown or big blast might be impossible if the structure is too normal or if squads show up. Follow me—quietly.",
                 "emotion": "neutral"
             },
             {
@@ -5199,7 +5179,7 @@
             },
             {
                 "speakerId": "JARO",
-                "text": " Tch, illusions. I’ve had half a dozen folks come in babbling about it. Burned out units that fry illusions from a short range exist, but they’re not cheap—or stable.",
+                "text": " Tch, illusions. I’ve had half a dozen folks come in babbling about it. Burned out units that fry illusions from a short range exist, but they’re not cheap—or normal.",
                 "emotion": "neutral"
             },
             {
@@ -5917,7 +5897,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": " This disruptor can jam illusions signals in a radius of maybe 10 meters, if it’s stable. Could be enough to handle reanimated husks or caretaker nodes. At least for a short time.",
+                "text": " This disruptor can jam illusions signals in a radius of maybe 10 meters, if it’s normal. Could be enough to handle reanimated husks or caretaker nodes. At least for a short time.",
                 "emotion": "neutral"
             },
             {
