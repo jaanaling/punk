@@ -24,7 +24,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
-    // _startMusic();
+    _startMusic();
   }
 
   Future<void> _startMusic() async {

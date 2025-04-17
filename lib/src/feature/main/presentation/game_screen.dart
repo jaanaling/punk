@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -430,7 +431,9 @@ class _DialogueBoxState extends State<DialogueBox> {
   final ScrollController _scrollController = ScrollController(); // 👈 ①
   double _scrollProgress = 0; // 👈 ②
   int _visibleTextLength = 0;
+  final AudioPlayer _narratorAudioPlayer = AudioPlayer();
   bool _isTextFullyVisible = false;
+  bool _isNarratorSpeaking = false;
 
   @override
   void initState() {
@@ -456,7 +459,9 @@ class _DialogueBoxState extends State<DialogueBox> {
   @override
   void dispose() {
     _scrollController.removeListener(_handleScroll);
-    _scrollController.dispose(); // 👈 ④
+    _scrollController.dispose();
+    _stopNarratorAudio();
+    _narratorAudioPlayer.dispose();
     super.dispose();
   }
 
@@ -474,9 +479,51 @@ class _DialogueBoxState extends State<DialogueBox> {
       } else {
         setState(() {
           _isTextFullyVisible = true;
+          if(widget.phrase?.speakerId == 'NARRATOR'){
+            _stopNarratorAudio();
+          }
         });
       }
     });
+  }
+
+  @override
+  void didUpdateWidget(DialogueBox oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    // Проверяем, изменилась ли фраза и является ли новый спикер нарратором
+    if (widget.phrase != oldWidget.phrase) {
+      if (widget.phrase?.speakerId == 'NARRATOR') {
+        _startNarratorAudio();
+      } else {
+        _stopNarratorAudio();
+      }
+    }
+  }
+
+  void _startNarratorAudio() async {
+    if (_isNarratorSpeaking) return;
+
+    try {
+      _isNarratorSpeaking = true;
+      await _narratorAudioPlayer.setReleaseMode(ReleaseMode.loop);
+      await _narratorAudioPlayer.setVolume(0.2);
+      await _narratorAudioPlayer.play(AssetSource('audio/narrator.mp3'));
+    } catch (e) {
+      print('Error playing narrator audio: $e');
+      _isNarratorSpeaking = false;
+    }
+  }
+
+  void _stopNarratorAudio() async {
+    if (!_isNarratorSpeaking) return;
+
+    try {
+      await _narratorAudioPlayer.stop();
+      _isNarratorSpeaking = false;
+    } catch (e) {
+      print('Error stopping narrator audio: $e');
+    }
   }
 
   void _showFullText() {
@@ -513,160 +560,165 @@ class _DialogueBoxState extends State<DialogueBox> {
           break;
         case 'NARRATOR':
           textColor = Colors.grey.shade300;
+          _startNarratorAudio();
           break;
         default:
           textColor = Colors.white;
       }
     }
 
-    return SizedBox(
-      // 👉 занимает всю высоту
-      width: screenWidth * 0.35, // 👉 30 % ширины
-      height: screenHeight,
-      child: GestureDetector(
-        onTap: () {
-          if (!_isTextFullyVisible && widget.phrase != null) {
-            _showFullText();
-          } else {
-            widget.onDialogueTap();
-            setState(() {
-              _isTextFullyVisible = false;
-              _visibleTextLength = 0;
-              _startTextAnimation();
-            });
-          }
-        },
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/dialog.webp"),
-              fit: BoxFit.fill,
+    return PopScope(
+      onPopInvoked: (_) => _stopNarratorAudio(),
+      child: SizedBox(
+        // 👉 занимает всю высоту
+        width: screenWidth * 0.35, // 👉 30 % ширины
+        height: screenHeight,
+        child: GestureDetector(
+          onTap: () {
+            if (!_isTextFullyVisible && widget.phrase != null) {
+              _showFullText();
+              _stopNarratorAudio();
+            } else {
+              widget.onDialogueTap();
+              setState(() {
+                _isTextFullyVisible = false;
+                _visibleTextLength = 0;
+                _startTextAnimation();
+              });
+            }
+          },
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/dialog.webp"),
+                fit: BoxFit.fill,
+              ),
             ),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (widget.phrase != null)
-                SizedBox(
-                  height: screenHeight * 0.5,
-                  child: Scrollbar(
-                    controller: _scrollController,
-                    thumbVisibility: true,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          if (widget.phrase != null) ...[
-                            Text(
-                              widget.phrase!.speakerId,
-                              style: TextStyle(
-                                color: textColor,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 24,
-                                fontFamily: "Jersey25",
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (widget.phrase != null)
+                  SizedBox(
+                    height: screenHeight * 0.5,
+                    child: Scrollbar(
+                      controller: _scrollController,
+                      thumbVisibility: true,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            if (widget.phrase != null) ...[
+                              Text(
+                                widget.phrase!.speakerId,
+                                style: TextStyle(
+                                  color: textColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24,
+                                  fontFamily: "Jersey25",
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              widget.phrase!.text
-                                  .substring(0, _visibleTextLength),
-                              style: const TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.white,
-                                  fontFamily: "Orbitron"),
-                            ),
+                              const SizedBox(height: 8),
+                              Text(
+                                widget.phrase!.text
+                                    .substring(0, _visibleTextLength),
+                                style: const TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontFamily: "Orbitron"),
+                              ),
+                            ],
                           ],
-                        ],
+                        ),
                       ),
                     ),
                   ),
-                ),
 
-              // ---------- 2. Кнопки выбора ----------
-              if (widget.phrase == null && widget.choices.isNotEmpty)
-                ...widget.choices.map(
-                  (choice) => Padding(
-                    padding: const EdgeInsets.only(bottom: 8.0),
-                    child: AnimatedButton(
-                      onPressed: () {
-                        widget.onTap(choice);
-                        _visibleTextLength = 0;
-                        _isTextFullyVisible = false;
-                        _startTextAnimation();
-                      },
-                      child: Container(
-                          padding: const EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                              color: const Color(0x00000075),
-                              border: Border.all(
-                                color: const Color(0xFFFFFF00),
-                                width: 2.0,
-                              )),
-                          child: Text(
-                            choice.choiceText,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: [
-                                  Color(0xFFB2FF00),
-                                  Color(0xFFFFBB00),
-                                  Color(0xFFFF4D00),
-                                ][Random().nextInt(3)],
-                                fontSize: 16,
-                                fontFamily: "Jersey25"),
-                          )),
+                // ---------- 2. Кнопки выбора ----------
+                if (widget.phrase == null && widget.choices.isNotEmpty)
+                  ...widget.choices.map(
+                    (choice) => Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: AnimatedButton(
+                        onPressed: () {
+                          widget.onTap(choice);
+                          _visibleTextLength = 0;
+                          _isTextFullyVisible = false;
+                          _startTextAnimation();
+                        },
+                        child: Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                                color: const Color(0x00000075),
+                                border: Border.all(
+                                  color: const Color(0xFFFFFF00),
+                                  width: 2.0,
+                                )),
+                            child: Text(
+                              choice.choiceText,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: [
+                                    Color(0xFFB2FF00),
+                                    Color(0xFFFFBB00),
+                                    Color(0xFFFF4D00),
+                                  ][Random().nextInt(3)],
+                                  fontSize: 16,
+                                  fontFamily: "Jersey25"),
+                            )),
+                      ),
                     ),
                   ),
-                ),
 
-              Spacer(),
-              Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                      color: const Color(0x00000075),
-                      border: Border.all(
-                        color: const Color(0xFFFFFF00),
-                        width: 2.0,
-                      )),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Column(
-                        children: [
-                          AppIcon(
-                              asset: "assets/images/$lastmood.webp",
-                              width: 110),
-                          Text(
-                            lastmood,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontFamily: "Jersey25"),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          AnimatedButton(
-                              onPressed: () =>
-                                  _buildDossierDialog(widget.state, context),
-                              child: AppIcon(
-                                asset: "assets/images/dossier.webp",
-                                width: 64,
-                                height: 70,
-                              )),
-                          AnimatedButton(
-                              onPressed: () => context.pop(),
-                              child: AppIcon(
-                                asset: "assets/images/MENU.webp",
-                                width: 91,
-                              )),
-                        ],
-                      )
-                    ],
-                  )),
-            ],
+                Spacer(),
+                Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                        color: const Color(0x00000075),
+                        border: Border.all(
+                          color: const Color(0xFFFFFF00),
+                          width: 2.0,
+                        )),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Column(
+                          children: [
+                            AppIcon(
+                                asset: "assets/images/$lastmood.webp",
+                                width: 110),
+                            Text(
+                              lastmood,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontFamily: "Jersey25"),
+                            )
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            AnimatedButton(
+                                onPressed: () =>
+                                    _buildDossierDialog(widget.state, context),
+                                child: AppIcon(
+                                  asset: "assets/images/dossier.webp",
+                                  width: 64,
+                                  height: 70,
+                                )),
+                            AnimatedButton(
+                                onPressed: () => context.pop(),
+                                child: AppIcon(
+                                  asset: "assets/images/MENU.webp",
+                                  width: 91,
+                                )),
+                          ],
+                        )
+                      ],
+                    )),
+              ],
+            ),
           ),
         ),
       ),
