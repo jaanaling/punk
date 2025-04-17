@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
@@ -179,7 +180,7 @@ class _GameScreenState extends State<GameScreen> {
                 Positioned(
                   left: 70, // 🔸 слева
                   bottom: 0,
-                  child: CharacterAvatar(
+                  child: AnimatedCharacter(
                     character: firstParticipantDossier!,
                     isDimmed: isFirstDimmed,
                     emotion: firstParticipantEmotionPath,
@@ -189,7 +190,7 @@ class _GameScreenState extends State<GameScreen> {
                 Positioned(
                   left: 350, // 🔸 тоже слева, чуть правее первого
                   bottom: 0,
-                  child: CharacterAvatar(
+                  child: AnimatedCharacter(
                     character: secondParticipantDossier!,
                     isDimmed: isSecondDimmed,
                     emotion: secondParticipantEmotionPath,
@@ -373,13 +374,12 @@ class ChoiceButton extends StatelessWidget {
   }
 }
 
-class CharacterAvatar extends StatelessWidget {
+class AnimatedCharacter extends StatefulWidget {
   final CharacterDossier character;
   final bool isDimmed;
+  final String? emotion;
 
-  final String emotion;
-
-  const CharacterAvatar({
+  const AnimatedCharacter({
     super.key,
     required this.character,
     required this.isDimmed,
@@ -387,24 +387,103 @@ class CharacterAvatar extends StatelessWidget {
   });
 
   @override
+  State<AnimatedCharacter> createState() => _AnimatedCharacterState();
+}
+
+class _AnimatedCharacterState extends State<AnimatedCharacter>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+  late Animation<double> _opacityAnimation;
+  late Animation<double> _slideAnimation;
+  String? _currentEmotion;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentEmotion = widget.emotion;
+    _initializeAnimations();
+  }
+
+  void _initializeAnimations() {
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 600),
+      vsync: this,
+    );
+
+    final curvedAnimation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeOutQuint,
+      reverseCurve: Curves.easeInCirc,
+    );
+
+    _scaleAnimation = Tween<double>(begin: 0.9, end: 1.0).animate(curvedAnimation);
+    _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(curvedAnimation);
+    _slideAnimation = Tween<double>(begin: 50.0, end: 0.0).animate(curvedAnimation);
+
+    _controller.forward();
+  }
+
+  @override
+  void didUpdateWidget(AnimatedCharacter oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.character != widget.character) {
+      // Полная перезагрузка для нового персонажа
+      _controller.reset();
+      _controller.forward();
+      _currentEmotion = widget.emotion;
+    } else if (oldWidget.emotion != widget.emotion) {
+      // Специальная анимация для смены эмоции
+      _controller.reset();
+      _controller.forward().then((_) {
+        setState(() {
+          _currentEmotion = widget.emotion;
+        });
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Transform.translate(
-      offset: Offset(0, isDimmed ? 0 : 0),
-      child: Transform.scale(
-        scale: isDimmed ? 1 : 1.5,
-        child: Opacity(
-          opacity: isDimmed ? 0.8 : 1.0,
-          child: Image.asset(
-            emotion,
-            height: getHeight(context, percent: 0.7),
-            fit: BoxFit.contain,
-            errorBuilder: (context, error, stackTrace) => Image.asset(
-              'assets/images/${character.name} neutral.webp',
-              height: getHeight(context, percent: 0.7),
-              fit: BoxFit.contain,
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (context, child) {
+        return Transform.translate(
+          offset: Offset(0, _slideAnimation.value),
+          child: Transform.scale(
+            alignment: Alignment.bottomCenter,
+            scale: widget.isDimmed
+                ? lerpDouble(1.0, 0.9, _controller.value)!
+                : lerpDouble(1.3, 1.5, _controller.value)!,
+            child: Opacity(
+              opacity: widget.isDimmed
+                  ? lerpDouble(0.5, 0.8, _controller.value)!
+                  : _opacityAnimation.value,
+              child: child,
             ),
           ),
-        ),
+        );
+      },
+      child: _buildCharacterImage(),
+    );
+  }
+
+  Widget _buildCharacterImage() {
+    return Image.asset(
+      _currentEmotion ?? 'assets/images/${widget.character.name} neutral.webp',
+      height: getHeight(context, percent: 0.7),
+      fit: BoxFit.contain,
+      errorBuilder: (context, error, stackTrace) => Image.asset(
+        'assets/images/${widget.character.name} neutral.webp',
+        height: getHeight(context, percent: 0.7),
+        fit: BoxFit.contain,
       ),
     );
   }

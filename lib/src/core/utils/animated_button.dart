@@ -55,6 +55,9 @@ class _AnimatedButtonState extends State<AnimatedButton> {
       onTapCancel: _onTapCancel,
       onTap: () async {
         final AudioPlayer _audioPlayer = AudioPlayer();
+        if(widget.isMenu){
+          _audioPlayer.setVolume(0.3);
+        }
         await _audioPlayer.play(AssetSource(widget.isMenu? 'audio/button.mp3' :'audio/button_main.mp3'));
       },
       child: Opacity(

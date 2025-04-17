@@ -28,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   Future<void> _startMusic() async {
-    await _audioPlayer.play(AssetSource('audio/music.mp3'));
+    await _audioPlayer.play(AssetSource('audio/ambient.mp3'));
     setState(() {
       _isMusicPlaying = true;
       _audioPlayer.setReleaseMode(ReleaseMode.loop);
