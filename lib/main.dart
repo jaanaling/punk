@@ -10,8 +10,6 @@ Future<void> main() async {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.landscapeLeft,
     DeviceOrientation.landscapeRight,
-
-    
   ]);
 
   runApp(const AppRoot());

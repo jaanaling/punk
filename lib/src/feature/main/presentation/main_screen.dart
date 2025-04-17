@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:the_eye_of_the_world/routes/route_value.dart';
+import 'package:the_eye_of_the_world/src/core/utils/animated_button.dart';
 import 'package:the_eye_of_the_world/src/core/utils/size_utils.dart';
 import 'package:audioplayers/audioplayers.dart';
+
+import '../../../core/utils/app_icon.dart';
+import '../../../core/utils/icon_provider.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -18,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
-    _startMusic();
+    // _startMusic();
   }
 
   Future<void> _startMusic() async {
@@ -48,65 +52,91 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/images/menu panel.webp'),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Stack(
-        children: [
-          Positioned(
-            top: getHeight(context, percent: 0.05),
-            right: getWidth(context, percent: 0.05),
-            child: GestureDetector(
-              onTap: _toggleMusic,
-              child: Image.asset(
-                _isMusicPlaying
-                    ? 'assets/images/sound_on.png'
-                    : 'assets/images/sound_off.png',
-                height: getHeight(context, percent: 0.05),
-              ),
-            ),
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: AppIcon(
+            asset: IconProvider.splash.buildImageUrl(),
+            height: getHeight(context, percent: 1),
+            width: getWidth(context, percent: 1),
+            fit: BoxFit.fill,
           ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+        ),
+        Row(
+          children: [
+            Spacer(),
+            AppIcon(asset: IconProvider.logo.buildImageUrl()),
+            Spacer(),
+            Stack(
+              alignment: Alignment.center,
               children: [
-                _buildButton(
-                    context,
-                    'assets/images/NEW GAME.webp',
-                    () => context.push(
-                        RouteValue.home.path + "/" + RouteValue.game.path)),
-                SizedBox(height: getHeight(context, percent: 0.03)),
-                _buildButton(
-                    context,
-                    'assets/images/CONTINUE.webp',
-                    () => context.push(RouteValue.home.path +
-                        "/" +
-                        RouteValue.game.path)), // Заглушка
-                SizedBox(height: getHeight(context, percent: 0.03)),
-                _buildButton(
-                    context,
-                    'assets/images/CHAPTERS.webp',
-                    () => context.push(
-                        RouteValue.home.path + "/" + RouteValue.chapters.path)),
+                AppIcon(
+                  asset: 'assets/images/menu panel.webp',
+                  height: getHeight(context, percent: 1),
+                  fit: BoxFit.fitHeight,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    _buildButton(
+                      context,
+                      'assets/images/NEW GAME.webp',
+                      () => context.push(
+                        '${RouteValue.home.path}/${RouteValue.game.path}',
+                      ),
+                    ),
+                    _buildButton(
+                      context,
+                      'assets/images/CONTINUE.webp',
+                      () => context.push(
+                        '${RouteValue.home.path}/${RouteValue.game.path}',
+                      ),
+                    ),
+                    _buildButton(
+                      context,
+                      'assets/images/CHAPTERS.webp',
+                      () => context.push(
+                        '${RouteValue.home.path}/${RouteValue.chapters.path}',
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
+          ],
+        ),
+        Positioned(
+          top: 25,
+          left: 18,
+          child: AnimatedButton(
+            isMenu: true,
+            onPressed: _toggleMusic,
+            child: Image.asset(
+              _isMusicPlaying
+                  ? 'assets/images/sound_on.png'
+                  : 'assets/images/sound_off.png',
+              height: getHeight(context, baseSize: 150),
+              fit: BoxFit.fitHeight,
+            ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   Widget _buildButton(
-      BuildContext context, String imagePath, VoidCallback onTap) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Image.asset(imagePath, height: getHeight(context, percent: 0.1)),
+    BuildContext context,
+    String imagePath,
+    VoidCallback onTap,
+  ) {
+    return AnimatedButton(
+      onPressed: onTap,
+      isMenu: true,
+      child: Image.asset(
+        imagePath,
+        fit: BoxFit.fitWidth,
+        width: 276,
+      ),
     );
   }
 }

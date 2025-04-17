@@ -45,5 +45,7 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSUserTrackingUsageDescription</key>
+    <string>Your data will be used to provide personalized ads and to analyze ad performance.</string>
 </dict>
 </plist>

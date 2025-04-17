@@ -21,18 +21,7 @@ class _RootNavigationScreenState extends State<RootNavigationScreen> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       resizeToAvoidBottomInset: false,
-      child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          Positioned.fill(
-            child: DecoratedBox(
-              decoration:
-                  BoxDecoration(color: const Color.fromARGB(255, 58, 34, 49)),
-            ),
-          ),
-          widget.navigationShell,
-        ],
-      ),
+      child: widget.navigationShell,
     );
   }
 }

@@ -1,13 +1,16 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedButton extends StatefulWidget {
   final Widget child;
   final VoidCallback? onPressed;
+  final bool isMenu;
 
   const AnimatedButton({
     super.key,
     required this.child,
     required this.onPressed,
+    this.isMenu = false,
   });
 
   @override
@@ -15,12 +18,14 @@ class AnimatedButton extends StatefulWidget {
 }
 
 class _AnimatedButtonState extends State<AnimatedButton> {
-  double _scale = 1.0; // Начальный масштаб
+  double _scale = 1.0;
+  double _opacity = 1.0;// Начальный масштаб
 
   void _onTapDown(TapDownDetails details) {
     if (widget.onPressed != null) {
       setState(() {
-        _scale = 0.9; // Уменьшение кнопки
+        _scale = 0.9;
+        _opacity = 0.5;// Уменьшение кнопки
       });
     }
   }
@@ -28,7 +33,8 @@ class _AnimatedButtonState extends State<AnimatedButton> {
   void _onTapUp(TapUpDetails details) {
     if (widget.onPressed != null) {
       setState(() {
-        _scale = 1.0; // Возврат к исходному размеру
+        _scale = 1.0;
+        _opacity = 1.0;// Возврат к исходному размеру
       });
       widget.onPressed!(); // Вызов обработчика нажатия
     }
@@ -36,7 +42,8 @@ class _AnimatedButtonState extends State<AnimatedButton> {
 
   void _onTapCancel() {
     setState(() {
-      _scale = 1.0; // Возврат к исходному размеру при отмене нажатия
+      _scale = 1.0;
+      _opacity = 1.0;// Возврат к исходному размеру при отмене нажатия
     });
   }
 
@@ -46,11 +53,18 @@ class _AnimatedButtonState extends State<AnimatedButton> {
       onTapDown: _onTapDown,
       onTapUp: _onTapUp,
       onTapCancel: _onTapCancel,
-      child: AnimatedScale(
-        scale: _scale,
-        duration: const Duration(milliseconds: 100),
-        curve: Curves.easeInOut,
-        child: widget.child,
+      onTap: () async {
+        final AudioPlayer _audioPlayer = AudioPlayer();
+        await _audioPlayer.play(AssetSource(widget.isMenu? 'audio/button.mp3' :'audio/button_main.mp3'));
+      },
+      child: Opacity(
+        opacity: _opacity,
+        child: AnimatedScale(
+          scale: _scale,
+          duration: const Duration(milliseconds: 100),
+          curve: Curves.easeOutQuad,
+          child: widget.child,
+        ),
       ),
     );
   }
