@@ -242,8 +242,12 @@ class GameState {
   factory GameState.fromMap(Map<String, dynamic> map) {
     return GameState(
       currentDialogueBranchId: map['currentDialogueBranchId'] as String,
-      encounteredCharacters:
-          Set<String>.from(map['encounteredCharacters'] as Set<dynamic>),
+      // 🔸 JSON‑массив → List<dynamic> → Set<String>
+      encounteredCharacters: map['encounteredCharacters'] == null
+          ? <String>{}
+          : Set<String>.from(
+              (map['encounteredCharacters'] as List<dynamic>).cast<String>(),
+            ),
       dossiers: List<CharacterDossier>.from(
         (map['dossiers'] as List<dynamic>).map<CharacterDossier>(
           (x) => CharacterDossier.fromMap(x as Map<String, dynamic>),
@@ -252,7 +256,7 @@ class GameState {
     );
   }
 
-  String toJson() => json.encode(toMap());
+ String toJson() => json.encode(toMap()); 
 
   factory GameState.fromJson(String source) =>
       GameState.fromMap(json.decode(source) as Map<String, dynamic>);
@@ -305,7 +309,11 @@ class DialogueManager {
   DialogueBranch? get currentBranch {
     return dialogueBranches.isNotEmpty
         ? dialogueBranches.firstWhere(
-            (branch) => branch.branchId == (gameState.currentDialogueBranchId != "" ? gameState.currentDialogueBranchId : "branch_1"),
+            (branch) =>
+                branch.branchId ==
+                (gameState.currentDialogueBranchId != ""
+                    ? gameState.currentDialogueBranchId
+                    : "branch_1"),
           )
         : null;
   }
@@ -321,9 +329,10 @@ class DialogueManager {
   }
 
   /// Сохранить состояние игры
-  Future<void> saveGame(SharedPreferences prefs) async {
-    await prefs.setString('gameState', jsonEncode(gameState.toJson()));
-  }
+Future<void> saveGame(SharedPreferences prefs) async {
+  // ⬇️ заменяем jsonEncode(gameState)
+  await prefs.setString('gameState', gameState.toJson());
+}
 
   /// Загрузить состояние игры
   Future<void> loadGame(SharedPreferences prefs) async {
@@ -341,7 +350,7 @@ class DialogueManager {
     dialogueBranches.addAll(data1);
     gameState.dossiers.addAll(data2);
     if (data != null) {
-      gameState = GameState.fromJson(jsonDecode(data) as String);
+      gameState = GameState.fromJson(data); // ← без jsonDecode
     }
   }
 }

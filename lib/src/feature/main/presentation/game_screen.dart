@@ -17,6 +17,8 @@ class _GameScreenState extends State<GameScreen> {
   String _speakerId = '';
   CharacterDossier? firstParticipantDossier;
   CharacterDossier? secondParticipantDossier;
+  String _firstParticipantPreviousEmotion = 'neutral';
+  String _secondParticipantPreviousEmotion = 'neutral';
 
   void _nextPhrase(
     List<DialoguePhrase> phrases,
@@ -24,31 +26,13 @@ class _GameScreenState extends State<GameScreen> {
     List<String> participants,
     List<CharacterDossier> allDossiers,
   ) {
-    if (_currentPhraseIndex < phrases.length - 1) {
-      _speakerId = phrases[_currentPhraseIndex + 1].speakerId;
-    } else {
-      _speakerId = ''; // No speaker for choices
-    }
-    if (_speakerId != 'NARRATOR' && _speakerId.isNotEmpty) {
-      final speakerName =
-          allDossiers.firstWhere((element) => element.name == _speakerId).name;
-      if (participants.length > 1) {
-        if (firstParticipantDossier?.name == speakerName) {
-          secondParticipantDossier = allDossiers.firstWhere(
-            (element) => element.name == participants.last,
-          );
-        } else {
-          secondParticipantDossier = firstParticipantDossier;
-          firstParticipantDossier = allDossiers.firstWhere(
-            (element) => element.name == speakerName,
-          );
-        }
-      } else if (participants.length == 1) {
-        firstParticipantDossier = allDossiers.firstWhere(
-          (element) => element.name == speakerName,
-        );
-      }
-    }
+    // Update speaker ID for the next phrase
+    _speakerId = _currentPhraseIndex < phrases.length - 1
+        ? phrases[_currentPhraseIndex + 1].speakerId
+        : '';
+
+    // Update character positions if the speaker has changed
+    _updateCharacterPositions(participants, allDossiers);
 
     setState(() {
       _currentPhraseIndex++;
@@ -56,12 +40,35 @@ class _GameScreenState extends State<GameScreen> {
         if (choices.isNotEmpty) {
           // Показываем варианты выбора
           return;
-        } else {
-          // TODO: Вернуться назад или начать сначала (или что-то еще)
-          debugPrint('Диалог закончился и нет вариантов выбора.');
-        }
+        } else {}
       }
-    });
+    }); // Trigger rebuild
+  }
+
+  void _updateCharacterPositions(
+      List<String> participants, List<CharacterDossier> allDossiers) {
+    if (_speakerId == 'NARRATOR' || _speakerId.isEmpty) return;
+
+    final speakerName = allDossiers
+        .firstWhere(
+          (element) => element.name == _speakerId,
+        )
+        .name;
+    if (speakerName.isEmpty) return; // Speaker not found, do nothing
+
+    if (participants.length > 1) {
+      firstParticipantDossier = allDossiers.firstWhere(
+        (element) => element.name == participants.first,
+      );
+      secondParticipantDossier = allDossiers.firstWhere(
+        (element) => element.name == participants.last,
+      );
+    } else if (participants.length == 1) {
+      firstParticipantDossier = allDossiers.firstWhere(
+        (element) => element.name == participants.first,
+      );
+      secondParticipantDossier = null; // No second participant
+    }
   }
 
   @override
@@ -78,10 +85,9 @@ class _GameScreenState extends State<GameScreen> {
             ? currentBranch.phrases[_currentPhraseIndex]
             : null;
         final participants = currentBranch.participantsIds;
-        String firstEmotion =  currentPhrase?.emotion ?? 'neutral';
-        String secondEmotion = "neutral";
-        
-        
+        String firstParticipantEmotion = _firstParticipantPreviousEmotion;
+        String secondParticipantEmotion = _secondParticipantPreviousEmotion;
+        String? currentSpeakerEmotion = currentPhrase?.emotion;
 
         if (_currentPhraseIndex == 0 && participants.isNotEmpty) {
           final allDossiers = state.gameState.dossiers;
@@ -97,6 +103,7 @@ class _GameScreenState extends State<GameScreen> {
             firstParticipantDossier = allDossiers.firstWhere(
               (element) => element.name == participants.first,
             );
+            secondParticipantDossier = null;
           }
           _speakerId = currentBranch.phrases.first.speakerId;
         }
@@ -105,20 +112,49 @@ class _GameScreenState extends State<GameScreen> {
         bool isSecondDimmed = false;
         if (_speakerId != 'NARRATOR' && _speakerId.isNotEmpty) {
           final speakerName = state.gameState.dossiers
-              .firstWhere((element) => element.name == _speakerId)
+              .firstWhere(
+                (element) => element.name == _speakerId,
+              )
               .name;
+
           isFirstDimmed = firstParticipantDossier?.name != speakerName;
           isSecondDimmed = secondParticipantDossier?.name != speakerName;
 
-          if (!isFirstDimmed) {
-            firstEmotion =
-                'assets/images/${_speakerId} ${currentPhrase?.emotion}.webp';
+          // Determine emotions for each participant
+          if (firstParticipantDossier != null) {
+            firstParticipantEmotion = isFirstDimmed
+                ? _firstParticipantPreviousEmotion
+                : currentSpeakerEmotion ??
+                    'neutral'; // Default to 'neutral' if no emotion
+            if (!isFirstDimmed) {
+              _firstParticipantPreviousEmotion =
+                  currentSpeakerEmotion ?? 'neutral';
+            }
           }
-          if (!isSecondDimmed) {
-            secondEmotion =
-                'assets/images/${_speakerId} ${currentPhrase?.emotion}.webp';
+
+          if (secondParticipantDossier != null) {
+            secondParticipantEmotion = isSecondDimmed
+                ? _secondParticipantPreviousEmotion
+                : currentSpeakerEmotion ??
+                    'neutral'; // Default to 'neutral' if no emotion
+
+            if (!isSecondDimmed) {
+              _secondParticipantPreviousEmotion =
+                  currentSpeakerEmotion ?? 'neutral';
+            }
           }
+        } else {
+          // If no speaker or narrator, set neutral emotions
+          firstParticipantEmotion = 'neutral';
+          secondParticipantEmotion = 'neutral';
+          isFirstDimmed = false;
+          isSecondDimmed = false;
         }
+
+        final firstParticipantEmotionPath =
+            'assets/images/${firstParticipantDossier?.name ?? ''} $firstParticipantEmotion.webp';
+        final secondParticipantEmotionPath =
+            'assets/images/${secondParticipantDossier?.name ?? ''} $secondParticipantEmotion.webp';
 
         return Scaffold(
           body: Stack(
@@ -144,7 +180,7 @@ class _GameScreenState extends State<GameScreen> {
                   child: const Text('Dossier'),
                 ),
               ),
- 
+
               if (firstParticipantDossier != null && _speakerId != 'NARRATOR')
                 Positioned(
                   left: 20,
@@ -152,50 +188,50 @@ class _GameScreenState extends State<GameScreen> {
                   child: CharacterAvatar(
                     character: firstParticipantDossier!,
                     isDimmed: isFirstDimmed,
-                    emotion: firstEmotion,
+                    emotion: firstParticipantEmotionPath,
                   ),
                 ),
-              if (secondParticipantDossier != null&& _speakerId != 'NARRATOR')
+              if (firstParticipantDossier != null && _speakerId != 'NARRATOR')
                 Positioned(
-                  right: 20,
+                  left: 20, // 🔸 слева
+                  bottom: 20,
+                  child: CharacterAvatar(
+                    character: firstParticipantDossier!,
+                    isDimmed: isFirstDimmed,
+                    emotion: firstParticipantEmotionPath,
+                  ),
+                ),
+              if (secondParticipantDossier != null && _speakerId != 'NARRATOR')
+                Positioned(
+                  left: 190, // 🔸 тоже слева, чуть правее первого
                   bottom: 20,
                   child: CharacterAvatar(
                     character: secondParticipantDossier!,
                     isDimmed: isSecondDimmed,
-                    emotion: secondEmotion,
+                    emotion: secondParticipantEmotionPath,
                   ),
                 ),
-              // Display current phrase or choices
-              if (currentPhrase != null)
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: DialogueBox(
-                    phrase: currentPhrase,
-                    onDialogueTap: () => _nextPhrase(
-                      currentBranch.phrases,
-                      currentBranch.choices,
-                      participants,
-                      state.gameState.dossiers,
-                    ),
-                  ),
-                )
-              else if (currentBranch.choices.isNotEmpty)
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: currentBranch.choices.map((choice) {
-                      return ChoiceButton(
-                        choiceText: choice.choiceText,
-                        onPressed: () {
-                          context
-                              .read<DialogueBloc>()
-                              .add(OptionChosenEvent(choice));
-                        },
-                      );
-                    }).toList(),
+
+//  ⬇️  вместо двух Align‑ов (для фразы и для вариантов)
+//      оставляем один, всегда показывающий DialogueBox
+              Align(
+                alignment: Alignment.centerRight, // 🔸 фиксируем справа
+                child: DialogueBox(
+                  phrase: currentPhrase,
+                  choices: currentBranch.choices,
+                  onTap: (DialogueChoice choice) {
+                    context.read<DialogueBloc>().add(OptionChosenEvent(choice));
+                    _currentPhraseIndex = 0;
+                    _speakerId = '';
+                  },
+                  onDialogueTap: () => _nextPhrase(
+                    currentBranch.phrases,
+                    currentBranch.choices,
+                    participants,
+                    state.gameState.dossiers,
                   ),
                 ),
+              ),
             ],
           ),
         );
@@ -280,13 +316,17 @@ class CharacterAvatar extends StatelessWidget {
 }
 
 class DialogueBox extends StatefulWidget {
-  final DialoguePhrase phrase; // Текущая фраза для отображения
-  final VoidCallback
-      onDialogueTap; // Функция для вызова при нажатии на окно диалога
-
-  const DialogueBox(
-      {required this.phrase, required this.onDialogueTap, Key? key})
-      : super(key: key);
+  final DialoguePhrase? phrase; // теперь допускает null
+  final List<DialogueChoice> choices; // добавили
+  final VoidCallback onDialogueTap;
+  final Function(DialogueChoice) onTap;
+  const DialogueBox({
+    required this.phrase,
+    required this.choices,
+    required this.onDialogueTap,
+    required this.onTap,
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<DialogueBox> createState() => _DialogueBoxState();
@@ -295,16 +335,21 @@ class DialogueBox extends StatefulWidget {
 class _DialogueBoxState extends State<DialogueBox> {
   int _visibleTextLength = 0;
   bool _isTextFullyVisible = false;
+
   @override
   void initState() {
     super.initState();
+    _visibleTextLength = 0;
+    _isTextFullyVisible = false;
     _startTextAnimation();
   }
 
   void _startTextAnimation() {
     if (_isTextFullyVisible) return;
+    if (widget.phrase == null) return;
+
     Future.delayed(const Duration(milliseconds: 50), () {
-      if (_visibleTextLength < widget.phrase.text.length &&
+      if (_visibleTextLength < widget.phrase!.text.length &&
           !_isTextFullyVisible) {
         setState(() {
           _visibleTextLength++;
@@ -319,8 +364,9 @@ class _DialogueBoxState extends State<DialogueBox> {
   }
 
   void _showFullText() {
+    if (widget.phrase == null) return;
     setState(() {
-      _visibleTextLength = widget.phrase.text.length;
+      _visibleTextLength = widget.phrase!.text.length;
       _isTextFullyVisible = true;
     });
   }
@@ -329,52 +375,14 @@ class _DialogueBoxState extends State<DialogueBox> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    final speaker = widget.phrase.speakerId;
-    final text = widget.phrase.text;
-    final visibleText = text.substring(0, _visibleTextLength);
 
-    Color textColor;
-    switch (speaker) {
-      case 'VAIR':
-        textColor = Colors.green;
-        break;
-      case 'ERRAS':
-        textColor = Colors.purple;
-        break;
-      case 'LYRA':
-        textColor = Colors.blue;
-        break;
-      case 'NIKA':
-        textColor = Colors.orange;
-        break;
-      case 'RION':
-        textColor = Colors.red;
-        break;
-      case 'NARRATOR':
-        textColor = Colors.grey.shade300;
-        break;
-      default:
-        textColor = Colors.white;
-    }
-
-    TextAlign textAlign;
-    Alignment alignment;
-    if (speaker == 'VAIR') {
-      textAlign = TextAlign.left;
-      alignment = Alignment.bottomLeft;
-    } else if (speaker == 'NARRATOR') {
-      textAlign = TextAlign.center;
-      alignment = Alignment.bottomCenter;
-    } else {
-      textAlign = TextAlign.right;
-      alignment = Alignment.bottomRight;
-    }
-
-    return Align(
-      alignment: alignment,
+    return SizedBox(
+      // 👉 занимает всю высоту
+      width: screenWidth * 0.30, // 👉 30 % ширины
+      height: screenHeight,
       child: GestureDetector(
         onTap: () {
-          if (!_isTextFullyVisible) {
+          if (!_isTextFullyVisible && widget.phrase != null) {
             _showFullText();
           } else {
             widget.onDialogueTap();
@@ -386,11 +394,9 @@ class _DialogueBoxState extends State<DialogueBox> {
           }
         },
         child: Container(
-          width: screenWidth * 0.2,
-          height: screenHeight * 1,
           padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            image:  const DecorationImage(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
               image: AssetImage("assets/images/dialog.webp"),
               fit: BoxFit.fill,
             ),
@@ -398,19 +404,39 @@ class _DialogueBoxState extends State<DialogueBox> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                speaker,
-                style: TextStyle(
-                  color: textColor,
-                  fontWeight: FontWeight.bold,
+              // ---------- 1. Текст фразы ----------
+              if (widget.phrase != null) ...[
+                Text(
+                  widget.phrase!.speakerId,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                visibleText,
-                textAlign: textAlign,
-                style: const TextStyle(fontSize: 16, color: Colors.white),
-              ),
+                const SizedBox(height: 8),
+                Text(
+                  widget.phrase!.text.substring(0, _visibleTextLength),
+                  style: const TextStyle(fontSize: 16, color: Colors.white),
+                ),
+                const Spacer(), // 👉 кнопки будут «прилипать» к низу
+              ],
+
+              // ---------- 2. Кнопки выбора ----------
+              if (widget.phrase == null && widget.choices.isNotEmpty)
+                ...widget.choices.map(
+                  (choice) => Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        widget.onTap(choice);
+                        _visibleTextLength = 0;
+                        _isTextFullyVisible = false;
+                        _startTextAnimation();
+                      },
+                      child: Text(choice.choiceText),
+                    ),
+                  ),
+                ),
             ],
           ),
         ),
