@@ -390,27 +390,22 @@ class AnimatedCharacter extends StatefulWidget {
   State<AnimatedCharacter> createState() => _AnimatedCharacterState();
 }
 
-class _AnimatedCharacterState extends State<AnimatedCharacter>
-    with SingleTickerProviderStateMixin {
+class _AnimatedCharacterState extends State<AnimatedCharacter> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
   late Animation<double> _opacityAnimation;
   late Animation<double> _slideAnimation;
-  String? _currentEmotion;
 
   @override
   void initState() {
     super.initState();
-    _currentEmotion = widget.emotion;
-    _initializeAnimations();
-  }
 
-  void _initializeAnimations() {
     _controller = AnimationController(
       duration: const Duration(milliseconds: 600),
       vsync: this,
     );
 
+    // Плавные кривые для естественного движения
     final curvedAnimation = CurvedAnimation(
       parent: _controller,
       curve: Curves.easeOutQuint,
@@ -428,19 +423,10 @@ class _AnimatedCharacterState extends State<AnimatedCharacter>
   void didUpdateWidget(AnimatedCharacter oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    if (oldWidget.character != widget.character) {
-      // Полная перезагрузка для нового персонажа
+    // Если изменился персонаж или эмоция - запускаем анимацию снова
+    if (oldWidget.character != widget.character || oldWidget.emotion != widget.emotion) {
       _controller.reset();
       _controller.forward();
-      _currentEmotion = widget.emotion;
-    } else if (oldWidget.emotion != widget.emotion) {
-      // Специальная анимация для смены эмоции
-      _controller.reset();
-      _controller.forward().then((_) {
-        setState(() {
-          _currentEmotion = widget.emotion;
-        });
-      });
     }
   }
 
@@ -459,13 +445,13 @@ class _AnimatedCharacterState extends State<AnimatedCharacter>
           offset: Offset(0, _slideAnimation.value),
           child: Transform.scale(
             alignment: Alignment.bottomCenter,
-            scale: widget.isDimmed
-                ? lerpDouble(1.0, 0.9, _controller.value)!
-                : lerpDouble(1.3, 1.5, _controller.value)!,
+            scale: widget.isDimmed ?
+            lerpDouble(1.0, 0.9, _controller.value)! :
+            lerpDouble(1.3, 1.5, _controller.value)!,
             child: Opacity(
-              opacity: widget.isDimmed
-                  ? lerpDouble(0.5, 0.8, _controller.value)!
-                  : _opacityAnimation.value,
+              opacity: widget.isDimmed ?
+              lerpDouble(0.5, 0.8, _controller.value)! :
+              _opacityAnimation.value,
               child: child,
             ),
           ),
@@ -477,7 +463,7 @@ class _AnimatedCharacterState extends State<AnimatedCharacter>
 
   Widget _buildCharacterImage() {
     return Image.asset(
-      _currentEmotion ?? 'assets/images/${widget.character.name} neutral.webp',
+      widget.emotion ?? 'assets/images/${widget.character.name} neutral.webp',
       height: getHeight(context, percent: 0.7),
       fit: BoxFit.contain,
       errorBuilder: (context, error, stackTrace) => Image.asset(
