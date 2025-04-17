@@ -36,6 +36,11 @@ class MarkEncounterEvent extends DialogueEvent {
   List<Object?> get props => [characterId];
 }
 
+/// Начать новую игру
+class StartNewGameEvent extends DialogueEvent {}
+
+/// Обработка начала новой игры
+
 // ----------------- Dialogue State ----------------- //
 
 class DialogueState extends Equatable {
@@ -92,9 +97,40 @@ class DialogueBloc extends Bloc<DialogueEvent, DialogueState> {
           ),
         ) {
     on<LoadGameEvent>(_onLoadGame);
+    on<StartNewGameEvent>(_onStartNewGame);
 
     on<OptionChosenEvent>(_onOptionChosen);
     on<MarkEncounterEvent>(_onMarkEncounter);
+  }
+
+  Future<void> _onStartNewGame(
+    StartNewGameEvent event,
+    Emitter<DialogueState> emit,
+  ) async {
+    try {
+      emit(state.copyWith(isLoading: true));
+
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove('gameState');
+      await dialogueManager.loadGame(prefs);
+
+      dialogueManager.gameState = GameState(
+          currentDialogueBranchId: "branch_1",
+          encounteredCharacters: {},
+          dossiers: dialogueManager.gameState.dossiers);
+
+      emit(
+        state.copyWith(
+          gameState: dialogueManager.gameState,
+          currentBranch: dialogueManager.currentBranch,
+          isLoading: false,
+          hasError: false,
+        ),
+      );
+    } catch (e) {
+      debugPrint('Ошибка при начале новой игры: $e');
+      emit(state.copyWith(isLoading: false, hasError: true));
+    }
   }
 
   /// Обработка загрузки игры

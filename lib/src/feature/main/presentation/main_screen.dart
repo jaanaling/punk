@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:the_eye_of_the_world/routes/route_value.dart';
 import 'package:the_eye_of_the_world/src/core/utils/animated_button.dart';
 import 'package:the_eye_of_the_world/src/core/utils/size_utils.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:the_eye_of_the_world/src/feature/main/bloc/app_bloc.dart';
 
 import '../../../core/utils/app_icon.dart';
 import '../../../core/utils/icon_provider.dart';
@@ -81,9 +83,12 @@ class _MainScreenState extends State<MainScreen> {
                     _buildButton(
                       context,
                       'assets/images/NEW GAME.webp',
-                      () => context.push(
-                        '${RouteValue.home.path}/${RouteValue.game.path}',
-                      ),
+                      () {
+                        context.read<DialogueBloc>().add(StartNewGameEvent());
+                        
+                      context.push(
+                          '${RouteValue.home.path}/${RouteValue.game.path}');
+                    },
                     ),
                     _buildButton(
                       context,

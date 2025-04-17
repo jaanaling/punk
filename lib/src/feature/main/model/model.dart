@@ -353,6 +353,10 @@ Future<void> saveGame(SharedPreferences prefs) async {
       gameState = GameState.fromJson(data); // ← без jsonDecode
     }
   }
+
+  /// Начать новую игру
+ 
+
 }
 
 class CharacterDossier {

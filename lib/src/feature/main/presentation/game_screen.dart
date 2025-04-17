@@ -257,13 +257,14 @@ void _buildDossierDialog(DialogueState state, BuildContext context) {
                   ),
                   Gap(10),
                   Container(
-                    width: getWidth(context, percent: 0.7),
-                    height: getHeight(context, percent: 0.6),
+                    width: getWidth(context, percent: 0.65),
+                    height: getHeight(context, percent: 0.55),
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage(
-                                'assets/images/dossier_panel.webp'))),
+                                'assets/images/dossier_panel.webp'),
+                            fit: BoxFit.fill)),
                     child: Row(
                       children: [
                         Image.asset(
@@ -271,9 +272,9 @@ void _buildDossierDialog(DialogueState state, BuildContext context) {
                           height: getHeight(context, percent: 0.5),
                           fit: BoxFit.contain,
                         ),
+                        Gap(10),
                         SingleChildScrollView(
                           child: SizedBox(
-                   
                             width: getWidth(context, percent: 0.4),
                             child: Column(
                               children: [
