@@ -18,9 +18,6 @@ abstract class DialogueEvent extends Equatable {
 /// Загрузка игры из локального хранилища
 class LoadGameEvent extends DialogueEvent {}
 
-
-
-
 /// Выбор варианта ответа в диалоге
 class OptionChosenEvent extends DialogueEvent {
   final DialogueChoice choice;
@@ -38,7 +35,6 @@ class MarkEncounterEvent extends DialogueEvent {
   @override
   List<Object?> get props => [characterId];
 }
-
 
 // ----------------- Dialogue State ----------------- //
 
@@ -112,7 +108,11 @@ class DialogueBloc extends Bloc<DialogueEvent, DialogueState> {
       final prefs = await SharedPreferences.getInstance();
       await dialogueManager.loadGame(prefs);
 
-      // После загрузки обновляем состояние
+      if (dialogueManager.currentBranch == null) {
+        dialogueManager.makeChoice(
+            DialogueChoice(choiceText: "", nextDialogueBranchId: "branch_1"));
+      }
+
       emit(
         state.copyWith(
           gameState: dialogueManager.gameState,

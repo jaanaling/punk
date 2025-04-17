@@ -171,14 +171,14 @@ class DialogueBranch {
       branchId: map['branchId'] as String,
       location: map['location'] as String,
       participantsIds:
-          List<String>.from(map['participantsIds'] as List<String>),
+          List<String>.from(map['participantsIds'] as List<dynamic>),
       phrases: List<DialoguePhrase>.from(
-        (map['phrases'] as List<int>).map<DialoguePhrase>(
+        (map['phrases'] as List<dynamic>).map<DialoguePhrase>(
           (x) => DialoguePhrase.fromMap(x as Map<String, dynamic>),
         ),
       ),
       choices: List<DialogueChoice>.from(
-        (map['choices'] as List<int>).map<DialogueChoice>(
+        (map['choices'] as List<dynamic>).map<DialogueChoice>(
           (x) => DialogueChoice.fromMap(x as Map<String, dynamic>),
         ),
       ),
@@ -243,9 +243,9 @@ class GameState {
     return GameState(
       currentDialogueBranchId: map['currentDialogueBranchId'] as String,
       encounteredCharacters:
-          Set<String>.from(map['encounteredCharacters'] as Set<String>),
+          Set<String>.from(map['encounteredCharacters'] as Set<dynamic>),
       dossiers: List<CharacterDossier>.from(
-        (map['dossiers'] as List<int>).map<CharacterDossier>(
+        (map['dossiers'] as List<dynamic>).map<CharacterDossier>(
           (x) => CharacterDossier.fromMap(x as Map<String, dynamic>),
         ),
       ),
@@ -303,9 +303,11 @@ class DialogueManager {
 
   /// Получить текущую диалоговую ветку
   DialogueBranch? get currentBranch {
-    return dialogueBranches.firstWhere(
-      (branch) => branch.branchId == gameState.currentDialogueBranchId,
-    );
+    return dialogueBranches.isNotEmpty
+        ? dialogueBranches.firstWhere(
+            (branch) => branch.branchId == (gameState.currentDialogueBranchId != "" ? gameState.currentDialogueBranchId : "branch_1"),
+          )
+        : null;
   }
 
   /// Сделать выбор и перейти к следующей ветке
@@ -325,20 +327,20 @@ class DialogueManager {
 
   /// Загрузить состояние игры
   Future<void> loadGame(SharedPreferences prefs) async {
-    final data1 = await JsonLoader.loadData(
+    final data1 = await JsonLoader.loadData<DialogueBranch>(
       "plot",
       'assets/json/plot.json',
       (json) => DialogueBranch.fromMap(json),
     );
-    final data2 = await JsonLoader.loadData(
+    final data2 = await JsonLoader.loadData<CharacterDossier>(
       "characters",
       'assets/json/characters.json',
       (json) => CharacterDossier.fromMap(json),
     );
     final data = prefs.getString('gameState');
+    dialogueBranches.addAll(data1);
+    gameState.dossiers.addAll(data2);
     if (data != null) {
-      dialogueBranches.addAll(data1);
-      gameState.dossiers.addAll(data2);
       gameState = GameState.fromJson(jsonDecode(data) as String);
     }
   }
