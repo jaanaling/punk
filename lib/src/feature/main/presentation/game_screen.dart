@@ -203,12 +203,16 @@ class _GameScreenState extends State<GameScreen> {
                 child: DialogueBox(
                   phrase: currentPhrase,
                   choices: currentBranch.choices,
+                  textaudio: currentPhrase?.speakerId != null
+                      ? isSecondDimmed
+                          ? "${currentPhrase!.speakerId} ${currentSpeakerEmotion}"
+                          : "${currentPhrase!.speakerId} ${currentSpeakerEmotion}"
+                      : null,
                   state: state,
                   mood: currentBranch.heroMentalState,
                   onTap: (DialogueChoice choice) {
                     context.read<DialogueBloc>().add(OptionChosenEvent(choice));
                     _currentPhraseIndex = 0;
-                    _speakerId = '';
                   },
                   onDialogueTap: () => _nextPhrase(
                     currentBranch.phrases,
@@ -263,8 +267,8 @@ void _buildDossierDialog(DialogueState state, BuildContext context) {
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage(
-                                'assets/images/dossier_panel.webp'),
+                            image:
+                                AssetImage('assets/images/dossier_panel.webp'),
                             fit: BoxFit.fill)),
                     child: Row(
                       children: [
@@ -412,11 +416,13 @@ class DialogueBox extends StatefulWidget {
   final VoidCallback onDialogueTap;
   final Function(DialogueChoice) onTap;
   final DialogueState state;
+  final String? textaudio;
   final String mood;
   const DialogueBox({
     required this.phrase,
     required this.choices,
     required this.onDialogueTap,
+    required this.textaudio,
     required this.state,
     required this.onTap,
     required this.mood,
@@ -430,8 +436,10 @@ class DialogueBox extends StatefulWidget {
 class _DialogueBoxState extends State<DialogueBox> {
   final ScrollController _scrollController = ScrollController(); // 👈 ①
   double _scrollProgress = 0; // 👈 ②
+  bool isPlay = false;
   int _visibleTextLength = 0;
   final AudioPlayer _narratorAudioPlayer = AudioPlayer();
+  AudioPlayer _audioPlayer = AudioPlayer();
   bool _isTextFullyVisible = false;
   bool _isNarratorSpeaking = false;
 
@@ -440,8 +448,14 @@ class _DialogueBoxState extends State<DialogueBox> {
     super.initState();
     _startTextAnimation();
 
-    // 👇 слушаем позицию прокрутки и считаем прогресс
     _scrollController.addListener(_handleScroll); // 👈 ③
+  }
+
+  Future<void> audiotext() async {
+    if (widget.textaudio != null && _visibleTextLength == 0) {
+      await _audioPlayer.play(AssetSource('audio/${widget.textaudio}.mp3'));
+      isPlay = true;
+    }
   }
 
   void _handleScroll() {
@@ -470,7 +484,8 @@ class _DialogueBoxState extends State<DialogueBox> {
     if (widget.phrase == null) return;
 
     Future.delayed(const Duration(milliseconds: 50), () {
-      if (_visibleTextLength < widget.phrase!.text.length &&
+      if (widget.phrase != null &&
+          _visibleTextLength < widget.phrase!.text.length &&
           !_isTextFullyVisible) {
         setState(() {
           _visibleTextLength++;
@@ -479,7 +494,7 @@ class _DialogueBoxState extends State<DialogueBox> {
       } else {
         setState(() {
           _isTextFullyVisible = true;
-          if(widget.phrase?.speakerId == 'NARRATOR'){
+          if (widget.phrase?.speakerId == 'NARRATOR') {
             _stopNarratorAudio();
           }
         });
@@ -488,11 +503,18 @@ class _DialogueBoxState extends State<DialogueBox> {
   }
 
   @override
-  void didUpdateWidget(DialogueBox oldWidget) {
+  void didUpdateWidget(covariant DialogueBox oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    // Проверяем, изменилась ли фраза и является ли новый спикер нарратором
     if (widget.phrase != oldWidget.phrase) {
+      // 1. Сбрасываем счётчик символов
+      _visibleTextLength = 0;
+      _isTextFullyVisible = false;
+
+      // 2. Запускаем печать текста
+      _startTextAnimation();
+
+      // 3. Управляем звуком так, как было раньше
       if (widget.phrase?.speakerId == 'NARRATOR') {
         _startNarratorAudio();
       } else {
@@ -545,18 +567,23 @@ class _DialogueBoxState extends State<DialogueBox> {
       switch (widget.phrase!.speakerId) {
         case 'VAIR':
           textColor = Colors.green;
+          audiotext();
           break;
         case 'ERRAS':
           textColor = Colors.purple;
+          audiotext();
           break;
         case 'LYRA':
           textColor = Colors.blue;
+          audiotext();
           break;
         case 'NIKA':
           textColor = Colors.orange;
+          audiotext();
           break;
         case 'RION':
           textColor = Colors.red;
+          audiotext();
           break;
         case 'NARRATOR':
           textColor = Colors.grey.shade300;
@@ -605,6 +632,7 @@ class _DialogueBoxState extends State<DialogueBox> {
                       controller: _scrollController,
                       thumbVisibility: true,
                       child: SingleChildScrollView(
+                        controller: _scrollController,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
