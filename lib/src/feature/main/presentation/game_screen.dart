@@ -13,6 +13,7 @@ import 'package:the_eye_of_the_world/src/core/utils/size_utils.dart';
 import 'package:the_eye_of_the_world/src/feature/main/bloc/app_bloc.dart';
 import 'package:the_eye_of_the_world/src/feature/main/model/model.dart';
 import 'package:go_router/go_router.dart';
+import 'package:the_eye_of_the_world/src/feature/main/presentation/main_screen.dart';
 
 class GameScreen extends StatefulWidget {
   const GameScreen({super.key});
@@ -606,7 +607,7 @@ class _DialogueBoxState extends State<DialogueBox> {
   }
 
   Future<void> audiotext() async {
-    if (widget.textaudio != null && _visibleTextLength == 0 && mounted) {
+    if (widget.textaudio != null && _visibleTextLength == 0 && mounted && isMusicPlaying) {
       try {
         await _audioPlayer.play(AssetSource('audio/${widget.textaudio}.mp3'));
         if (mounted) {
@@ -701,7 +702,7 @@ class _DialogueBoxState extends State<DialogueBox> {
   }
 
   Future<void> _stopNarratorAudio() async {
-    if (!_isNarratorSpeaking) return;
+    if (!_isNarratorSpeaking && !isMusicPlaying) return;
 
     try {
       await _narratorAudioPlayer.stop();
@@ -736,7 +737,7 @@ class _DialogueBoxState extends State<DialogueBox> {
       switch (widget.phrase!.speakerId) {
         case 'VAIR':
           textColor = Colors.green;
-          if (!_isTextFullyVisible) {
+          if (!_isTextFullyVisible&& isMusicPlaying) {
             audiotext();
             _stopNarratorAudio();
           }
@@ -744,35 +745,35 @@ class _DialogueBoxState extends State<DialogueBox> {
           break;
         case 'ERRAS':
           textColor = Colors.purple;
-          if (!_isTextFullyVisible) {
+          if (!_isTextFullyVisible&& isMusicPlaying) {
             audiotext();
             _stopNarratorAudio();
           }
           break;
         case 'LYRA':
           textColor = Colors.blue;
-          if (!_isTextFullyVisible) {
+          if (!_isTextFullyVisible&& isMusicPlaying) {
             audiotext();
             _stopNarratorAudio();
           }
           break;
         case 'NIKA':
           textColor = Colors.orange;
-          if (!_isTextFullyVisible) {
+          if (!_isTextFullyVisible&& isMusicPlaying) {
             audiotext();
             _stopNarratorAudio();
           }
           break;
         case 'RION':
           textColor = Colors.red;
-          if (!_isTextFullyVisible) {
+          if (!_isTextFullyVisible&& isMusicPlaying) {
             audiotext();
             _stopNarratorAudio();
           }
           break;
         case 'NARRATOR':
           textColor = Colors.grey.shade300;
-          if (!_isTextFullyVisible) {
+          if (!_isTextFullyVisible && isMusicPlaying) {
             _startNarratorAudio();
           }
 

@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:the_eye_of_the_world/src/feature/main/presentation/main_screen.dart';
 
 class AnimatedButton extends StatefulWidget {
   final Widget child;
@@ -19,13 +20,13 @@ class AnimatedButton extends StatefulWidget {
 
 class _AnimatedButtonState extends State<AnimatedButton> {
   double _scale = 1.0;
-  double _opacity = 1.0;// Начальный масштаб
+  double _opacity = 1.0; // Начальный масштаб
 
   void _onTapDown(TapDownDetails details) {
     if (widget.onPressed != null) {
       setState(() {
         _scale = 0.9;
-        _opacity = 0.5;// Уменьшение кнопки
+        _opacity = 0.5; // Уменьшение кнопки
       });
     }
   }
@@ -34,7 +35,7 @@ class _AnimatedButtonState extends State<AnimatedButton> {
     if (widget.onPressed != null) {
       setState(() {
         _scale = 1.0;
-        _opacity = 1.0;// Возврат к исходному размеру
+        _opacity = 1.0; // Возврат к исходному размеру
       });
       widget.onPressed!(); // Вызов обработчика нажатия
     }
@@ -43,7 +44,7 @@ class _AnimatedButtonState extends State<AnimatedButton> {
   void _onTapCancel() {
     setState(() {
       _scale = 1.0;
-      _opacity = 1.0;// Возврат к исходному размеру при отмене нажатия
+      _opacity = 1.0; // Возврат к исходному размеру при отмене нажатия
     });
   }
 
@@ -54,11 +55,14 @@ class _AnimatedButtonState extends State<AnimatedButton> {
       onTapUp: _onTapUp,
       onTapCancel: _onTapCancel,
       onTap: () async {
-        final AudioPlayer _audioPlayer = AudioPlayer();
-        if(widget.isMenu){
-          _audioPlayer.setVolume(0.3);
+        if (isMusicPlaying) {
+          final AudioPlayer _audioPlayer = AudioPlayer();
+          if (widget.isMenu) {
+            _audioPlayer.setVolume(0.3);
+          }
+          await _audioPlayer.play(AssetSource(
+              widget.isMenu ? 'audio/button.mp3' : 'audio/button_main.mp3'));
         }
-        await _audioPlayer.play(AssetSource(widget.isMenu? 'audio/button.mp3' :'audio/button_main.mp3'));
       },
       child: Opacity(
         opacity: _opacity,

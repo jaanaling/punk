@@ -9,7 +9,7 @@ import 'package:the_eye_of_the_world/src/feature/main/bloc/app_bloc.dart';
 
 import '../../../core/utils/app_icon.dart';
 import '../../../core/utils/icon_provider.dart';
-bool _isMusicPlaying = true;
+bool isMusicPlaying = true;
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -28,22 +28,22 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   Future<void> _startMusic() async {
-    if(_isMusicPlaying){
+    if(isMusicPlaying){
     await _audioPlayer.play(AssetSource('audio/ambient.mp3'));
     setState(() {
-      _isMusicPlaying = true;
+      isMusicPlaying = true;
       _audioPlayer.setReleaseMode(ReleaseMode.loop);
     });}
   }
 
   Future<void> _toggleMusic() async {
-    if (_isMusicPlaying) {
+    if (isMusicPlaying) {
       await _audioPlayer.pause();
     } else {
       await _audioPlayer.resume();
     }
     setState(() {
-      _isMusicPlaying = !_isMusicPlaying;
+      isMusicPlaying = !isMusicPlaying;
     });
   }
 
@@ -118,7 +118,7 @@ class _MainScreenState extends State<MainScreen> {
             isMenu: true,
             onPressed: _toggleMusic,
             child: Image.asset(
-              _isMusicPlaying
+              isMusicPlaying
                   ? 'assets/images/sound_on.png'
                   : 'assets/images/sound_off.png',
               height: getHeight(context, baseSize: 150),
