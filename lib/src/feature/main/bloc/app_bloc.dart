@@ -115,7 +115,7 @@ class DialogueBloc extends Bloc<DialogueEvent, DialogueState> {
       await dialogueManager.loadGame(prefs);
 
       dialogueManager.gameState = GameState(
-          currentDialogueBranchId: "branch_30",
+          currentDialogueBranchId: "branch_38",
           encounteredCharacters: {},
           dossiers: dialogueManager.gameState.dossiers);
 

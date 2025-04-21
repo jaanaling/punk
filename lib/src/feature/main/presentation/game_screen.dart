@@ -59,11 +59,9 @@ class _GameScreenState extends State<GameScreen> {
     if (_speakerId == 'NARRATOR' || _speakerId.isEmpty) return;
 
     final speakerName = allDossiers
-        .firstWhere(
-          (element) => element.name == _speakerId,
-      orElse: (
-              () =>  allDossiers.firstWhere((test)=> test.name == "LYRA"))
-        )
+        .firstWhere((element) => element.name == _speakerId,
+            orElse: (() =>
+                allDossiers.firstWhere((test) => test.name == "LYRA")))
         .name;
     if (speakerName.isEmpty) return; // Speaker not found, do nothing
 
@@ -121,7 +119,9 @@ class _GameScreenState extends State<GameScreen> {
 
         bool isFirstDimmed = false;
         bool isSecondDimmed = false;
-        if (_speakerId != 'NARRATOR' && _speakerId.isNotEmpty) {
+        if (_speakerId != 'NARRATOR' &&
+            _speakerId.isNotEmpty &&
+            state.gameState.dossiers.any((test) => test.name == _speakerId)) {
           final speakerName = state.gameState.dossiers
               .firstWhere(
                 (element) => element.name == _speakerId,
@@ -215,6 +215,10 @@ class _GameScreenState extends State<GameScreen> {
                   state: state,
                   mood: currentBranch.heroMentalState,
                   onTap: (DialogueChoice choice) {
+                    if (choice.nextDialogueBranchId == "end_of_chapter") {
+                      _buildChapterDialog(context);
+                      return;
+                    }
                     context.read<DialogueBloc>().add(OptionChosenEvent(choice));
                     _currentPhraseIndex = 0;
                   },
@@ -232,6 +236,72 @@ class _GameScreenState extends State<GameScreen> {
       },
     );
   }
+}
+
+void _buildChapterDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    barrierColor: Colors.black.withOpacity(0.5),
+    builder: (BuildContext context) {
+      return StatefulBuilder(
+        builder: (context, setState) => Dialog(
+            backgroundColor: Colors.transparent,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  width: getWidth(context, percent: 0.45),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      AppIcon(
+                        asset: 'assets/images/dossier_panel.webp',
+                        width: getWidth(context, percent: 0.45),
+                        fit: BoxFit.fitWidth,
+                      ),
+                      SizedBox(
+                        width: getWidth(context, percent: 0.4),
+                        child: SingleChildScrollView(
+                          child: Text(
+                            "Chapter 1 Completed!\nTo be continued... ",
+                            style: TextStyle(
+                                color: Color(0xFFB3EBFF),
+                                fontSize:  32,
+                                fontFamily: "Orbitron"),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Gap(10),
+                AnimatedButton(
+                  onPressed: () {
+                    context.pop(); context.pop();
+                  },
+                  child: Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                          color: const Color(0x00000075),
+                          border: Border.all(
+                            color: const Color(0xFFFFFF00),
+                            width: 2.0,
+                          )),
+                      child: Text(
+                        "Close",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Color(0xFFB2FF00),
+                            fontSize: 16,
+                            fontFamily: "Jersey25"),
+                      )),
+                ),
+                
+              ],
+            )),
+      );
+    },
+  );
 }
 
 void _buildDossierDialog(DialogueState state, BuildContext context) {
@@ -393,7 +463,8 @@ class AnimatedCharacter extends StatefulWidget {
   State<AnimatedCharacter> createState() => _AnimatedCharacterState();
 }
 
-class _AnimatedCharacterState extends State<AnimatedCharacter> with SingleTickerProviderStateMixin {
+class _AnimatedCharacterState extends State<AnimatedCharacter>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
   late Animation<double> _opacityAnimation;
@@ -415,9 +486,12 @@ class _AnimatedCharacterState extends State<AnimatedCharacter> with SingleTicker
       reverseCurve: Curves.easeInCirc,
     );
 
-    _scaleAnimation = Tween<double>(begin: 0.9, end: 1.0).animate(curvedAnimation);
-    _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(curvedAnimation);
-    _slideAnimation = Tween<double>(begin: 50.0, end: 0.0).animate(curvedAnimation);
+    _scaleAnimation =
+        Tween<double>(begin: 0.9, end: 1.0).animate(curvedAnimation);
+    _opacityAnimation =
+        Tween<double>(begin: 0.0, end: 1.0).animate(curvedAnimation);
+    _slideAnimation =
+        Tween<double>(begin: 50.0, end: 0.0).animate(curvedAnimation);
 
     _controller.forward();
   }
@@ -427,7 +501,8 @@ class _AnimatedCharacterState extends State<AnimatedCharacter> with SingleTicker
     super.didUpdateWidget(oldWidget);
 
     // Если изменился персонаж или эмоция - запускаем анимацию снова
-    if (oldWidget.character != widget.character || oldWidget.emotion != widget.emotion) {
+    if (oldWidget.character != widget.character ||
+        oldWidget.emotion != widget.emotion) {
       _controller.reset();
       _controller.forward();
     }
@@ -448,13 +523,13 @@ class _AnimatedCharacterState extends State<AnimatedCharacter> with SingleTicker
           offset: Offset(0, _slideAnimation.value),
           child: Transform.scale(
             alignment: Alignment.bottomCenter,
-            scale: widget.isDimmed ?
-            lerpDouble(1.0, 0.9, _controller.value)! :
-            lerpDouble(1.3, 1.5, _controller.value)!,
+            scale: widget.isDimmed
+                ? lerpDouble(1.0, 0.9, _controller.value)!
+                : lerpDouble(1.3, 1.5, _controller.value)!,
             child: Opacity(
-              opacity: widget.isDimmed ?
-              lerpDouble(0.5, 0.8, _controller.value)! :
-              _opacityAnimation.value,
+              opacity: widget.isDimmed
+                  ? lerpDouble(0.5, 0.8, _controller.value)!
+                  : _opacityAnimation.value,
               child: child,
             ),
           ),
@@ -581,11 +656,10 @@ class _DialogueBoxState extends State<DialogueBox> {
       } else if (mounted) {
         setState(() {
           _isTextFullyVisible = true;
-          if (widget.phrase?.speakerId == 'NARRATOR') {
-
-          }
+          if (widget.phrase?.speakerId == 'NARRATOR') {}
         });
-      } _stopNarratorAudio();
+      }
+      _stopNarratorAudio();
     });
   }
 
@@ -647,8 +721,8 @@ class _DialogueBoxState extends State<DialogueBox> {
     setState(() {
       _visibleTextLength = widget.phrase!.text.length;
       _isTextFullyVisible = true;
-
-    });_stopNarratorAudio();
+    });
+    _stopNarratorAudio();
   }
 
   @override
@@ -657,32 +731,50 @@ class _DialogueBoxState extends State<DialogueBox> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     Color textColor = Colors.white;
-    if (widget.phrase != null ) {
+    if (widget.phrase != null) {
       lastmood = widget.mood;
       switch (widget.phrase!.speakerId) {
         case 'VAIR':
           textColor = Colors.green;
-          if(!_isTextFullyVisible){ audiotext();_stopNarratorAudio();}
+          if (!_isTextFullyVisible) {
+            audiotext();
+            _stopNarratorAudio();
+          }
 
           break;
         case 'ERRAS':
           textColor = Colors.purple;
-          if(!_isTextFullyVisible){ audiotext();_stopNarratorAudio();}
+          if (!_isTextFullyVisible) {
+            audiotext();
+            _stopNarratorAudio();
+          }
           break;
         case 'LYRA':
           textColor = Colors.blue;
-          if(!_isTextFullyVisible){ audiotext();_stopNarratorAudio();}
+          if (!_isTextFullyVisible) {
+            audiotext();
+            _stopNarratorAudio();
+          }
           break;
         case 'NIKA':
           textColor = Colors.orange;
-          if(!_isTextFullyVisible){ audiotext();_stopNarratorAudio();}
+          if (!_isTextFullyVisible) {
+            audiotext();
+            _stopNarratorAudio();
+          }
           break;
         case 'RION':
           textColor = Colors.red;
-          if(!_isTextFullyVisible){ audiotext();_stopNarratorAudio();}
+          if (!_isTextFullyVisible) {
+            audiotext();
+            _stopNarratorAudio();
+          }
           break;
         case 'NARRATOR':
-          textColor = Colors.grey.shade300; if(!_isTextFullyVisible){ _startNarratorAudio();}
+          textColor = Colors.grey.shade300;
+          if (!_isTextFullyVisible) {
+            _startNarratorAudio();
+          }
 
           break;
         default:
@@ -758,7 +850,7 @@ class _DialogueBoxState extends State<DialogueBox> {
                         ),
                       ),
                     ),
-        
+
                   // ---------- 2. Кнопки выбора ----------
                   if (widget.phrase == null && widget.choices.isNotEmpty)
                     ...widget.choices.map(
@@ -794,7 +886,7 @@ class _DialogueBoxState extends State<DialogueBox> {
                         ),
                       ),
                     ),
-        
+
                   Spacer(),
                   Container(
                       padding: const EdgeInsets.all(16),
@@ -825,8 +917,8 @@ class _DialogueBoxState extends State<DialogueBox> {
                           Column(
                             children: [
                               AnimatedButton(
-                                  onPressed: () =>
-                                      _buildDossierDialog(widget.state, context),
+                                  onPressed: () => _buildDossierDialog(
+                                      widget.state, context),
                                   child: AppIcon(
                                     asset: "assets/images/dossier.webp",
                                     width: 64,
