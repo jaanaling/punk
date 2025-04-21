@@ -125,7 +125,7 @@ class ChaptersScreen extends StatelessWidget {
                               chapterText[index - 1],
                               style: TextStyle(
                                   color: Color(0xFFB3EBFF),
-                                  fontSize: index > 1 ? 32 : 12,
+                                  fontSize: index > 1 ? 32 : 10,
                                   fontFamily: "Orbitron"),
                             ),
                           ),
@@ -171,7 +171,7 @@ Recruitment drones meticulously comb the streets. Cameras are in the eyes of ran
       child: Image.asset(
         imagePath,
         fit: BoxFit.fitWidth,
-        width: 276,
+        width: 200,
       ),
     );
   }
