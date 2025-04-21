@@ -1,0 +1,87 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "iOS Build & Sign"
+  lane :build do
+    create_keychain(
+      name: ENV["MATCH_KEYCHAIN_NAME"],
+      password: ENV["MATCH_KEYCHAIN_PASSWORD"],
+      unlock: true
+    )
+
+    app_store_connect_api_key(
+      key_id: ENV["ASC_KEY_ID"],
+      issuer_id: ENV["ASC_KEY_ISSUER_ID"],
+      key_content: ENV["ASC_KEY_CONTENT"],
+      is_key_content_base64: true
+    )
+
+    match(
+      type: "appstore",
+      app_identifier: ENV["APP_BUNDLE_ID"],
+      readonly: false
+    )
+
+    sh "flutter clean"
+    sh "flutter pub get"
+    sh "pod repo update"
+    sh "chmod +x ../strip-paths.sh"
+    sh "chmod +x ../build-with-strip.sh"
+    sh "../build-with-strip.sh"
+
+    update_app_identifier(
+      xcodeproj: "Runner.xcodeproj",
+      plist_path: "Runner/Info.plist",
+      app_identifier: ENV["APP_BUNDLE_ID"]
+    )
+
+    update_code_signing_settings(
+      use_automatic_signing: true,
+      path: ENV["XCODE_PROJECT_PATH"]
+    )
+
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      team_id: ENV["sigh_#{ENV["APP_BUNDLE_ID"]}_appstore_team-id"],
+      code_sign_identity: 'iPhone Distribution',
+      targets: 'Runner',
+      path: ENV["XCODE_PROJECT_PATH"],
+      profile_name: ENV["sigh_#{ENV["APP_BUNDLE_ID"]}_appstore_profile-name"],
+      profile_uuid: ENV["sigh_#{ENV["APP_BUNDLE_ID"]}_appstore"]
+    )
+
+    update_project_provisioning(
+      xcodeproj: ENV["XCODE_PROJECT_PATH"],
+      profile: ENV["sigh_#{ENV["APP_BUNDLE_ID"]}_appstore_profile-path"],
+      code_signing_identity: "iPhone Distribution",
+      target_filter: '.*Runner.*',
+      certificate: '/usr/local/etc/vm/AppleIncRootCertificate.cer'
+    )
+
+    unlock_keychain({
+      path: ENV["MATCH_KEYCHAIN_NAME"],
+      password: ENV["MATCH_KEYCHAIN_PASSWORD"]
+    })
+
+    gym(
+      include_symbols: false,
+      include_bitcode: false,
+      workspace: "Runner.xcworkspace",
+      scheme: "Runner",
+      export_method: "app-store",
+      xcargs: "-allowProvisioningUpdates DEPLOYMENT_POSTPROCESSING=YES STRIP_INSTALLED_PRODUCT=YES STRIP_STYLE=non-global",
+      clean: true,
+      output_directory: "./build",
+      output_name: "#{ENV["APP_NAME"]}.ipa"
+    )
+  end
+
+  desc "Upload to TestFlight"
+  lane :build_testflight do
+    build
+
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+
+
+end

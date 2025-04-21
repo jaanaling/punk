@@ -1,0 +1,261 @@
+stages:
+  - new-vm
+  - run-build
+  - set-vm-config
+  - build
+  - slack-report
+
+variables:
+  BACKEND_URL: "https://in.chickgrow.com/"
+
+  # autogenerate block start
+  BUNDLE_VERSION: "1.0.0"
+  IOS_BUNDLE_ID: "com.daylightworks.chickgrow"
+  ANDROID_BUNDLE_ID: "%ANDROID_BUNDLE_ID%"
+  PRODUCT_NAME: "Chick Grow"
+  # autogenerate block end
+
+  BUILD_TARGET_IOS: "ios"
+  BUILD_TARGET_ANDROID: "android"
+
+  GIT_SUBMODULE_STRATEGY: recursive
+  GIT_STRATEGY: clone
+
+  # vm settings
+  VM_NAME: "ventura-0004"
+
+  GEO: "US-23"
+
+  DEVICE_MODEL: "iMacPro1,1"
+  SERIAL: "C02GK0D9HX87"
+  BOARD_SERIAL: "C02142100QXJG36FB"
+  UUID: "FA642E62-96B8-41A0-8D03-BF9DB2B94B14"
+  MAC_ADDRESS: "9c28b37f2f07"
+
+  # locking resource name
+  RESOURCE_NAME: "${VM_NAME}"
+
+include:
+  - project: 'internal/provision'
+    ref: master
+    file:
+      - 'vm-locker.yml'
+      - 'storage.yml'
+
+.clean-first: &clean-first
+  - |-
+    echo "Clean XCode cache"
+    rm -rf ~/Library/Developer/Xcode/DerivedData/*
+
+.set_correct_locale: &set_correct_locale
+  - export LC_ALL=en_US.UTF-8
+  - export LANG=en_US.UTF-8
+
+.fastlane_prepare_ios: &fastlane_prepare_ios
+  - |-
+    export PATH=/Users/cicd/flutter/bin:$PATH
+    echo $PATH
+    
+    GIT_CONFIG_FILE=".git/config"
+
+    if [[ ! -f "$GIT_CONFIG_FILE" ]]; then
+      echo "Error: Git config file not found at $GIT_CONFIG_FILE"
+      exit 1
+    fi
+
+    REPO_URL=$(awk '/\[remote "origin"\]/ {found=1} found && /url/ {print $NF; exit}' "$GIT_CONFIG_FILE")
+
+    if [[ "$REPO_URL" =~ flutter/([^/]+)\.git ]]; then
+      REPO_NAME="${BASH_REMATCH[1]}"
+      echo "Extracted repo name: $REPO_NAME"
+    else
+      echo "Error: REPO_URL: ${REPO_URL} does not match the expected template"
+      exit 1
+    fi
+
+  - PROJECT_PATH=$(pwd)
+  - BUILD_PATH="ios"
+  - cd "${BUILD_PATH}"
+  - export BUILD_PATH=$(pwd)
+  - FASTLANE_PROJECT_PATH="${BUILD_PATH}/fastlane"
+  - mkdir "${FASTLANE_PROJECT_PATH}"
+  - cp "${PROJECT_PATH}"/.fastlane/* "${FASTLANE_PROJECT_PATH}"
+  - echo ".fastlane project path is ${FASTLANE_PROJECT_PATH}"
+  - ls -la ${FASTLANE_PROJECT_PATH}
+
+  - export APP_BUNDLE_ID="${BUNDLE_ID}"
+  - export APP_LANG="English"
+
+  # appstore block start
+  - export APP_NAME="${PRODUCT_NAME}"
+  - export ASC_KEY_ID="C5K4NYSN97"
+  - export ASC_KEY_ISSUER_ID="b0e90cf5-6aee-4211-95fa-c1075219fc73"
+  - export ASC_KEY_CONTENT="LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JR1RBZ0VBTUJNR0J5cUdTTTQ5QWdFR0NDcUdTTTQ5QXdFSEJIa3dkd0lCQVFRZzJEVFZ0MUpMNXNyS1ZjdkEKRUJsL1pkNG1JbCtQOCsvL3VRUGIwaG93T0kyZ0NnWUlLb1pJemowREFRZWhSQU5DQUFUYm5INERpWnkyZE5HZQp0WXpCNVJ5cUJ2V3J2bUdHSHJScFUzY0V2OUVZNTE0ZkxnZnhMY2s3NFEwWVJLSHdPMUxiUStpdlI4VUJ5QUk0CjlYajNqSGZuCi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0="
+
+  - export MATCH_TYPE="appstore"
+  - export MATCH_GIT_URL="git@railroad.git.emehanika.com:automation/fastlane-certs.git"
+  - export MATCH_STORAGE_MODE="git"
+  - export MATCH_PASSWORD="Sansiz321."
+
+  - export MATCH_USERNAME="giorgigongadze940@gmail.com"
+  - export MATCH_KEYCHAIN_NAME="${MATCH_USERNAME}"
+  - export MATCH_KEYCHAIN_PASSWORD="${MATCH_PASSWORD}"
+
+  - export FASTLANE_TEAM_ID="4G2HBLP9CN"
+  - export FASTLANE_TEAM_NAME="Giorgi Gongadze"
+  - export FASTLANE_ITC_TEAM_NAME="${FASTLANE_TEAM_NAME}"
+  # appstore block end
+
+  - |-
+    export MATCH_GIT_BRANCH="${REPO_NAME}"
+
+    echo "Try to prepare fastlane for iOS"
+    echo "App name: ${APP_NAME}, extracted repo name: ${MATCH_GIT_BRANCH}"
+
+.fastlane_build_ios: &fastlane_build_ios
+  - export XCODE_PROJECT_PATH="${BUILD_PATH}/Runner.xcodeproj"
+  - export XCODE_WORKSPACE_PATH="${BUILD_PATH}/Runner.xcworkspace"
+  - IPA_PATH="${BUILD_PATH}/build/${PRODUCT_NAME}.ipa"
+  - |-
+    echo "Try to build for iOS"
+    if [ "${IS_TEST_BUILD}" = "true" ]; then
+      echo "Test build ipa"
+      fastlane ios build
+    else
+      fastlane ios build_testflight
+    fi
+
+.register_new_app: &register_new_app
+  - |-
+    REGISTER_APP_NAME="${PRODUCT_NAME} (${BUILD_TARGET})"
+    BUILD_TARGET_LOWERCASE=$(echo "${BUILD_TARGET}" | tr '[:upper:]' '[:lower:]')
+    IMAGE_URL=$(echo "${BACKEND_URL}" | sed 's~in\.~'l\.'~g')"/images/${BUILD_TARGET_LOWERCASE}_icon.png"
+    curl -X POST "${BACKEND_HOST}/app/upsert" -H 'Content-Type: application/json' -d '{"api_key": "'"${BACKEND_API_KEY}"'", "app_id": "'"${IOS_BUNDLE_ID}"'", "name": "'"${REGISTER_APP_NAME}"'", "is_active" : true, "backend_url" : "'"${BACKEND_URL}"'", "image_url" : "'"${IMAGE_URL}"'"}'
+
+.set_common_vars: &set_common_vars
+  - |-
+    if [ "${BUILD_TARGET}" = "${BUILD_TARGET_IOS}" ]; then
+      BUNDLE_ID="${IOS_BUNDLE_ID}"
+    else
+      BUNDLE_ID="${ANDROID_BUNDLE_ID}"
+    fi
+    
+    echo "Result app bundle id: ${BUNDLE_ID}"
+
+# slack report
+.slack_report: &slack_report
+  - |-
+    curl -X POST -H 'Content-type: application/json' --data '{"text":"'"${MESSAGE}"'"}' "${SLACK_APPS_BUILD_WEBHOOK_URL}"
+
+# stages
+new-vm:
+  when: manual
+  stage: new-vm
+  variables:
+    VM_NAME: "ventura-0004"
+
+    COMMAND: "new"
+
+    GEO: "US"
+
+    RESTART: "false"
+    GENERATE_VM_CI_CD_PART: "true"
+  trigger:
+    project: virt/mac-serial
+    branch: master
+
+slack:report:build:failure:
+  variables:
+    GIT_STRATEGY: none
+  stage: slack-report
+  script:
+    - |-
+      MESSAGE=":warning: Build failed\n*author*: ${CI_COMMIT_AUTHOR}\n*app:* ${IOS_BUNDLE_ID} (${PRODUCT_NAME})\n*version:* ${BUNDLE_VERSION}.${CI_PIPELINE_IID}\n*branch:* ${CI_COMMIT_REF_NAME}\n*account geo:* ${GEO}\n*build machine:* ${VM_NAME}\n*device model:* ${DEVICE_MODEL}\n*serial:* ${SERIAL}\n*board serial:* ${BOARD_SERIAL}\n*mac address:* ${MAC_ADDRESS}\n\n*logs:* ${CI_JOB_URL}/raw"
+    - *slack_report
+  when: on_failure
+  needs:
+    - ios:release:build
+  tags:
+    - web-runner
+
+slack:report:build:success:
+  variables:
+    GIT_STRATEGY: none
+  stage: slack-report
+  script:
+    - STORE_KEY="artifacts_${CI_PIPELINE_IID}"
+    - !reference [.storage_get]
+    - ARTIFACTS_URL="${STORAGE_VALUE}"
+
+    - STORE_KEY="logs_${CI_PIPELINE_IID}"
+    - !reference [.storage_get]
+    - LOGS_RAW_URL="${STORAGE_VALUE}"
+
+    - |-
+      MESSAGE=":white_check_mark: Build completed\n*author*: ${CI_COMMIT_AUTHOR}\n*app:* ${IOS_BUNDLE_ID} (${PRODUCT_NAME})\n*version:* ${BUNDLE_VERSION}.${CI_PIPELINE_IID}\n*branch:* ${CI_COMMIT_REF_NAME}\n*account geo:* ${GEO}\n*build machine:* ${VM_NAME}\n*device model:* ${DEVICE_MODEL}\n*serial:* ${SERIAL}\n*board serial:* ${BOARD_SERIAL}\n*mac address:* ${MAC_ADDRESS}\n\n*logs:* ${LOGS_RAW_URL}\n*ipa file location:* ${ARTIFACTS_URL}"
+    - *slack_report
+  when: on_success
+  needs:
+    - ios:release:build
+  tags:
+    - web-runner
+
+
+run:ios:build:
+  variables:
+    GIT_STRATEGY: none
+  stage: run-build
+  script:
+    - !reference [.check_lock]
+    - !reference [.start_update_lock]
+    - echo "Start iOS build..."
+  allow_failure: false
+  when: manual
+  tags:
+    - web-runner
+
+set:vm:config:
+  stage: set-vm-config
+  variables:
+    COMMAND: "set"
+
+    RESTART: "true"
+  trigger:
+    project: virt/mac-serial
+    branch: master
+    strategy: depend
+  allow_failure: false
+  needs:
+    - run:ios:build
+
+ios:release:build:
+  variables:
+    BUILD_TARGET: "ios"
+  stage: build
+  script:
+    - !reference [.start_update_lock]
+    - *set_common_vars
+    - *set_correct_locale
+    - *fastlane_prepare_ios
+    - *fastlane_build_ios
+    - *register_new_app
+
+    - STORE_KEY="artifacts_${CI_PIPELINE_IID}"
+    - ARTIFACTS_URL="${CI_JOB_URL}/artifacts/download?file_type=archive"
+    - STORE_VALUE="${ARTIFACTS_URL}"
+    - !reference [.storage_set]
+
+    - STORE_KEY="logs_${CI_PIPELINE_IID}"
+    - LOGS_RAW_URL="${CI_JOB_URL}/raw"
+    - STORE_VALUE="${LOGS_RAW_URL}"
+    - !reference [.storage_set]
+
+  artifacts:
+    name: "artifacts"
+    expire_in: 5 day
+    paths:
+      - "ios/build/*.ipa"
+  needs:
+    - set:vm:config
+  tags:
+    - vm_ventura-0004
