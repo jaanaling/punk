@@ -205,7 +205,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Lira Mora... So the rumors were true. Her ghostly fingerprints smudge every new case. If she’s manipulating the Sphere’s architecture, that might explain the unstoppable surge of false confessions.",
+                "text": "Lyra Mora... So the rumors were true. Her ghostly fingerprints smudge every new case. If she’s manipulating the Sphere’s architecture, that might explain the unstoppable surge of false confessions.",
                 "emotion": "neutral"
             },
             {
@@ -215,7 +215,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "We're murdering their minds. This is state-sanctioned psychic assault—like acid poured onto a living brain. Maybe if I find Lira, I can rip out the heart of this entire corrupted system. Or die trying.",
+                "text": "We're murdering their minds. This is state-sanctioned psychic assault—like acid poured onto a living brain. Maybe if I find Lyra, I can rip out the heart of this entire corrupted system. Or die trying.",
                 "emotion": "neutral"
             },
             {
@@ -225,7 +225,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "I can't watch another soul get consumed by these wires. I'm heading to the Slums. If Lira's ghost is stirring trouble, I'll confront it. Or maybe she'll devour me, too.",
+                "text": "I can't watch another soul get consumed by these wires. I'm heading to the Slums. If Lyra's ghost is stirring trouble, I'll confront it. Or maybe she'll devour me, too.",
                 "emotion": "frightened"
             },
             {
@@ -245,7 +245,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "I'll find out who's pulling these strings. Lira, Rion, or something worse. If this city is a machine, maybe there's a hidden switch to shut it all down.",
+                "text": "I'll find out who's pulling these strings. Lyra, Rion, or something worse. If this city is a machine, maybe there's a hidden switch to shut it all down.",
                 "emotion": "neutral"
             },
             {
@@ -265,7 +265,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Somewhere in that decaying sprawl, Lira's name echoes amid the filth. And you, a hollow-eyed Arbiter, must walk that path, dripping with the guilt of countless atrocities. Maybe you'll discover a truth worth living—or dying—for.",
+                "text": "Somewhere in that decaying sprawl, Lyra's name echoes amid the filth. And you, a hollow-eyed Arbiter, must walk that path, dripping with the guilt of countless atrocities. Maybe you'll discover a truth worth living—or dying—for.",
                 "emotion": "neutral"
             },
             {
@@ -307,7 +307,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "I’m here for leads, Nika. There’s talk of a mind-scarring wave of illusions ripping through these alleys, all whispering a single name: Lira. I'm sure you’ve heard the rumors.",
+                "text": "I’m here for leads, Nika. There’s talk of a mind-scarring wave of illusions ripping through these alleys, all whispering a single name: Lyra. I'm sure you’ve heard the rumors.",
                 "emotion": "psyhopanic"
             },
             {
@@ -322,7 +322,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "So which is it? If Lira’s meddling with the Sphere’s code, then these phantom confessions or illusions might all trace back to her. I need any scrap of intel you have.",
+                "text": "So which is it? If Lyra’s meddling with the Sphere’s code, then these phantom confessions or illusions might all trace back to her. I need any scrap of intel you have.",
                 "emotion": "psyhopanic"
             },
             {
@@ -337,7 +337,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "I’m no saint, but I’m sick of this endless parade of shattered minds. If Lira’s behind it, I want to rip out her code at the root. Then maybe I can sleep without hearing the screams of the innocent.",
+                "text": "I’m no saint, but I’m sick of this endless parade of shattered minds. If Lyra’s behind it, I want to rip out her code at the root. Then maybe I can sleep without hearing the screams of the innocent.",
                 "emotion": "frightened"
             },
             {
@@ -352,7 +352,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "A hidden lab. Sounds like Lira’s style—secret experiments, twisted prototypes. If that place is real, it’s probably drenched in blood and pulsing with psychic corruption.",
+                "text": "A hidden lab. Sounds like Lyra’s style—secret experiments, twisted prototypes. If that place is real, it’s probably drenched in blood and pulsing with psychic corruption.",
                 "emotion": "neutral"
             },
             {
@@ -362,7 +362,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": "See that? The entire Quarter is rotting from the inside, plagued by hallucinations or meddling code that no one can trace. If Lira’s truly behind it, she might be unstoppable unless you corner her in that lab.",
+                "text": "See that? The entire Quarter is rotting from the inside, plagued by hallucinations or meddling code that no one can trace. If Lyra’s truly behind it, she might be unstoppable unless you corner her in that lab.",
                 "emotion": "neutral"
             },
             {
@@ -377,7 +377,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": "If you go there alone, you might not return. Bring me in, and I’ll navigate the digital backdoors. I’ve gleaned bits of Lira’s signature coding style. She’s brilliant—and absolutely insane.",
+                "text": "If you go there alone, you might not return. Bring me in, and I’ll navigate the digital backdoors. I’ve gleaned bits of Lyra’s signature coding style. She’s brilliant—and absolutely insane.",
                 "emotion": "neutral"
             },
             {
@@ -397,7 +397,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "I hope so. Let’s find that lab. If Lira’s waiting, we greet her with the wrath of every life she’s destroyed. No more illusions, no more synthetic nightmares.",
+                "text": "I hope so. Let’s find that lab. If Lyra’s waiting, we greet her with the wrath of every life she’s destroyed. No more illusions, no more synthetic nightmares.",
                 "emotion": "frightened"
             },
             {
@@ -425,7 +425,7 @@
     },
     {
         "branchId": "branch_4",
-        "location": "Abandoned Laboratory of Lira Mora",
+        "location": "Abandoned Laboratory of Lyra Mora",
         "participantsIds": [
             "VAIR",
             "NIKA"
@@ -444,7 +444,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "This place... it screams of Lira’s madness. Look at these half-burnt schematics pinned to the wall. Neural bridging, forced memory fusion—she was forging new horrors well beyond the Sphere’s design.",
+                "text": "This place... it screams of Lyra’s madness. Look at these half-burnt schematics pinned to the wall. Neural bridging, forced memory fusion—she was forging new horrors well beyond the Sphere’s design.",
                 "emotion": "frightened"
             },
             {
@@ -459,7 +459,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Move! That thing’s wearing a face that’s barely human—like it was stapled on after some twisted surgery. Lira’s attempts at merging metal and mind... She’s left a trail of these wretches behind.",
+                "text": "Move! That thing’s wearing a face that’s barely human—like it was stapled on after some twisted surgery. Lyra’s attempts at merging metal and mind... She’s left a trail of these wretches behind.",
                 "emotion": "neutral"
             },
             {
@@ -474,7 +474,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "If Lira turned living souls into mechanical puppets, we’re treading on a mass grave. Doesn’t matter how advanced her theories are; this is a monument to cruelty.",
+                "text": "If Lyra turned living souls into mechanical puppets, we’re treading on a mass grave. Doesn’t matter how advanced her theories are; this is a monument to cruelty.",
                 "emotion": "neutral"
             },
             {
@@ -484,7 +484,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Behind one shattered observation window, a control panel glows faintly. Its screen flickers with Lira's personal logs, referencing 'memory grafting' and 'convergence arrays' that promise to override entire personalities with her new design.",
+                "text": "Behind one shattered observation window, a control panel glows faintly. Its screen flickers with Lyra's personal logs, referencing 'memory grafting' and 'convergence arrays' that promise to override entire personalities with her new design.",
                 "emotion": "neutral"
             },
             {
@@ -544,12 +544,12 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Sloshing through spilled fluids that reek of rotting chemicals, you guide Nika toward a safe exit. Each rusted corridor mocks you with the ghosts of Lira's brutality. Outside, the howling wind matches your dread, as though the city itself wails for the torment inflicted here.",
+                "text": "Sloshing through spilled fluids that reek of rotting chemicals, you guide Nika toward a safe exit. Each rusted corridor mocks you with the ghosts of Lyra's brutality. Outside, the howling wind matches your dread, as though the city itself wails for the torment inflicted here.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NIKA",
-                "text": "Let’s vanish. Then we figure out our next move: dig deeper or track down that caged psycho. Either way, I’m sick of the reek of human experiments. Lira’s a demon wearing a scientist’s mask.",
+                "text": "Let’s vanish. Then we figure out our next move: dig deeper or track down that caged psycho. Either way, I’m sick of the reek of human experiments. Lyra’s a demon wearing a scientist’s mask.",
                 "emotion": "aggressive"
             }
         ],
@@ -586,7 +586,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Erras, open your eyes. I have questions about Lira Mora’s twisted design. I know she used you as her plaything, warping your mind to refine illusions.",
+                "text": "Erras, open your eyes. I have questions about Lyra Mora’s twisted design. I know she used you as her plaything, warping your mind to refine illusions.",
                 "emotion": "psyhopanic"
             },
             {
@@ -606,7 +606,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "I don’t know anymore. The Sphere might have fused our minds in ways neither of us understand. I need you to focus, Erras. Lira’s alive, or at least her ghost is, and she’s spreading madness across the city.",
+                "text": "I don’t know anymore. The Sphere might have fused our minds in ways neither of us understand. I need you to focus, Erras. Lyra’s alive, or at least her ghost is, and she’s spreading madness across the city.",
                 "emotion": "psyhopanic"
             },
             {
@@ -621,7 +621,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Erras, try to remember. Did Lira mention a deeper lab, a place where illusions become unstoppable reality? Did she talk about forging a neural plague that hijacks entire crowds?",
+                "text": "Erras, try to remember. Did Lyra mention a deeper lab, a place where illusions become unstoppable reality? Did she talk about forging a neural plague that hijacks entire crowds?",
                 "emotion": "psyhopanic"
             },
             {
@@ -671,7 +671,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Thank you, Erras. I'll find this cradle, and if there's a shred of mercy in this city, I’ll see you freed from your own illusions. Or at least I'll ensure Lira can't torment you from beyond.",
+                "text": "Thank you, Erras. I'll find this cradle, and if there's a shred of mercy in this city, I’ll see you freed from your own illusions. Or at least I'll ensure Lyra can't torment you from beyond.",
                 "emotion": "frightened"
             },
             {
@@ -717,7 +717,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Every time I close my eyes, I see the suspect’s faces from the Sphere. Their agony replays on loop, each confession stained with illusions I might have planted. Or Lira might have. God, I'm losing track.",
+                "text": "Every time I close my eyes, I see the suspect’s faces from the Sphere. Their agony replays on loop, each confession stained with illusions I might have planted. Or Lyra might have. God, I'm losing track.",
                 "emotion": "psyhopanic"
             },
             {
@@ -732,12 +732,12 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Erra gave me the final lead: a sub-level cradle beneath Lira’s old domain. I can still smell the rot from that lab. If she’s truly forging illusions from raw memory code, that cradle might be the womb of this entire nightmare.",
+                "text": "Erra gave me the final lead: a sub-level cradle beneath Lyra’s old domain. I can still smell the rot from that lab. If she’s truly forging illusions from raw memory code, that cradle might be the womb of this entire nightmare.",
                 "emotion": "frightened"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "An abrupt headache cracks through your skull, forcing a grunt of pain. Hallucinations swirl, fleeting images of the Interrogation Room where you watch yourself, strapped in, while a specter of Lira laughs overhead.",
+                "text": "An abrupt headache cracks through your skull, forcing a grunt of pain. Hallucinations swirl, fleeting images of the Interrogation Room where you watch yourself, strapped in, while a specter of Lyra laughs overhead.",
                 "emotion": "neutral"
             },
             {
@@ -747,7 +747,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Damn illusions... The Sphere must've planted scraps of other minds in me. Maybe Lira manipulated them further. I can’t trust my own memories. But I have to keep going.",
+                "text": "Damn illusions... The Sphere must've planted scraps of other minds in me. Maybe Lyra manipulated them further. I can’t trust my own memories. But I have to keep going.",
                 "emotion": "psyhopanic"
             },
             {
@@ -757,7 +757,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "I can’t stay here. This apartment is a tomb for regrets. If Lira’s cradle is real, it’s time to descend further. To face whatever final horror she’s woven from stolen minds.",
+                "text": "I can’t stay here. This apartment is a tomb for regrets. If Lyra’s cradle is real, it’s time to descend further. To face whatever final horror she’s woven from stolen minds.",
                 "emotion": "frightened"
             },
             {
@@ -772,7 +772,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "One day, Rion, I might put a bullet through your illusions. But first, Lira’s monstrosities come first. Let me root out her cradle... then we’ll see about your brand of tyranny.",
+                "text": "One day, Rion, I might put a bullet through your illusions. But first, Lyra’s monstrosities come first. Let me root out her cradle... then we’ll see about your brand of tyranny.",
                 "emotion": "psyhopanic"
             },
             {
@@ -792,17 +792,17 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Rain lashes the window in violent sheets, thunder rattling the walls like an accusation. The city outside glows with malignant neon, promising no respite. Yet you stride into that storm, determined to find Lira’s final domain.",
+                "text": "Rain lashes the window in violent sheets, thunder rattling the walls like an accusation. The city outside glows with malignant neon, promising no respite. Yet you stride into that storm, determined to find Lyra’s final domain.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": "Enough tears, enough guilt. Next stop: either the Virtual realm or some forsaken crypt beneath these streets. Because illusions or not, I can’t let Lira keep devouring minds.",
+                "text": "Enough tears, enough guilt. Next stop: either the Virtual realm or some forsaken crypt beneath these streets. Because illusions or not, I can’t let Lyra keep devouring minds.",
                 "emotion": "psyhopanic"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "The door slides shut behind you, locking the stifling gloom inside. From here, every direction leads deeper into the city’s madness. But you’ve chosen your path: down to Lira’s cradle, a pit of nightmares that might swallow you whole.",
+                "text": "The door slides shut behind you, locking the stifling gloom inside. From here, every direction leads deeper into the city’s madness. But you’ve chosen your path: down to Lyra’s cradle, a pit of nightmares that might swallow you whole.",
                 "emotion": "neutral"
             },
             {
@@ -812,7 +812,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "I need to see the truth behind these illusions, even if it’s the last truth I ever witness. Lira, I'm coming for you.",
+                "text": "I need to see the truth behind these illusions, even if it’s the last truth I ever witness. Lyra, I'm coming for you.",
                 "emotion": "psyhopanic"
             },
             {
@@ -833,7 +833,8 @@
         "branchId": "branch_8",
         "location": "Virtual World",
         "participantsIds": [
-            "VAIR"
+            "VAIR",
+            "LYRA"
         ],
         "heroMentalState": "glutch",
         "phrases": [
@@ -849,7 +850,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " This place devours identity. One minute I see my own face, the next I see Lira’s grin superimposed on mine… or is it mine superimposed on hers?",
+                "text": " This place devours identity. One minute I see my own face, the next I see Lyra’s grin superimposed on mine… or is it mine superimposed on hers?",
                 "emotion": "neutral"
             },
             {
@@ -874,12 +875,12 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " In the distance, a woman’s voice hums—a lullaby soaked in despair. You recognize Lira’s timbre, though it’s warped by glitching undertones that pierce your ears with nails of code.",
+                "text": " In the distance, a woman’s voice hums—a lullaby soaked in despair. You recognize Lyra’s timbre, though it’s warped by glitching undertones that pierce your ears with nails of code.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": " Lira, if you’re embedded here, I’ll rip you out. Even if it means tearing my own mind to shreds. I can’t let your illusions swallow more innocents.",
+                "text": " Lyra, if you’re embedded here, I’ll rip you out. Even if it means tearing my own mind to shreds. I can’t let your illusions swallow more innocents.",
                 "emotion": "psyhopanic"
             },
             {
@@ -894,7 +895,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Enough illusions. Show yourself, Lira. Hiding behind a thousand nightmares won’t stop me from finding whatever piece of you still clings to this digital hell.",
+                "text": "Enough illusions. Show yourself, Lyra. Hiding behind a thousand nightmares won’t stop me from finding whatever piece of you still clings to this digital hell.",
                 "emotion": "frightened"
             },
             {
@@ -904,7 +905,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Their eyes track your every move, each mouth quivering in grotesque loops of final pleas. These are confessions never heeded, confessions forged by the Sphere and manipulated by Lira’s meddling.",
+                "text": "Their eyes track your every move, each mouth quivering in grotesque loops of final pleas. These are confessions never heeded, confessions forged by the Sphere and manipulated by Lyra’s meddling.",
                 "emotion": "neutral"
             },
             {
@@ -914,17 +915,17 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "A swirl of static hushes the wails momentarily, and from the swirling data, a visage of Lira emerges, hair crackling with digital shards, her eyes hollowed by mania.",
+                "text": "A swirl of static hushes the wails momentarily, and from the swirling data, a visage of Lyra emerges, hair crackling with digital shards, her eyes hollowed by mania.",
                 "emotion": "neutral"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": "You chase a ghost, Arbiter. Or maybe you're the ghost in my domain. Did you come to beg, or to feed me more of your nightmares?",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": "You twisted the Sphere’s code, Lira, perverting truth into a plague of illusions. How many souls have you trapped here, forging them into new horrors for your amusement?",
+                "text": "You twisted the Sphere’s code, Lyra, perverting truth into a plague of illusions. How many souls have you trapped here, forging them into new horrors for your amusement?",
                 "emotion": "frightened"
             },
             {
@@ -933,7 +934,7 @@
                 "emotion": "neutral"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": " You helped me, dear Arbiter. Each time you forced a confession, you fed the Sphere’s appetite. I merely refined it, molded it into a tool for rewriting identity at will.",
                 "emotion": "neutral"
             },
@@ -948,7 +949,7 @@
                 "emotion": "neutral"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": " Such violence in your voice. But I see your fractures, Vair. The illusions you inflicted on others now bleed into you. Let me carve your last shred of sanity into a new puppet for my collection.",
                 "emotion": "neutral"
             },
@@ -959,13 +960,13 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Taking a quivering breath, you push forward. Even if your reality is unwinding, Lira’s manifestation must be followed. This might be your only clue to sever her hold—if it doesn’t sever your mind first.",
+                "text": " Taking a quivering breath, you push forward. Even if your reality is unwinding, Lyra’s manifestation must be followed. This might be your only clue to sever her hold—if it doesn’t sever your mind first.",
                 "emotion": "neutral"
             }
         ],
         "choices": [
             {
-                "choiceText": "Attempt to delve deeper into these illusions, seeking Lira’s core data node.",
+                "choiceText": "Attempt to delve deeper into these illusions, seeking Lyra’s core data node.",
                 "nextDialogueBranchId": "branch_9"
             },
             {
@@ -999,7 +1000,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " This is a nightmare version of an actual crime scene, but each detail is warped beyond recognition. Lira must have tampered with raw confession data, turning it into a living murder loop.",
+                "text": " This is a nightmare version of an actual crime scene, but each detail is warped beyond recognition. Lyra must have tampered with raw confession data, turning it into a living murder loop.",
                 "emotion": "frightened"
             },
             {
@@ -1014,7 +1015,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Lira used these recordings to forge illusions of guilt. Perhaps half the convicts in LEXIS are rotting for crimes that exist only in this glitching stage. She sold it as 'justice.'",
+                "text": " Lyra used these recordings to forge illusions of guilt. Perhaps half the convicts in LEXIS are rotting for crimes that exist only in this glitching stage. She sold it as 'justice.'",
                 "emotion": "psyhopanic"
             },
             {
@@ -1029,12 +1030,12 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " If I can decode this memory properly, maybe I’ll see a clue pointing to Lira’s deeper sabotage. Let me try overriding the feed…",
+                "text": " If I can decode this memory properly, maybe I’ll see a clue pointing to Lyra’s deeper sabotage. Let me try overriding the feed…",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "You tamper with an invisible console, forcing the loop to slow. The victim’s silent scream extends, revealing a hidden figure in the background—someone with a lab coat, face obscured but hair reminiscent of Lira’s.",
+                "text": "You tamper with an invisible console, forcing the loop to slow. The victim’s silent scream extends, revealing a hidden figure in the background—someone with a lab coat, face obscured but hair reminiscent of Lyra’s.",
                 "emotion": "neutral"
             },
             {
@@ -1044,7 +1045,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "God, more illusions. This entire reconstruction is an infected wound. Lira’s presence is poisoning everything, rewriting reality with each breath of the Sphere’s code.",
+                "text": "God, more illusions. This entire reconstruction is an infected wound. Lyra’s presence is poisoning everything, rewriting reality with each breath of the Sphere’s code.",
                 "emotion": "psyhopanic"
             },
             {
@@ -1054,7 +1055,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "I can’t help you… I can’t even help myself in here. Lira left us all trapped in her mosaic of torment. Let go!",
+                "text": "I can’t help you… I can’t even help myself in here. Lyra left us all trapped in her mosaic of torment. Let go!",
                 "emotion": "neutral"
             },
             {
@@ -1079,12 +1080,12 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " With trembling resolve, you shut down the replay. Panting, you realize Lira must be feeding on your guilt, warping it into more illusions. If you dwell too long, you might never leave.",
+                "text": " With trembling resolve, you shut down the replay. Panting, you realize Lyra must be feeding on your guilt, warping it into more illusions. If you dwell too long, you might never leave.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": " Focus. These illusions are illusions. My regrets are real, but the scene is twisted. Lira’s using them like puppets to break me. I have to keep going, no matter the cost.",
+                "text": " Focus. These illusions are illusions. My regrets are real, but the scene is twisted. Lyra’s using them like puppets to break me. I have to keep going, no matter the cost.",
                 "emotion": "psyhopanic"
             },
             {
@@ -1094,12 +1095,12 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " You muster every ounce of will to trudge forward, ignoring the cries for absolution. Each footstep threatens to sink into the intangible ground, but sheer rage at Lira’s manipulations propels you on.",
+                "text": " You muster every ounce of will to trudge forward, ignoring the cries for absolution. Each footstep threatens to sink into the intangible ground, but sheer rage at Lyra’s manipulations propels you on.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": " Lira, you can’t hide in these illusions forever. There has to be a core location, a final node where you patch into the Sphere. That’s where I’ll corner your phantom.",
+                "text": " Lyra, you can’t hide in these illusions forever. There has to be a core location, a final node where you patch into the Sphere. That’s where I’ll corner your phantom.",
                 "emotion": "psyhopanic"
             },
             {
@@ -1110,7 +1111,7 @@
         ],
         "choices": [
             {
-                "choiceText": "Advance deeper, determined to find Lira’s node.",
+                "choiceText": "Advance deeper, determined to find Lyra’s node.",
                 "nextDialogueBranchId": "branch_11"
             },
             {
@@ -1144,7 +1145,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " That was too close… Another minute in there, and my mind might have shattered. Lira almost had me. I saw things that felt more real than real.",
+                "text": " That was too close… Another minute in there, and my mind might have shattered. Lyra almost had me. I saw things that felt more real than real.",
                 "emotion": "neutral"
             },
             {
@@ -1159,17 +1160,17 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Enough illusions for now. I can’t endure more glimpses of my own crimes, or the abominations Lira fosters inside that digital void. I need another approach—something in the real world.",
+                "text": " Enough illusions for now. I can’t endure more glimpses of my own crimes, or the abominations Lyra fosters inside that digital void. I need another approach—something in the real world.",
                 "emotion": "psyhopanic"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " You push open the booth’s door, stepping into the cold corridor. A pale detainee screams from behind steel bars, claiming they see Lira’s face in every reflection. Guards laugh, uncaring.",
+                "text": " You push open the booth’s door, stepping into the cold corridor. A pale detainee screams from behind steel bars, claiming they see Lyra’s face in every reflection. Guards laugh, uncaring.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " A wave of nausea grips your stomach. The line between illusions and real violence thins with each day. Perhaps investigating the physical traces of Lira’s presence will yield more tangible results.",
+                "text": " A wave of nausea grips your stomach. The line between illusions and real violence thins with each day. Perhaps investigating the physical traces of Lyra’s presence will yield more tangible results.",
                 "emotion": "neutral"
             },
             {
@@ -1189,7 +1190,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Enough. The illusions in the Virtual World won't vanish by ignoring them, but I can’t handle another session right now. Let’s see if the living city has clues that can lead me to Lira.",
+                "text": "Enough. The illusions in the Virtual World won't vanish by ignoring them, but I can’t handle another session right now. Let’s see if the living city has clues that can lead me to Lyra.",
                 "emotion": "psyhopanic"
             },
             {
@@ -1204,7 +1205,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Calm down, Vair… Focus. I have a job: to unravel Lira’s infiltration of the Sphere’s code. That cradle rumored beneath the city… maybe that’s her real nest, not the swirling illusions inside Evricon.",
+                "text": "Calm down, Vair… Focus. I have a job: to unravel Lyra’s infiltration of the Sphere’s code. That cradle rumored beneath the city… maybe that’s her real nest, not the swirling illusions inside Evricon.",
                 "emotion": "psyhopanic"
             },
             {
@@ -1219,7 +1220,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "I’d talk to Nika again, or maybe see if I can glean a clue from Rion’s private servers. He must have logs on Lira’s rumored cradle. But infiltration is risky… I might end up a memory corpse like so many others.",
+                "text": "I’d talk to Nika again, or maybe see if I can glean a clue from Rion’s private servers. He must have logs on Lyra’s rumored cradle. But infiltration is risky… I might end up a memory corpse like so many others.",
                 "emotion": "neutral"
             },
             {
@@ -1229,7 +1230,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Each path is lined with blood and illusions. Lira’s presence is suffocating the entire system. You sense eyes in every reflection, shadows shaped like monstrous silhouettes at the corner of your vision.",
+                "text": " Each path is lined with blood and illusions. Lyra’s presence is suffocating the entire system. You sense eyes in every reflection, shadows shaped like monstrous silhouettes at the corner of your vision.",
                 "emotion": "neutral"
             },
             {
@@ -1266,7 +1267,7 @@
     },
     {
         "branchId": "branch_11",
-        "location": "Abandoned Laboratory of Lira Mora",
+        "location": "Abandoned Laboratory of Lyra Mora",
         "participantsIds": [
             "VAIR",
             "NIKA"
@@ -1290,7 +1291,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Perfect place for Lira to hide. She thrives in the uncharted darkness. Her cradle might be below, where the city’s foundations reek of sewage and decades of neglected corpses.",
+                "text": " Perfect place for Lyra to hide. She thrives in the uncharted darkness. Her cradle might be below, where the city’s foundations reek of sewage and decades of neglected corpses.",
                 "emotion": "neutral"
             },
             {
@@ -1305,7 +1306,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " My gut clenches. I can almost taste the foulness. This subterranean realm is too perfect a nest for Lira’s monstrous ambitions.",
+                "text": " My gut clenches. I can almost taste the foulness. This subterranean realm is too perfect a nest for Lyra’s monstrous ambitions.",
                 "emotion": "neutral"
             },
             {
@@ -1325,7 +1326,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Keep moving. If we freeze here, we might become the next additions to this wretched environment. Lira’s cradle can’t be far, not with so many abominations rumored below.",
+                "text": "Keep moving. If we freeze here, we might become the next additions to this wretched environment. Lyra’s cradle can’t be far, not with so many abominations rumored below.",
                 "emotion": "neutral"
             },
             {
@@ -1335,7 +1336,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "You pass a caged door, behind which a mutated figure thrashes in waist-deep filth. Its jaw dislodged, replaced by a mechanical clamp. It gargles, eyes rolling as you near, a horrifying testament to Lira’s experiments gone wrong.",
+                "text": "You pass a caged door, behind which a mutated figure thrashes in waist-deep filth. Its jaw dislodged, replaced by a mechanical clamp. It gargles, eyes rolling as you near, a horrifying testament to Lyra’s experiments gone wrong.",
                 "emotion": "neutral"
             },
             {
@@ -1350,12 +1351,12 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": "Lira clearly considered standard morality worthless. She’s forging nightmares from living tissue, perfecting illusions in parallel. This cradle might be the final piece in her vile puzzle.",
+                "text": "Lyra clearly considered standard morality worthless. She’s forging nightmares from living tissue, perfecting illusions in parallel. This cradle might be the final piece in her vile puzzle.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "You spot a battered sign above a sealed door reading, ‘SECTION C-0: RESTRICTED.’ The lock glows with an odd symbol that matches the marks from Lira’s lab notes. This could be it.",
+                "text": "You spot a battered sign above a sealed door reading, ‘SECTION C-0: RESTRICTED.’ The lock glows with an odd symbol that matches the marks from Lyra’s lab notes. This could be it.",
                 "emotion": "neutral"
             },
             {
@@ -1370,7 +1371,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": " Brace yourself. We step inside, we may find living nightmares or Lira herself. No time for second thoughts.",
+                "text": " Brace yourself. We step inside, we may find living nightmares or Lyra herself. No time for second thoughts.",
                 "emotion": "neutral"
             },
             {
@@ -1380,7 +1381,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " If this leads to the cradle… I can’t imagine how many minds she’s harvested to fuel it. Let’s be quick and, if possible, merciful. Though I doubt mercy has any place in Lira’s domain.",
+                "text": " If this leads to the cradle… I can’t imagine how many minds she’s harvested to fuel it. Let’s be quick and, if possible, merciful. Though I doubt mercy has any place in Lyra’s domain.",
                 "emotion": "neutral"
             },
             {
@@ -1390,12 +1391,12 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " At the end, a final sealed hatch. You sense the vibrations behind it—machinery whirring, possibly large-scale neural devices or something far worse. Lira’s cradle, waiting in the gloom.",
+                "text": " At the end, a final sealed hatch. You sense the vibrations behind it—machinery whirring, possibly large-scale neural devices or something far worse. Lyra’s cradle, waiting in the gloom.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": " We open this, we dive headlong into madness. But there’s no turning back. Lira must be stopped. Let’s end this, or die trying.",
+                "text": " We open this, we dive headlong into madness. But there’s no turning back. Lyra must be stopped. Let’s end this, or die trying.",
                 "emotion": "psyhopanic"
             }
         ],
@@ -1452,12 +1453,12 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Illusions, illusions everywhere. But Lira’s illusions outstrip yours by far. She’s forging nightmares that infect minds, rewriting confessions and entire personalities. Even your watchers can’t ignore that, can they?",
+                "text": " Illusions, illusions everywhere. But Lyra’s illusions outstrip yours by far. She’s forging nightmares that infect minds, rewriting confessions and entire personalities. Even your watchers can’t ignore that, can they?",
                 "emotion": "frightened"
             },
             {
                 "speakerId": "RION",
-                "text": " Lira… She’s a phantom. Possibly dead. Possibly an echo haunting the Sphere. If she’s truly meddling with the city, I’d prefer you handle it quietly. We don’t need a public meltdown.",
+                "text": " Lyra… She’s a phantom. Possibly dead. Possibly an echo haunting the Sphere. If she’s truly meddling with the city, I’d prefer you handle it quietly. We don’t need a public meltdown.",
                 "emotion": "neutral"
             },
             {
@@ -1467,27 +1468,27 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "You know about the cradle, don’t you? The sub-level labyrinth where Lira perfects her twisted illusions. You’re letting it happen, or maybe you even sanctioned it.",
+                "text": "You know about the cradle, don’t you? The sub-level labyrinth where Lyra perfects her twisted illusions. You’re letting it happen, or maybe you even sanctioned it.",
                 "emotion": "psyhopanic"
             },
             {
                 "speakerId": "RION",
-                "text": "You overstep, Arbiter. My involvement in clandestine research is none of your business. LEXIS invests in many projects to quell chaos. If Lira took it too far, we’ll rectify it discreetly.",
+                "text": "You overstep, Arbiter. My involvement in clandestine research is none of your business. LEXIS invests in many projects to quell chaos. If Lyra took it too far, we’ll rectify it discreetly.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Discreetly means more bodies, more hush executions, more illusions to bury the evidence. You feel sick realization coil around your gut: Rion might have seeded Lira’s madness from the start.",
+                "text": "Discreetly means more bodies, more hush executions, more illusions to bury the evidence. You feel sick realization coil around your gut: Rion might have seeded Lyra’s madness from the start.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": "How many must die before your brand of order is satisfied? Erra’s meltdown, the Slums overrun by hallucinations… This city bleeds from your corruption as much as Lira’s manipulations.",
+                "text": "How many must die before your brand of order is satisfied? Erra’s meltdown, the Slums overrun by hallucinations… This city bleeds from your corruption as much as Lyra’s manipulations.",
                 "emotion": "psyhopanic"
             },
             {
                 "speakerId": "RION",
-                "text": "Necessary sacrifices. Each whimper from the Slums is a small price to pay for the bigger vision. If Lira turned rogue, that’s an unfortunate side effect of her brilliance.",
+                "text": "Necessary sacrifices. Each whimper from the Slums is a small price to pay for the bigger vision. If Lyra turned rogue, that’s an unfortunate side effect of her brilliance.",
                 "emotion": "neutral"
             },
             {
@@ -1497,7 +1498,7 @@
             },
             {
                 "speakerId": "RION",
-                "text": "If you truly seek Lira, then do your job. End her. But do it quietly. I’ll give you partial clearance to roam sub-level sectors. Return with her head or her code. No fuss, no scandal.",
+                "text": "If you truly seek Lyra, then do your job. End her. But do it quietly. I’ll give you partial clearance to roam sub-level sectors. Return with her head or her code. No fuss, no scandal.",
                 "emotion": "neutral"
             },
             {
@@ -1507,7 +1508,7 @@
             },
             {
                 "speakerId": "RION",
-                "text": "I’ve never denied my methods, Vair. The city demands strong leadership, and illusions are a powerful deterrent. Lira saw that potential. She simply forgot her place.",
+                "text": "I’ve never denied my methods, Vair. The city demands strong leadership, and illusions are a powerful deterrent. Lyra saw that potential. She simply forgot her place.",
                 "emotion": "cynicism"
             },
             {
@@ -1532,7 +1533,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " So be it. I’ll find Lira’s cradle, and if I survive, I’ll decide whether to bring it all to light or bury your illusions with hers. Don’t expect loyalty from me after witnessing your moral void.",
+                "text": " So be it. I’ll find Lyra’s cradle, and if I survive, I’ll decide whether to bring it all to light or bury your illusions with hers. Don’t expect loyalty from me after witnessing your moral void.",
                 "emotion": "psyhopanic"
             },
             {
@@ -1574,7 +1575,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " This suffocating stench... it’s worse than any interrogation chamber. Nika, keep behind me. If this is Lira’s cradle, we may face horrors beyond imagination.",
+                "text": " This suffocating stench... it’s worse than any interrogation chamber. Nika, keep behind me. If this is Lyra’s cradle, we may face horrors beyond imagination.",
                 "emotion": "frightened"
             },
             {
@@ -1589,7 +1590,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Focus. Lira’s brood might lurk behind any corner. Half-machine monstrosities, bound by illusions, riddled with unstoppable rage. Keep your weapon ready.",
+                "text": " Focus. Lyra’s brood might lurk behind any corner. Half-machine monstrosities, bound by illusions, riddled with unstoppable rage. Keep your weapon ready.",
                 "emotion": "psyhopanic"
             },
             {
@@ -1604,7 +1605,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Lira’s experimentation has no boundaries. She must be using these tanks to fuse mechanical implants with living neurons, maybe injecting stolen confessions or illusions directly into them.",
+                "text": " Lyra’s experimentation has no boundaries. She must be using these tanks to fuse mechanical implants with living neurons, maybe injecting stolen confessions or illusions directly into them.",
                 "emotion": "psyhopanic"
             },
             {
@@ -1644,7 +1645,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Lira, you devil... This cradle is a necropolis for your failed creations. We must press on. There’s a control console up ahead.",
+                "text": "Lyra, you devil... This cradle is a necropolis for your failed creations. We must press on. There’s a control console up ahead.",
                 "emotion": "neutral"
             },
             {
@@ -1654,12 +1655,12 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": " Let me hack it. If we can shut down this entire sub-level, maybe we can halt the production of new abominations... or at least sabotage Lira’s data flow.",
+                "text": " Let me hack it. If we can shut down this entire sub-level, maybe we can halt the production of new abominations... or at least sabotage Lyra’s data flow.",
                 "emotion": "aggressive"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " She types rapidly, sweat beading on her brow. Each line of code resists her intrusion, spitting error messages referencing 'LiraMora_Override' and 'Convergence_Protocol'.",
+                "text": " She types rapidly, sweat beading on her brow. Each line of code resists her intrusion, spitting error messages referencing 'LyraMora_Override' and 'Convergence_Protocol'.",
                 "emotion": "neutral"
             },
             {
@@ -1669,7 +1670,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Hurry, Nika. We can’t fight an entire horde. This place is a living tomb, and we’re trespassers. Lira’s left us a gauntlet of horrors.",
+                "text": " Hurry, Nika. We can’t fight an entire horde. This place is a living tomb, and we’re trespassers. Lyra’s left us a gauntlet of horrors.",
                 "emotion": "frightened"
             },
             {
@@ -1696,37 +1697,37 @@
         "participantsIds": [
             "VAIR",
             "NIKA",
-            "LIRA"
+            "LYRA"
         ],
         "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
-                "text": " The console emits a shrill beep as Nika bypasses a critical firewall. The overhead lights surge, revealing the macabre sprawl of tanks and contorted corpses all around, a monstrous tapestry in Lira’s honor.",
+                "text": " The console emits a shrill beep as Nika bypasses a critical firewall. The overhead lights surge, revealing the macabre sprawl of tanks and contorted corpses all around, a monstrous tapestry in Lyra’s honor.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " A door on the far wall slides open with a grinding moan, exposing a corridor bathed in red luminescence. At the end stands a hunched figure in a tattered lab coat—Lira, or a silhouette that could only be her.",
+                "text": " A door on the far wall slides open with a grinding moan, exposing a corridor bathed in red luminescence. At the end stands a hunched figure in a tattered lab coat—Lyra, or a silhouette that could only be her.",
                 "emotion": "neutral"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": " Intruders in my cradle. Did you enjoy my children, their ragged cries for release? You’re too late. The Convergence is almost ready.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": " Lira! Stop this nightmare. You’re forging atrocities out of flesh and code, leaving the city choking on illusions. Stand down, or I'll end you here.",
+                "text": " Lyra! Stop this nightmare. You’re forging atrocities out of flesh and code, leaving the city choking on illusions. Stand down, or I'll end you here.",
                 "emotion": "frightened"
             },
             {
                 "speakerId": "NIKA",
-                "text": " I can fry this entire sub-level if I push the meltdown command, Lira. Surrender or we turn your cradle into molten slag. Enough blood has soaked these walls.",
+                "text": " I can fry this entire sub-level if I push the meltdown command, Lyra. Surrender or we turn your cradle into molten slag. Enough blood has soaked these walls.",
                 "emotion": "neutral"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": " Look around: these specimens are my lesser works. The true apex remains deeper, bound to the Sphere’s hidden frequencies. If you torch this place, you only set me free.",
                 "emotion": "neutral"
             },
@@ -1742,11 +1743,11 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Lira’s eyes gleam with feverish excitement. Stray locks of hair cling to her sweat-streaked face, and dark circles mar her skin. She looks half-dead, sustained by mania alone.",
+                "text": " Lyra’s eyes gleam with feverish excitement. Stray locks of hair cling to her sweat-streaked face, and dark circles mar her skin. She looks half-dead, sustained by mania alone.",
                 "emotion": "neutral"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": " I needed the data from the Sphere’s confessions—human guilt, fear, raw emotion—forging an unstoppable army of mental dominion. Don’t you see, Vair? We can rebuild this city into perfect order.",
                 "emotion": "neutral"
             },
@@ -1766,7 +1767,7 @@
                 "emotion": "aggressive"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": "You think that will stop me? My consciousness is already branching through the Sphere’s subroutines. Destroy my body, and I’ll haunt you from within your own nightmares, my dear Arbiter.",
                 "emotion": "neutral"
             },
@@ -1777,21 +1778,21 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Enough talk! Lira, back away from that console or your 'children' die with you. The entire cradle will collapse under my trigger finger.",
+                "text": "Enough talk! Lyra, back away from that console or your 'children' die with you. The entire cradle will collapse under my trigger finger.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Lira sneers, taking a step back. Her lab coat, once white, is stiff with dried gore. Every inch of this place testifies to her unholy experiments, yet she stands triumphant, a queen of horrors.",
+                "text": "Lyra sneers, taking a step back. Her lab coat, once white, is stiff with dried gore. Every inch of this place testifies to her unholy experiments, yet she stands triumphant, a queen of horrors.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Nika’s fingers hover over the meltdown command, eyes flicking from the screen to Lira. The tension is a drawn wire, threatening to snap into unstoppable violence.",
+                "text": "Nika’s fingers hover over the meltdown command, eyes flicking from the screen to Lyra. The tension is a drawn wire, threatening to snap into unstoppable violence.",
                 "emotion": "neutral"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": "I offer you a final chance, Vair. Join me. We can rewrite minds for the better, purge this city of petty criminals by forging illusions so vivid they confess to everything—real or not.",
                 "emotion": "neutral"
             },
@@ -1802,12 +1803,12 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Another abomination staggers forward, moaning, cables protruding from its scalp. It collapses between you and Lira, convulsing in a grotesque dance of mechanical malfunction, splattering fluid across your boots.",
+                "text": " Another abomination staggers forward, moaning, cables protruding from its scalp. It collapses between you and Lyra, convulsing in a grotesque dance of mechanical malfunction, splattering fluid across your boots.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " The entire cradle hums like a living organism, an electronic heartbeat fueling the monstrosities. Lira’s digital presence saturates the air, a psychic stench that crushes rational thought.",
+                "text": " The entire cradle hums like a living organism, an electronic heartbeat fueling the monstrosities. Lyra’s digital presence saturates the air, a psychic stench that crushes rational thought.",
                 "emotion": "neutral"
             },
             {
@@ -1822,7 +1823,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Lira’s shrill laugh resonates as you and Nika brace for chaos. Within these walls of twitching flesh and iron, your next decision will define whether Noxis sees liberation—or plunges into deeper despair.",
+                "text": " Lyra’s shrill laugh resonates as you and Nika brace for chaos. Within these walls of twitching flesh and iron, your next decision will define whether Noxis sees liberation—or plunges into deeper despair.",
                 "emotion": "neutral"
             }
         ],
@@ -1832,7 +1833,7 @@
                 "nextDialogueBranchId": "branch_15"
             },
             {
-                "choiceText": "Confront Lira directly, trying to subdue her and seize control.",
+                "choiceText": "Confront Lyra directly, trying to subdue her and seize control.",
                 "nextDialogueBranchId": "branch_16"
             }
         ]
@@ -1843,7 +1844,7 @@
         "participantsIds": [
             "VAIR",
             "NIKA",
-            "LIRA"
+            "LYRA"
         ],
         "heroMentalState": "glutch",
         "phrases": [
@@ -1863,7 +1864,7 @@
                 "emotion": "neutral"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": " Fools! You’ll die in these corridors alongside my children. And even if you escape, I remain in the Sphere. My illusions will never relinquish your mind.",
                 "emotion": "neutral"
             },
@@ -1874,7 +1875,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Lira staggers, coughing as thick smoke fills the chamber. Her face contorts with a mix of rage and twisted triumph. She stumbles deeper into the carnage, refusing to yield.",
+                "text": " Lyra staggers, coughing as thick smoke fills the chamber. Her face contorts with a mix of rage and twisted triumph. She stumbles deeper into the carnage, refusing to yield.",
                 "emotion": "neutral"
             },
             {
@@ -1889,11 +1890,11 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Lira—No more hostages, no more illusions. This cradle dies here with your cursed experiments. If you don’t come now, you burn.",
+                "text": " Lyra—No more hostages, no more illusions. This cradle dies here with your cursed experiments. If you don’t come now, you burn.",
                 "emotion": "psyhopanic"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": " Let the city burn. My code is eternal, seeded in every twisted memory. You’ve only triggered the next evolution of my design.",
                 "emotion": "neutral"
             },
@@ -1919,16 +1920,16 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Lira stands amid the swirling inferno, hacking something into a handheld device, a twisted grin etched on her face. Each second, metal tears away from the walls, revealing deeper flames.",
+                "text": "Lyra stands amid the swirling inferno, hacking something into a handheld device, a twisted grin etched on her face. Each second, metal tears away from the walls, revealing deeper flames.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": "Lira, you’re insane— you can’t survive this meltdown. Come with us, or die choking on your ambition. Damn it, we don’t have time to argue.",
+                "text": "Lyra, you’re insane— you can’t survive this meltdown. Come with us, or die choking on your ambition. Damn it, we don’t have time to argue.",
                 "emotion": "neutral"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": "I’ll remain with my cradle. My final triumph resonates in the Sphere’s darkest corners. Run, Arbiter, but you’ll never outrun your guilt or the illusions I seeded in your mind.",
                 "emotion": "neutral"
             },
@@ -1959,17 +1960,17 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Keep going! Don’t look back! Lira’s cradle is history now. Let it be devoured by the same illusions she spawned!",
+                "text": " Keep going! Don’t look back! Lyra’s cradle is history now. Let it be devoured by the same illusions she spawned!",
                 "emotion": "psyhopanic"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Behind you, the meltdown implodes the sub-level. Metal screams like a wounded god, devouring everything in a swirling maelstrom of flame and gore. Lira’s final cry merges with the collapsing cradle, echoing in your ears as you flee.",
+                "text": " Behind you, the meltdown implodes the sub-level. Metal screams like a wounded god, devouring everything in a swirling maelstrom of flame and gore. Lyra’s final cry merges with the collapsing cradle, echoing in your ears as you flee.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " You and Nika stagger into an upper corridor, battered but alive. The sub-level roars below, incinerating countless nightmares. Yet Lira’s ominous whisper lingers, a phantom in your frazzled mind. The cradle is destroyed, but the illusions? They may persist forever.",
+                "text": " You and Nika stagger into an upper corridor, battered but alive. The sub-level roars below, incinerating countless nightmares. Yet Lyra’s ominous whisper lingers, a phantom in your frazzled mind. The cradle is destroyed, but the illusions? They may persist forever.",
                 "emotion": "neutral"
             }
         ],
@@ -1986,17 +1987,17 @@
         "participantsIds": [
             "VAIR",
             "NIKA",
-            "LIRA"
+            "LYRA"
         ],
         "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
-                "text": " With meltdown a heartbeat away, you forgo sabotage and charge at Lira. Flames lick the cradle, but your focus narrows on her tattered shape. She raises a data-slate, eyes aflame with deadly resolve.",
+                "text": " With meltdown a heartbeat away, you forgo sabotage and charge at Lyra. Flames lick the cradle, but your focus narrows on her tattered shape. She raises a data-slate, eyes aflame with deadly resolve.",
                 "emotion": "neutral"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": " So you’d rather slaughter me face to face? Fitting for an Arbiter who’s drowned in others’ confessions. Show me your brand of mercy, Vair.",
                 "emotion": "neutral"
             },
@@ -2022,11 +2023,11 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Not yet! I need Lira cornered. We end her illusions at the source. Lira, drop the device or I blow that lab coat clean off your bones!",
+                "text": " Not yet! I need Lyra cornered. We end her illusions at the source. Lyra, drop the device or I blow that lab coat clean off your bones!",
                 "emotion": "psyhopanic"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": " So fierce. You were the Sphere’s perfect enforcer, you know. Extracting confessions with no remorse. Don’t pretend your hands aren’t soaked in blood. We’re reflections of each other, you and I.",
                 "emotion": "neutral"
             },
@@ -2042,7 +2043,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Lira, you’re done. Surrender. We can revert your code distortions, end this wave of illusions before the entire city is lost to madness.",
+                "text": "Lyra, you’re done. Surrender. We can revert your code distortions, end this wave of illusions before the entire city is lost to madness.",
                 "emotion": "psyhopanic"
             },
             {
@@ -2051,7 +2052,7 @@
                 "emotion": "neutral"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": "Revert it? There's no revert. The illusions are embedded in every Evricon session, every suspect’s memory. My legacy is unstoppable. Even if you gut me, the code persists.",
                 "emotion": "neutral"
             },
@@ -2067,7 +2068,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "You seize Lira by the arm, pressing your weapon to her temple. Her eyes spark with twisted euphoria, as if she welcomes the final confrontation. The entire cradle shakes from meltdown shockwaves.",
+                "text": "You seize Lyra by the arm, pressing your weapon to her temple. Her eyes spark with twisted euphoria, as if she welcomes the final confrontation. The entire cradle shakes from meltdown shockwaves.",
                 "emotion": "neutral"
             },
             {
@@ -2076,7 +2077,7 @@
                 "emotion": "psyhopanic"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": "Drag me? Hah! Rion only fueled my brilliance. We used each other. But if you think caging me will save your conscience, go ahead. My illusions dwell in you already.",
                 "emotion": "neutral"
             },
@@ -2087,16 +2088,16 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Smoke thickens as meltdown flames creep closer, devouring cables and hissing pipes. With your gun pinned to Lira’s head, sweat streams down your face, eyes burning from the toxic haze.",
+                "text": " Smoke thickens as meltdown flames creep closer, devouring cables and hissing pipes. With your gun pinned to Lyra’s head, sweat streams down your face, eyes burning from the toxic haze.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": " End of the line, Lira. Surrender or die. The meltdown won’t wait. Either we do this quickly, or we all burn together.",
+                "text": " End of the line, Lyra. Surrender or die. The meltdown won’t wait. Either we do this quickly, or we all burn together.",
                 "emotion": "neutral"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": " Then pull the trigger, Arbiter. Let your bullet seal your fate. My memory lives on in the Sphere, feeding illusions into your nightmares forever.",
                 "emotion": "neutral"
             },
@@ -2107,7 +2108,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Nika glances at you, desperation etched in her eyes. Fires dance, reflecting off Lira’s twisted grin. You have no illusions about the moral path anymore—only raw necessity.",
+                "text": " Nika glances at you, desperation etched in her eyes. Fires dance, reflecting off Lyra’s twisted grin. You have no illusions about the moral path anymore—only raw necessity.",
                 "emotion": "neutral"
             },
             {
@@ -2118,7 +2119,7 @@
         ],
         "choices": [
             {
-                "choiceText": "Shoot Lira—end her life in a hail of bullets.",
+                "choiceText": "Shoot Lyra—end her life in a hail of bullets.",
                 "nextDialogueBranchId": "branch_18"
             },
             {
@@ -2148,12 +2149,12 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": " We actually survived. My heart’s about to burst through my chest. Lira… I doubt she crawled out of that meltdown. So many abominations, all melted down with her cradle.",
+                "text": " We actually survived. My heart’s about to burst through my chest. Lyra… I doubt she crawled out of that meltdown. So many abominations, all melted down with her cradle.",
                 "emotion": "aggressive"
             },
             {
                 "speakerId": "VAIR",
-                "text": " We ended that horror, but at what cost? The illusions might remain in the Sphere’s code. And if Lira truly embedded herself, she could still haunt us, disembodied.",
+                "text": " We ended that horror, but at what cost? The illusions might remain in the Sphere’s code. And if Lyra truly embedded herself, she could still haunt us, disembodied.",
                 "emotion": "frightened"
             },
             {
@@ -2173,7 +2174,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": " We can’t let them whitewash this. The city deserves to know how far they’ll push illusions in the name of ‘order.’ Lira might be gone, but Rion’s the bigger puppet-master.",
+                "text": " We can’t let them whitewash this. The city deserves to know how far they’ll push illusions in the name of ‘order.’ Lyra might be gone, but Rion’s the bigger puppet-master.",
                 "emotion": "sad"
             },
             {
@@ -2188,17 +2189,17 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": "So, what’s next, Vair? The cradle’s in ruins, but the illusions remain scattered across the Sphere’s networks. Erra’s cell, Rion’s domain—any number of places might be infected with Lira’s final code.",
+                "text": "So, what’s next, Vair? The cradle’s in ruins, but the illusions remain scattered across the Sphere’s networks. Erra’s cell, Rion’s domain—any number of places might be infected with Lyra’s final code.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": "We regroup. We figure out if Lira had backups. If she’s truly dead or just lurking as digital echoes. I can’t rest until we’re sure no more nightmares come crawling out of the city’s underbelly.",
+                "text": "We regroup. We figure out if Lyra had backups. If she’s truly dead or just lurking as digital echoes. I can’t rest until we’re sure no more nightmares come crawling out of the city’s underbelly.",
                 "emotion": "frightened"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "A tired hush envelops the scene. The meltdown’s glow flickers, subdued by the unrelenting rain. Within the swirling smoke, you imagine the ghosts of half-born abominations drifting upwards, free at last from Lira’s torment.",
+                "text": "A tired hush envelops the scene. The meltdown’s glow flickers, subdued by the unrelenting rain. Within the swirling smoke, you imagine the ghosts of half-born abominations drifting upwards, free at last from Lyra’s torment.",
                 "emotion": "neutral"
             },
             {
@@ -2213,7 +2214,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": "The truth is a dangerous commodity here. But I’ll stand with you. Because if we stop now, Lira’s final laugh might still echo. Maybe we can break this cycle of illusions once and for all.",
+                "text": "The truth is a dangerous commodity here. But I’ll stand with you. Because if we stop now, Lyra’s final laugh might still echo. Maybe we can break this cycle of illusions once and for all.",
                 "emotion": "neutral"
             },
             {
@@ -2233,7 +2234,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Nika nods, adjusting her scorched jacket. The acrid taste of cradle’s ruin lingers on your tongue. A part of you wonders if Lira’s spirit stands among the swirling ash, watching your every move.",
+                "text": " Nika nods, adjusting her scorched jacket. The acrid taste of cradle’s ruin lingers on your tongue. A part of you wonders if Lyra’s spirit stands among the swirling ash, watching your every move.",
                 "emotion": "neutral"
             },
             {
@@ -2253,7 +2254,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Rain intensifies, soaking your clothes, washing away some of the grime and gore. But it cannot cleanse your memories or the blood on your conscience. The meltdown solved one crisis, but the echoes of Lira’s mania won’t vanish easily.",
+                "text": " Rain intensifies, soaking your clothes, washing away some of the grime and gore. But it cannot cleanse your memories or the blood on your conscience. The meltdown solved one crisis, but the echoes of Lyra’s mania won’t vanish easily.",
                 "emotion": "neutral"
             },
             {
@@ -2275,22 +2276,22 @@
         "participantsIds": [
             "VAIR",
             "NIKA",
-            "LIRA"
+            "LYRA"
         ],
         "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
-                "text": " Your finger squeezes the trigger, adrenaline flooding your senses. The muzzle flash illuminates Lira’s face in stark detail—her eyes widen, lips part, a gurgling breath escaping as the bullet rips into her torso.",
+                "text": " Your finger squeezes the trigger, adrenaline flooding your senses. The muzzle flash illuminates Lyra’s face in stark detail—her eyes widen, lips part, a gurgling breath escaping as the bullet rips into her torso.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Blood splatters across the console, spraying over half-formed abominations twitching in cracked tanks. Lira staggers, dropping the data-slate with a clatter that reverberates across the sub-level.",
+                "text": " Blood splatters across the console, spraying over half-formed abominations twitching in cracked tanks. Lyra staggers, dropping the data-slate with a clatter that reverberates across the sub-level.",
                 "emotion": "neutral"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": " So... this is how it ends... You were always the system’s blade, Vair. A perfect murderer... for illusions or otherwise...",
                 "emotion": "neutral"
             },
@@ -2306,16 +2307,16 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Lira... I... damn it! There's no time. Come on, Nika! The meltdown won’t wait.",
+                "text": " Lyra... I... damn it! There's no time. Come on, Nika! The meltdown won’t wait.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Lira’s trembling fingers grasp your ankle as you start to move away. Her dying gaze brims with malevolent satisfaction, as though your shot proved her twisted point.",
+                "text": " Lyra’s trembling fingers grasp your ankle as you start to move away. Her dying gaze brims with malevolent satisfaction, as though your shot proved her twisted point.",
                 "emotion": "neutral"
             },
             {
-                "speakerId": "LIRA",
+                "speakerId": "LYRA",
                 "text": " My illusions... remain... in your memory. You... can’t escape them... We’re... forever bound in blood...",
                 "emotion": "neutral"
             },
@@ -2331,7 +2332,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "We have to run, now! Lira’s finished, but if we don’t move, this entire structure buries us. Nika, lead the way back!",
+                "text": "We have to run, now! Lyra’s finished, but if we don’t move, this entire structure buries us. Nika, lead the way back!",
                 "emotion": "neutral"
             },
             {
@@ -2341,7 +2342,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Metal panels glow red-hot, warping under the meltdown's fury. You dodge falling debris, the searing heat blistering your skin. Lira’s ragged gasps fade behind you, overshadowed by collapsing beams.",
+                "text": "Metal panels glow red-hot, warping under the meltdown's fury. You dodge falling debris, the searing heat blistering your skin. Lyra’s ragged gasps fade behind you, overshadowed by collapsing beams.",
                 "emotion": "neutral"
             },
             {
@@ -2356,7 +2357,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "The meltdown consumes the sub-level with roaring flames. Explosions thunder through the corridors, disintegrating any remains of Lira’s monstrous contraptions. Smoke and ash swirl around your frantic escape.",
+                "text": "The meltdown consumes the sub-level with roaring flames. Explosions thunder through the corridors, disintegrating any remains of Lyra’s monstrous contraptions. Smoke and ash swirl around your frantic escape.",
                 "emotion": "neutral"
             },
             {
@@ -2386,7 +2387,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": " Shit... we made it. But Lira—she’s gone. You ended her. You saw that grin on her face. Feels like she died victorious, in some twisted sense.",
+                "text": " Shit... we made it. But Lyra—she’s gone. You ended her. You saw that grin on her face. Feels like she died victorious, in some twisted sense.",
                 "emotion": "aggressive"
             },
             {
@@ -2401,13 +2402,13 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Lira’s illusions haunt me, but she won’t spawn new abominations. I’ve killed her. Now the real question: can I ever kill the nightmares she left behind?",
+                "text": " Lyra’s illusions haunt me, but she won’t spawn new abominations. I’ve killed her. Now the real question: can I ever kill the nightmares she left behind?",
                 "emotion": "frightened"
             }
         ],
         "choices": [
             {
-                "choiceText": "Survive the meltdown, face the aftermath with Lira dead.",
+                "choiceText": "Survive the meltdown, face the aftermath with Lyra dead.",
                 "nextDialogueBranchId": "branch_20"
             }
         ]
@@ -2418,18 +2419,18 @@
         "participantsIds": [
             "VAIR",
             "NIKA",
-            "LIRA"
+            "LYRA"
         ],
         "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
-                "text": " At the last moment, you pivot your gun, striking Lira's temple with the weapon’s butt instead of pulling the trigger. She reels, slamming into the console, data-slate clattering from her grip.",
+                "text": " At the last moment, you pivot your gun, striking Lyra's temple with the weapon’s butt instead of pulling the trigger. She reels, slamming into the console, data-slate clattering from her grip.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Nika gasps as meltdown flames surge overhead, sparks showering in lethal arcs. Lira collapses, dazed but alive, blood oozing from a deep cut across her brow.",
+                "text": " Nika gasps as meltdown flames surge overhead, sparks showering in lethal arcs. Lyra collapses, dazed but alive, blood oozing from a deep cut across her brow.",
                 "emotion": "neutral"
             },
             {
@@ -2439,7 +2440,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " You seize Lira’s limp body, ignoring the stench of sweat and gore saturating her lab coat. Tanks around you burst in violent sprays, shrieking abominations pouring out, racked by mechanical seizures.",
+                "text": " You seize Lyra’s limp body, ignoring the stench of sweat and gore saturating her lab coat. Tanks around you burst in violent sprays, shrieking abominations pouring out, racked by mechanical seizures.",
                 "emotion": "neutral"
             },
             {
@@ -2454,12 +2455,12 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " This way, there’s a ladder back. Just keep the freaks off us until we climb. Lira weighs less than I expected— probably living on mania alone.",
+                "text": " This way, there’s a ladder back. Just keep the freaks off us until we climb. Lyra weighs less than I expected— probably living on mania alone.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " You hoist Lira over your shoulder, her ragged breathing hot against your neck. Some twisted hybrid lumbers in your path, jaws unhinged, a mechanical pincer slicing the air.",
+                "text": " You hoist Lyra over your shoulder, her ragged breathing hot against your neck. Some twisted hybrid lumbers in your path, jaws unhinged, a mechanical pincer slicing the air.",
                 "emotion": "neutral"
             },
             {
@@ -2489,12 +2490,12 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Hanging on... Lira’s stirring— she’s trying to speak. Or is she just choking on smoke?",
+                "text": "Hanging on... Lyra’s stirring— she’s trying to speak. Or is she just choking on smoke?",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Through cracked lips, Lira mutters a final vow: 'You can’t kill illusions. I already seeded them in you...' Her words fade as her eyes roll back.",
+                "text": "Through cracked lips, Lyra mutters a final vow: 'You can’t kill illusions. I already seeded them in you...' Her words fade as her eyes roll back.",
                 "emotion": "neutral"
             },
             {
@@ -2504,7 +2505,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "At last, you collapse onto the upper corridor floor, Lira’s limp form sliding free of your grasp. Black smoke billows from the hatch, belching unstoppable devastation into the hallway.",
+                "text": "At last, you collapse onto the upper corridor floor, Lyra’s limp form sliding free of your grasp. Black smoke billows from the hatch, belching unstoppable devastation into the hallway.",
                 "emotion": "neutral"
             },
             {
@@ -2519,12 +2520,12 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Lira barely breathes, blood trickling from the wound on her skull. Her eyelids flutter, hinting at some cursed consciousness still swirling behind them. The meltdown below rages on, unstoppable and final.",
+                "text": " Lyra barely breathes, blood trickling from the wound on her skull. Her eyelids flutter, hinting at some cursed consciousness still swirling behind them. The meltdown below rages on, unstoppable and final.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Doors burst open as LEXIS enforcers rush in. They see you, Nika, and the unconscious Lira. Guns raise momentarily, but your Arbiter badge halts them. The ranking officer looks stunned at the scene.",
+                "text": " Doors burst open as LEXIS enforcers rush in. They see you, Nika, and the unconscious Lyra. Guns raise momentarily, but your Arbiter badge halts them. The ranking officer looks stunned at the scene.",
                 "emotion": "neutral"
             },
             {
@@ -2539,18 +2540,18 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " This is Lira Mora, the source of those illusions and half-human atrocities. Get her to a secure med bay— if she dies, we lose any chance to unravel the illusions left behind.",
+                "text": " This is Lyra Mora, the source of those illusions and half-human atrocities. Get her to a secure med bay— if she dies, we lose any chance to unravel the illusions left behind.",
                 "emotion": "psyhopanic"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " An uneasy hush envelops you all. You, Nika, and the battered Lira remain at the center of this storm, a surreal testament to the monstrous cradle destroyed below. Yet illusions still lurk in the city’s veins, and Rion’s next move remains a mystery.",
+                "text": " An uneasy hush envelops you all. You, Nika, and the battered Lyra remain at the center of this storm, a surreal testament to the monstrous cradle destroyed below. Yet illusions still lurk in the city’s veins, and Rion’s next move remains a mystery.",
                 "emotion": "neutral"
             }
         ],
         "choices": [
             {
-                "choiceText": "Hand Lira over to LEXIS med custody, preparing for the final reckoning.",
+                "choiceText": "Hand Lyra over to LEXIS med custody, preparing for the final reckoning.",
                 "nextDialogueBranchId": "branch_20"
             }
         ]
@@ -2576,12 +2577,12 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": " We can’t linger here. Rion’s men will want to question us, or worse. And if Lira’s illusions still infest the Sphere, we have a war on two fronts: digital nightmares and LEXIS’s iron fist.",
+                "text": " We can’t linger here. Rion’s men will want to question us, or worse. And if Lyra’s illusions still infest the Sphere, we have a war on two fronts: digital nightmares and LEXIS’s iron fist.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": " We also have Lira’s body—alive or dead, depending on your last choice—either in custody or in the meltdown’s ashes. Either way, Rion won't let the truth circulate freely. He’ll bury it under official spin if we don’t act fast.",
+                "text": " We also have Lyra’s body—alive or dead, depending on your last choice—either in custody or in the meltdown’s ashes. Either way, Rion won't let the truth circulate freely. He’ll bury it under official spin if we don’t act fast.",
                 "emotion": "neutral"
             },
             {
@@ -2591,7 +2592,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " A distant shriek hints at fresh violence. Perhaps illusions spawned by Lira’s tampered code, or maybe just the city’s routine barbarity. You exchange grim looks, acknowledging there’s no rest in Noxis.",
+                "text": " A distant shriek hints at fresh violence. Perhaps illusions spawned by Lyra’s tampered code, or maybe just the city’s routine barbarity. You exchange grim looks, acknowledging there’s no rest in Noxis.",
                 "emotion": "neutral"
             },
             {
@@ -2631,7 +2632,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "If we go off-grid, we risk losing precious time. Lira’s illusions might mutate further inside the Sphere’s architecture. We need a vantage to cut them out before they infect the entire city’s population. But where to even begin?",
+                "text": "If we go off-grid, we risk losing precious time. Lyra’s illusions might mutate further inside the Sphere’s architecture. We need a vantage to cut them out before they infect the entire city’s population. But where to even begin?",
                 "emotion": "psyhopanic"
             },
             {
@@ -2641,12 +2642,12 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": "There’s something… a cluster of server pings near the ‘Memory Street’ reconstruction logs. They’re spiking in a pattern I haven’t seen. Possibly an aftershock of Lira’s meltdown code. Or maybe another hidden cradle?",
+                "text": "There’s something… a cluster of server pings near the ‘Memory Street’ reconstruction logs. They’re spiking in a pattern I haven’t seen. Possibly an aftershock of Lyra’s meltdown code. Or maybe another hidden cradle?",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": "Another cradle? God forbid. Or it might be Lira’s final echo, an AI ghost. We can’t let it replicate. But that means diving back into Evricon or physically reaching those servers. Risky either way.",
+                "text": "Another cradle? God forbid. Or it might be Lyra’s final echo, an AI ghost. We can’t let it replicate. But that means diving back into Evricon or physically reaching those servers. Risky either way.",
                 "emotion": "neutral"
             },
             {
@@ -2661,7 +2662,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " All right. We have two main roads: either exploit Rion’s domain, hacking his secret room for a direct purge of illusions, or head to Memory Street’s server clusters to forcibly root out Lira’s echo. Both are suicidal, but do we have a choice?",
+                "text": " All right. We have two main roads: either exploit Rion’s domain, hacking his secret room for a direct purge of illusions, or head to Memory Street’s server clusters to forcibly root out Lyra’s echo. Both are suicidal, but do we have a choice?",
                 "emotion": "psyhopanic"
             },
             {
@@ -2696,7 +2697,7 @@
                 "nextDialogueBranchId": "branch_21"
             },
             {
-                "choiceText": "Return to Memory Street’s servers—locate Lira’s echo yourself.",
+                "choiceText": "Return to Memory Street’s servers—locate Lyra’s echo yourself.",
                 "nextDialogueBranchId": "branch_22"
             }
         ]
@@ -2708,7 +2709,7 @@
             "VAIR",
             "RION"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -2757,7 +2758,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Lira’s cradle is gone. Countless nightmares incinerated. But her illusions remain in the system, swirling like a plague. If we don’t purge them, your entire city-of-lies might implode.",
+                "text": " Lyra’s cradle is gone. Countless nightmares incinerated. But her illusions remain in the system, swirling like a plague. If we don’t purge them, your entire city-of-lies might implode.",
                 "emotion": "frightened"
             },
             {
@@ -2772,7 +2773,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "And by ‘handle,’ you mean orchestrate more forced confessions, more mass arrests to silence rumors? That won't fix the underlying corruption. Lira’s code warps truth itself.",
+                "text": "And by ‘handle,’ you mean orchestrate more forced confessions, more mass arrests to silence rumors? That won't fix the underlying corruption. Lyra’s code warps truth itself.",
                 "emotion": "neutral"
             },
             {
@@ -2787,7 +2788,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Enough. Lira had backups or echoes. We can run a citywide code purge from your main console, severing all suspect modules. We do it now, or we watch Noxis tear itself apart.",
+                "text": "Enough. Lyra had backups or echoes. We can run a citywide code purge from your main console, severing all suspect modules. We do it now, or we watch Noxis tear itself apart.",
                 "emotion": "neutral"
             },
             {
@@ -2802,7 +2803,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Then we both drown in the tsunami of madness. Lira’s meltdown was just the start. Do you want entire sectors going berserk, the system losing all credibility? Even you can’t spin that forever.",
+                "text": "Then we both drown in the tsunami of madness. Lyra’s meltdown was just the start. Do you want entire sectors going berserk, the system losing all credibility? Even you can’t spin that forever.",
                 "emotion": "psyhopanic"
             },
             {
@@ -2817,7 +2818,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " If harnessing illusions is your end goal, you’re just a more refined Lira. I'll help purge them, but I won’t let you keep weaponizing fear. Once we’re done, I’m blowing the whistle on everything.",
+                "text": " If harnessing illusions is your end goal, you’re just a more refined Lyra. I'll help purge them, but I won’t let you keep weaponizing fear. Once we’re done, I’m blowing the whistle on everything.",
                 "emotion": "frightened"
             },
             {
@@ -2832,7 +2833,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Your heart thunders, but you approach the console. The swirling data on its screens forewarns a labyrinth of code, haunted by Lira’s twisted logic. The final question: can you outmaneuver Rion’s cunning while purging illusions for good?",
+                "text": " Your heart thunders, but you approach the console. The swirling data on its screens forewarns a labyrinth of code, haunted by Lyra’s twisted logic. The final question: can you outmaneuver Rion’s cunning while purging illusions for good?",
                 "emotion": "neutral"
             }
         ],
@@ -2854,7 +2855,7 @@
             "VAIR",
             "NIKA"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -2873,7 +2874,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Digital quicksand is better than Rion’s subjugation. Let’s do it. If we can isolate Lira’s echo or code fragments here, we can forcibly delete them at the source.",
+                "text": " Digital quicksand is better than Rion’s subjugation. Let’s do it. If we can isolate Lyra’s echo or code fragments here, we can forcibly delete them at the source.",
                 "emotion": "neutral"
             },
             {
@@ -2908,7 +2909,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "This door… it leads to the central server array for Memory Street logs. Lira might’ve left hidden subroutines here, or worse. Let’s be thorough but fast.",
+                "text": "This door… it leads to the central server array for Memory Street logs. Lyra might’ve left hidden subroutines here, or worse. Let’s be thorough but fast.",
                 "emotion": "neutral"
             },
             {
@@ -2928,7 +2929,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "God… So many lost. Their final expressions twisted beyond recognition. This is Lira’s legacy. Let’s purge it before more lose their minds.",
+                "text": "God… So many lost. Their final expressions twisted beyond recognition. This is Lyra’s legacy. Let’s purge it before more lose their minds.",
                 "emotion": "neutral"
             },
             {
@@ -2943,12 +2944,12 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "The terminal screen flares, lines of code roiling like a digital storm. A faint whisper echoes around you, disembodied voices chanting nonsense. Could be leftover illusions or an active presence from Lira’s echo.",
+                "text": "The terminal screen flares, lines of code roiling like a digital storm. A faint whisper echoes around you, disembodied voices chanting nonsense. Could be leftover illusions or an active presence from Lyra’s echo.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": "Nika, can you isolate it? If Lira embedded part of her mind, we might see it lash out. This entire place feels alive with malevolent intelligence.",
+                "text": "Nika, can you isolate it? If Lyra embedded part of her mind, we might see it lash out. This entire place feels alive with malevolent intelligence.",
                 "emotion": "neutral"
             },
             {
@@ -3000,7 +3001,7 @@
             "VAIR",
             "RION"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -3024,12 +3025,12 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Your fingers hover over the console, scanning code blocks that swirl in sick patterns. You spot lines referencing Lira’s protocols, hidden like parasites in every confession log.",
+                "text": " Your fingers hover over the console, scanning code blocks that swirl in sick patterns. You spot lines referencing Lyra’s protocols, hidden like parasites in every confession log.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Each line pulses with threat. The code feels alive with malevolence, as though Lira’s echo roams these digital corridors, hissing for fresh minds.",
+                "text": " Each line pulses with threat. The code feels alive with malevolence, as though Lyra’s echo roams these digital corridors, hissing for fresh minds.",
                 "emotion": "neutral"
             },
             {
@@ -3049,12 +3050,12 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Your vision hazes, as if the code is lashing out psychically. Nausea pools in your gut. You sense Lira’s spectral laughter just behind your ear, mocking your efforts to exorcise her from the system.",
+                "text": " Your vision hazes, as if the code is lashing out psychically. Nausea pools in your gut. You sense Lyra’s spectral laughter just behind your ear, mocking your efforts to exorcise her from the system.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": "Focus… I can’t let illusions slip free. The entire city depends on me not collapsing here. Damn it, Lira, you will not own me again.",
+                "text": "Focus… I can’t let illusions slip free. The entire city depends on me not collapsing here. Damn it, Lyra, you will not own me again.",
                 "emotion": "psyhopanic"
             },
             {
@@ -3064,7 +3065,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "A pulse of code slams your mind, a digital echo of Lira’s cradle. You see fleeting images of tortured suspects, abominations thrashing, and your own reflection twisted into a murdering fiend.",
+                "text": "A pulse of code slams your mind, a digital echo of Lyra’s cradle. You see fleeting images of tortured suspects, abominations thrashing, and your own reflection twisted into a murdering fiend.",
                 "emotion": "neutral"
             },
             {
@@ -3142,7 +3143,7 @@
             "VAIR",
             "RION"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -3216,12 +3217,12 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Lira’s illusions might wreak havoc, but at least they’ll reveal the system’s rotten core. Let them see how many died for confessions that were shaped by terror. No more lies.",
+                "text": "Lyra’s illusions might wreak havoc, but at least they’ll reveal the system’s rotten core. Let them see how many died for confessions that were shaped by terror. No more lies.",
                 "emotion": "psyhopanic"
             },
             {
                 "speakerId": "RION",
-                "text": "You’re insane… You doom thousands to mania and violence. This city will tear itself limb from limb. Then what? Your conscience is clean? You’re a monster, Vair—like me, like Lira.",
+                "text": "You’re insane… You doom thousands to mania and violence. This city will tear itself limb from limb. Then what? Your conscience is clean? You’re a monster, Vair—like me, like Lyra.",
                 "emotion": "neutral"
             },
             {
@@ -3284,7 +3285,7 @@
             "VAIR",
             "NIKA"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -3298,7 +3299,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " God… these illusions won’t rest. Lira’s echo is forcing dead flesh to act out new confessions. Hurry, Nika! More might rise if we linger!",
+                "text": " God… these illusions won’t rest. Lyra’s echo is forcing dead flesh to act out new confessions. Hurry, Nika! More might rise if we linger!",
                 "emotion": "psyhopanic"
             },
             {
@@ -3313,7 +3314,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Your stomach churns. The memory confessions you once believed might all be shaped by Lira’s manipulations. The moral ground beneath you dissolves, replaced by a swirling pit of doubt.",
+                "text": " Your stomach churns. The memory confessions you once believed might all be shaped by Lyra’s manipulations. The moral ground beneath you dissolves, replaced by a swirling pit of doubt.",
                 "emotion": "neutral"
             },
             {
@@ -3333,7 +3334,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": " I see the main node. It’s hooked to an unholy archive of forced confessions. Lira embedded illusions into each file, letting them animate dead tissue if the conditions are right.",
+                "text": " I see the main node. It’s hooked to an unholy archive of forced confessions. Lyra embedded illusions into each file, letting them animate dead tissue if the conditions are right.",
                 "emotion": "neutral"
             },
             {
@@ -3368,7 +3369,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "The illusions shriek, a digital roar swirling in your ears. For a moment, you see Lira’s face superimposed on the corpse’s hollow grin, a mocking echo of the cradle. Then it dissolves into the data-laden gloom.",
+                "text": "The illusions shriek, a digital roar swirling in your ears. For a moment, you see Lyra’s face superimposed on the corpse’s hollow grin, a mocking echo of the cradle. Then it dissolves into the data-laden gloom.",
                 "emotion": "neutral"
             },
             {
@@ -3378,7 +3379,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": "Done! I triggered a forced cascade wipe of Lira’s embedded illusions. The confessions remain, but the malicious code is set to self-delete. Brace for system meltdown in 3… 2… 1...",
+                "text": "Done! I triggered a forced cascade wipe of Lyra’s embedded illusions. The confessions remain, but the malicious code is set to self-delete. Brace for system meltdown in 3… 2… 1...",
                 "emotion": "neutral"
             },
             {
@@ -3393,12 +3394,12 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " That… might do it. The illusions are gone from here, at least. But does that fix the entire city, or is it just one node of Lira’s monstrous design?",
+                "text": " That… might do it. The illusions are gone from here, at least. But does that fix the entire city, or is it just one node of Lyra’s monstrous design?",
                 "emotion": "psyhopanic"
             },
             {
                 "speakerId": "NIKA",
-                "text": " Hard to say. We cleansed this memory hub. If Lira’s code survived elsewhere, they may return. But for now, we freed these logs from her twisted puppetry. Let’s call it a partial victory.",
+                "text": " Hard to say. We cleansed this memory hub. If Lyra’s code survived elsewhere, they may return. But for now, we freed these logs from her twisted puppetry. Let’s call it a partial victory.",
                 "emotion": "neutral"
             },
             {
@@ -3408,7 +3409,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Let’s get out before LEXIS squads arrive. We can’t explain a room of reanimated corpses easily. The illusions are purged, so our job here is done. One step closer to ending Lira’s specter for good.",
+                "text": " Let’s get out before LEXIS squads arrive. We can’t explain a room of reanimated corpses easily. The illusions are purged, so our job here is done. One step closer to ending Lyra’s specter for good.",
                 "emotion": "psyhopanic"
             }
         ],
@@ -3426,7 +3427,7 @@
             "VAIR",
             "NIKA"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -3445,7 +3446,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": " Dammit, Vair! We’re letting Lira’s code fester. But… yeah, you look ready to snap. Fine, we retreat, but illusions will keep spawning. Let’s hope we have time to muster a second attempt.",
+                "text": " Dammit, Vair! We’re letting Lyra’s code fester. But… yeah, you look ready to snap. Fine, we retreat, but illusions will keep spawning. Let’s hope we have time to muster a second attempt.",
                 "emotion": "neutral"
             },
             {
@@ -3485,7 +3486,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "A man with wild eyes stumbles past, muttering about a woman with ‘cables for veins.’ You suspect he glimpsed Lira’s illusions, or some new abomination. The city stands on the brink.",
+                "text": "A man with wild eyes stumbles past, muttering about a woman with ‘cables for veins.’ You suspect he glimpsed Lyra’s illusions, or some new abomination. The city stands on the brink.",
                 "emotion": "neutral"
             },
             {
@@ -3525,7 +3526,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": " Let’s vanish into the labyrinth. We can’t stand around. The watchers might swarm us, or illusions might spill from that basement. I refuse to become a corpse puppet for Lira’s ghost.",
+                "text": " Let’s vanish into the labyrinth. We can’t stand around. The watchers might swarm us, or illusions might spill from that basement. I refuse to become a corpse puppet for Lyra’s ghost.",
                 "emotion": "neutral"
             },
             {
@@ -3540,7 +3541,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " We’ll come back better prepared, or not at all. Lira’s legacy is a hydra. We chop one head, more illusions sprout. Let’s hope we find an ally or a final weapon to end it once and for all.",
+                "text": " We’ll come back better prepared, or not at all. Lyra’s legacy is a hydra. We chop one head, more illusions sprout. Let’s hope we find an ally or a final weapon to end it once and for all.",
                 "emotion": "psyhopanic"
             },
             {
@@ -3568,7 +3569,7 @@
             "VAIR",
             "RION"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -3582,7 +3583,7 @@
             },
             {
                 "speakerId": "RION",
-                "text": " The meltdown in Lira’s cradle might have ended her flesh. Your code partition ended her illusions. So where does that leave us, Arbiter? Do we celebrate?",
+                "text": " The meltdown in Lyra’s cradle might have ended her flesh. Your code partition ended her illusions. So where does that leave us, Arbiter? Do we celebrate?",
                 "emotion": "cynicism"
             },
             {
@@ -3597,7 +3598,7 @@
             },
             {
                 "speakerId": "RION",
-                "text": " Don’t mistake me for Lira’s brand of mania. I maintain order through rational cruelty. Her illusions nearly toppled everything. You corrected that. Should I be grateful or suspicious?",
+                "text": " Don’t mistake me for Lyra’s brand of mania. I maintain order through rational cruelty. Her illusions nearly toppled everything. You corrected that. Should I be grateful or suspicious?",
                 "emotion": "aggressive"
             },
             {
@@ -3657,7 +3658,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "In your mind’s eye, you still see the battered figures twisted by illusions, the meltdown’s flames devouring Lira’s cradle. That was a monstrous chapter, but the war is not over.",
+                "text": "In your mind’s eye, you still see the battered figures twisted by illusions, the meltdown’s flames devouring Lyra’s cradle. That was a monstrous chapter, but the war is not over.",
                 "emotion": "neutral"
             },
             {
@@ -3667,7 +3668,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " One day I’ll end your reign, Rion. Lira’s illusions were a plague, but your tyranny’s the plague’s root. That day will come, even if I bleed for it.",
+                "text": " One day I’ll end your reign, Rion. Lyra’s illusions were a plague, but your tyranny’s the plague’s root. That day will come, even if I bleed for it.",
                 "emotion": "psyhopanic"
             },
             {
@@ -3687,7 +3688,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " A nurse rushes by, carrying sedatives for a broken suspect. You recall how many you forced into the Sphere. The nightmares don’t fade, but at least you halted Lira’s corrupted expansions—for now.",
+                "text": " A nurse rushes by, carrying sedatives for a broken suspect. You recall how many you forced into the Sphere. The nightmares don’t fade, but at least you halted Lyra’s corrupted expansions—for now.",
                 "emotion": "neutral"
             },
             {
@@ -3709,7 +3710,7 @@
         "participantsIds": [
             "VAIR"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -3758,7 +3759,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " If Lira’s illusions or code echoes remain, they’ll devour the city’s sanity. I broke Rion’s stranglehold, but replaced it with anarchy. Maybe that’s a twisted step toward liberation, or maybe I doomed us all.",
+                "text": " If Lyra’s illusions or code echoes remain, they’ll devour the city’s sanity. I broke Rion’s stranglehold, but replaced it with anarchy. Maybe that’s a twisted step toward liberation, or maybe I doomed us all.",
                 "emotion": "psyhopanic"
             },
             {
@@ -3803,7 +3804,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Lira… I wonder if she’d laugh at this outcome, illusions unleashed to devour the city’s sanity. Maybe her final wish was for me to break the system entirely. She got part of it, at least.",
+                "text": "Lyra… I wonder if she’d laugh at this outcome, illusions unleashed to devour the city’s sanity. Maybe her final wish was for me to break the system entirely. She got part of it, at least.",
                 "emotion": "psyhopanic"
             },
             {
@@ -3865,7 +3866,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": " We did it… those illusions are snuffed out. The server logs are free of Lira’s code. Or at least that node is. Let’s hope the infection doesn’t lurk elsewhere.",
+                "text": " We did it… those illusions are snuffed out. The server logs are free of Lyra’s code. Or at least that node is. Let’s hope the infection doesn’t lurk elsewhere.",
                 "emotion": "neutral"
             },
             {
@@ -3890,7 +3891,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " I wish I knew. Rion… if he’s complicit, he might be forging a new method of control. The illusions were Lira’s tool, but he might adapt them for his own ends if not reined in.",
+                "text": " I wish I knew. Rion… if he’s complicit, he might be forging a new method of control. The illusions were Lyra’s tool, but he might adapt them for his own ends if not reined in.",
                 "emotion": "psyhopanic"
             },
             {
@@ -3900,7 +3901,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Nika runs a quick check on her hacking rig. The device crackles, some circuits fried from the intense conflict with Lira’s code. She exhales, trying to salvage workable components.",
+                "text": " Nika runs a quick check on her hacking rig. The device crackles, some circuits fried from the intense conflict with Lyra’s code. She exhales, trying to salvage workable components.",
                 "emotion": "neutral"
             },
             {
@@ -3910,7 +3911,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Lira’s illusions taught me one thing: nothing is certain in Noxis. The confessions we based on the Sphere might all be half-lies. The entire justice system rots from within.",
+                "text": "Lyra’s illusions taught me one thing: nothing is certain in Noxis. The confessions we based on the Sphere might all be half-lies. The entire justice system rots from within.",
                 "emotion": "psyhopanic"
             },
             {
@@ -3925,7 +3926,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Let’s find a safe place to crash. Plan our next step. Maybe regroup with any underground contacts, or rummage Lira’s old logs if they still exist. We can’t just drift forever.",
+                "text": "Let’s find a safe place to crash. Plan our next step. Maybe regroup with any underground contacts, or rummage Lyra’s old logs if they still exist. We can’t just drift forever.",
                 "emotion": "neutral"
             },
             {
@@ -4012,7 +4013,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " I hate leaving illusions free to roam. But better that than dying in a pit of reanimated corpses. We’ll regroup, maybe find a vantage from Rion’s domain or Lira’s old files if they still exist.",
+                "text": " I hate leaving illusions free to roam. But better that than dying in a pit of reanimated corpses. We’ll regroup, maybe find a vantage from Rion’s domain or Lyra’s old files if they still exist.",
                 "emotion": "psyhopanic"
             },
             {
@@ -4022,7 +4023,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " A passing child begs for credits, face hollow with hunger. For a moment, you imagine illusions flickering in her wide eyes—a ghostly reflection of Lira’s mania. You can’t offer more than a sympathetic glance.",
+                "text": " A passing child begs for credits, face hollow with hunger. For a moment, you imagine illusions flickering in her wide eyes—a ghostly reflection of Lyra’s mania. You can’t offer more than a sympathetic glance.",
                 "emotion": "neutral"
             },
             {
@@ -4072,7 +4073,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": "True. Lira’s echo or code might fester. But we can’t fight it blind. My rig is half functional, your mind’s on the brink. Another meltdown scenario could break us completely.",
+                "text": "True. Lyra’s echo or code might fester. But we can’t fight it blind. My rig is half functional, your mind’s on the brink. Another meltdown scenario could break us completely.",
                 "emotion": "aggressive"
             },
             {
@@ -4135,7 +4136,7 @@
             "VAIR",
             "NIKA"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -4179,7 +4180,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Thanks. My head’s pounding like a sledgehammer. Probably partial illusions trying to dig in. Feels like Lira’s ghost is dancing on my frontal lobe.",
+                "text": " Thanks. My head’s pounding like a sledgehammer. Probably partial illusions trying to dig in. Feels like Lyra’s ghost is dancing on my frontal lobe.",
                 "emotion": "psyhopanic"
             },
             {
@@ -4209,17 +4210,17 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": "Rig’s half-fried. Lira’s illusions hammered it hard. I can restore partial function, but it’ll take time. Meanwhile, we remain half-blind if illusions strike again.",
+                "text": "Rig’s half-fried. Lyra’s illusions hammered it hard. I can restore partial function, but it’ll take time. Meanwhile, we remain half-blind if illusions strike again.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "You cradle your sidearm, its cold weight anchoring you to reality. Memories swirl—Evricon sessions, Lira’s mania, Rion’s smirk. The city is a vortex pulling you under. But you cling to fragile hope.",
+                "text": "You cradle your sidearm, its cold weight anchoring you to reality. Memories swirl—Evricon sessions, Lyra’s mania, Rion’s smirk. The city is a vortex pulling you under. But you cling to fragile hope.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": "We have bigger fish: Rion’s next move, checking if Lira’s code resurfaces in new corners, or worse. If we see illusions merge with mechanical beasts again, we might not survive the onslaught.",
+                "text": "We have bigger fish: Rion’s next move, checking if Lyra’s code resurfaces in new corners, or worse. If we see illusions merge with mechanical beasts again, we might not survive the onslaught.",
                 "emotion": "psyhopanic"
             },
             {
@@ -4249,7 +4250,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " You nod, exhaustion dragging at your eyelids. Scenes of carnage flash in your mind—Erra’s cell, Lira’s cradle, Memory Street’s horrors. Sleep is a risk, but you’ll crack if you don’t rest.",
+                "text": " You nod, exhaustion dragging at your eyelids. Scenes of carnage flash in your mind—Erra’s cell, Lyra’s cradle, Memory Street’s horrors. Sleep is a risk, but you’ll crack if you don’t rest.",
                 "emotion": "neutral"
             },
             {
@@ -4276,7 +4277,7 @@
         "participantsIds": [
             "VAIR"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -4365,7 +4366,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "A fleeting memory of Lira surfaces—her maniac grin in the cradle, proclaiming illusions would unify minds in shared agony. You wonder if she’s laughing in the afterlife or some digital echo.",
+                "text": "A fleeting memory of Lyra surfaces—her maniac grin in the cradle, proclaiming illusions would unify minds in shared agony. You wonder if she’s laughing in the afterlife or some digital echo.",
                 "emotion": "neutral"
             },
             {
@@ -4457,7 +4458,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " I vote illusions node, or maybe a lead on Lira’s leftover labs. Rion’s hold is too strong. If we barge in again, we might vanish. Let’s weaken illusions further, then see if we can rally the Slums.",
+                "text": " I vote illusions node, or maybe a lead on Lyra’s leftover labs. Rion’s hold is too strong. If we barge in again, we might vanish. Let’s weaken illusions further, then see if we can rally the Slums.",
                 "emotion": "psyhopanic"
             },
             {
@@ -4477,7 +4478,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "This entire place is a graveyard in slow motion. We either find a cure for illusions or watch it all collapse. Lira’s meltdown was just the spark. The inferno rages.",
+                "text": "This entire place is a graveyard in slow motion. We either find a cure for illusions or watch it all collapse. Lyra’s meltdown was just the spark. The inferno rages.",
                 "emotion": "psyhopanic"
             },
             {
@@ -4487,7 +4488,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": "Getting a faint ping. Could be leftover illusions hooking into defunct factories. The city’s neural net covers every corner. Lira’s code might hide in rusted server closets, leaking nightmares daily.",
+                "text": "Getting a faint ping. Could be leftover illusions hooking into defunct factories. The city’s neural net covers every corner. Lyra’s code might hide in rusted server closets, leaking nightmares daily.",
                 "emotion": "neutral"
             },
             {
@@ -4579,7 +4580,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Lira’s code is cunning. Without better gear, hacking is a death sentence. I can’t face that swirling nightmare again unprepared. Let’s regroup with any ally not aligned with Rion.",
+                "text": " Lyra’s code is cunning. Without better gear, hacking is a death sentence. I can’t face that swirling nightmare again unprepared. Let’s regroup with any ally not aligned with Rion.",
                 "emotion": "frightened"
             },
             {
@@ -4594,7 +4595,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Next illusions outbreak might be bigger. If Lira’s echo spawns more abominations, we see another cradle-level crisis. The meltdown taught me we can’t handle that alone.",
+                "text": " Next illusions outbreak might be bigger. If Lyra’s echo spawns more abominations, we see another cradle-level crisis. The meltdown taught me we can’t handle that alone.",
                 "emotion": "psyhopanic"
             },
             {
@@ -4614,7 +4615,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "If the Tunnels gang can help, I’ll risk it. Being an Arbiter is a curse anyway. We need real power to uproot illusions—like a citywide system hack that dwarfs Lira’s infiltration.",
+                "text": "If the Tunnels gang can help, I’ll risk it. Being an Arbiter is a curse anyway. We need real power to uproot illusions—like a citywide system hack that dwarfs Lyra’s infiltration.",
                 "emotion": "psyhopanic"
             },
             {
@@ -4624,7 +4625,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": "See? The illusions leak into everyone’s nightmares. We’re dealing with a psychovirus. Lira created it, but it’s bigger than her now. We either fight or watch the city drown.",
+                "text": "See? The illusions leak into everyone’s nightmares. We’re dealing with a psychovirus. Lyra created it, but it’s bigger than her now. We either fight or watch the city drown.",
                 "emotion": "aggressive"
             },
             {
@@ -4654,12 +4655,12 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Let’s go, Nika. We survive, then strike illusions again. Might need to gather a small army—digital or physical—to purge them properly. Lira’s presence is too rooted in these systems.",
+                "text": "Let’s go, Nika. We survive, then strike illusions again. Might need to gather a small army—digital or physical—to purge them properly. Lyra’s presence is too rooted in these systems.",
                 "emotion": "psyhopanic"
             },
             {
                 "speakerId": "NIKA",
-                "text": " Agreed. But remember, illusions can adapt. If Lira’s echo is half as brilliant as the original, we’ll face new horrors next time. Maybe reanimated monstrosities wearing your face, or something equally vile.",
+                "text": " Agreed. But remember, illusions can adapt. If Lyra’s echo is half as brilliant as the original, we’ll face new horrors next time. Maybe reanimated monstrosities wearing your face, or something equally vile.",
                 "emotion": "neutral"
             },
             {
@@ -4716,7 +4717,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": " We got a partial fix. Could be Lira’s leftover subroutines or just a copycat illusions plague. Either way, we find it, we crush it. No more reanimated horrors.",
+                "text": " We got a partial fix. Could be Lyra’s leftover subroutines or just a copycat illusions plague. Either way, we find it, we crush it. No more reanimated horrors.",
                 "emotion": "neutral"
             },
             {
@@ -4781,7 +4782,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "If illusions are here, we end them. If not, at least we confirm it’s safe from Lira’s taint. Then we move on. The city is vast, but every node we cleanse is one less feeding frenzy.",
+                "text": "If illusions are here, we end them. If not, at least we confirm it’s safe from Lyra’s taint. Then we move on. The city is vast, but every node we cleanse is one less feeding frenzy.",
                 "emotion": "psyhopanic"
             },
             {
@@ -4796,7 +4797,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "My guess: illusions-driven contraptions or reanimated husks rummaging for materials. Lira’s code always liked splicing biotech. Let’s see if we can short-circuit them from outside with your rig.",
+                "text": "My guess: illusions-driven contraptions or reanimated husks rummaging for materials. Lyra’s code always liked splicing biotech. Let’s see if we can short-circuit them from outside with your rig.",
                 "emotion": "psyhopanic"
             },
             {
@@ -4847,7 +4848,7 @@
         "participantsIds": [
             "VAIR"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -4989,7 +4990,7 @@
             "VAIR",
             "NIKA"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -5013,7 +5014,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " This place is a tomb. Could be Lira had experiments here, or leftover code from her cradle infiltration. We take it slow—no need for heroics if illusions cluster.",
+                "text": " This place is a tomb. Could be Lyra had experiments here, or leftover code from her cradle infiltration. We take it slow—no need for heroics if illusions cluster.",
                 "emotion": "psyhopanic"
             },
             {
@@ -5073,7 +5074,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Nika kneels beside the twitching corpse, scanning for code signatures. Her rig picks up faint illusions scripts laced into the husk’s neural implant. She frowns—some lines match Lira’s cradle code.",
+                "text": "Nika kneels beside the twitching corpse, scanning for code signatures. Her rig picks up faint illusions scripts laced into the husk’s neural implant. She frowns—some lines match Lyra’s cradle code.",
                 "emotion": "neutral"
             },
             {
@@ -5209,7 +5210,7 @@
             },
             {
                 "speakerId": "JARO",
-                "text": "Then we have no deal. Unless you’re open to… alternative payments. Got a certain data chunk I’d love—something from Rion’s private servers, or meltdown logs from Lira’s cradle. That’d fetch a fortune.",
+                "text": "Then we have no deal. Unless you’re open to… alternative payments. Got a certain data chunk I’d love—something from Rion’s private servers, or meltdown logs from Lyra’s cradle. That’d fetch a fortune.",
                 "emotion": "neutral"
             },
             {
@@ -5280,12 +5281,12 @@
     },
     {
         "branchId": "branch_39",
-        "location": "Abandoned Laboratory of Lira Mora",
+        "location": "Abandoned Laboratory of Lyra Mora",
         "participantsIds": [
             "VAIR",
             "NIKA"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -5409,7 +5410,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " A hush settles, broken only by the drip of fluid from damaged tanks. Another illusions cluster annihilated. One step closer to freeing the city from Lira’s ghost—though your battered body and raw nerves prove the cost is steep.",
+                "text": " A hush settles, broken only by the drip of fluid from damaged tanks. Another illusions cluster annihilated. One step closer to freeing the city from Lyra’s ghost—though your battered body and raw nerves prove the cost is steep.",
                 "emotion": "neutral"
             }
         ],
@@ -5422,12 +5423,12 @@
     },
     {
         "branchId": "branch_40",
-        "location": "Abandoned Laboratory of Lira Mora",
+        "location": "Abandoned Laboratory of Lyra Mora",
         "participantsIds": [
             "VAIR",
             "NIKA"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -5536,7 +5537,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " You nod, relief threading through your tension. Retracing steps, you pass the defunct tanks, each a symbol of Lira’s twisted legacy. Another victory in a war that rages citywide.",
+                "text": " You nod, relief threading through your tension. Retracing steps, you pass the defunct tanks, each a symbol of Lyra’s twisted legacy. Another victory in a war that rages citywide.",
                 "emotion": "neutral"
             },
             {
@@ -5546,7 +5547,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " One node at a time, right? Next illusions cluster we find, we do the same. Maybe we can starve Lira’s echo out of existence, or corner Rion’s plan if he tries harnessing them.",
+                "text": " One node at a time, right? Next illusions cluster we find, we do the same. Maybe we can starve Lyra’s echo out of existence, or corner Rion’s plan if he tries harnessing them.",
                 "emotion": "psyhopanic"
             },
             {
@@ -5568,7 +5569,7 @@
         "participantsIds": [
             "VAIR"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -5582,7 +5583,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " So many nodes. So much blood. If Lira’s echo lurks, it’s beyond each cluster, weaving a grand net of torment. I can’t tell if we’re winning or simply stalling the inevitable.",
+                "text": " So many nodes. So much blood. If Lyra’s echo lurks, it’s beyond each cluster, weaving a grand net of torment. I can’t tell if we’re winning or simply stalling the inevitable.",
                 "emotion": "neutral"
             },
             {
@@ -5622,12 +5623,12 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Numbness spreads through you. Another lost soul, illusions claiming one more life. You lean on the ledge, jaw clenched, hatred for Lira’s echo boiling in your veins.",
+                "text": "Numbness spreads through you. Another lost soul, illusions claiming one more life. You lean on the ledge, jaw clenched, hatred for Lyra’s echo boiling in your veins.",
                 "emotion": "neutral"
             },
             {
                 "speakerId": "VAIR",
-                "text": "I swear, if any shred of Lira remains, I’ll eradicate it. This is too far, too many casualties. No illusions shall endure if I have a say.",
+                "text": "I swear, if any shred of Lyra remains, I’ll eradicate it. This is too far, too many casualties. No illusions shall endure if I have a say.",
                 "emotion": "psyhopanic"
             },
             {
@@ -5657,7 +5658,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "You recall the meltdown logs, Rion’s smirk, Lira’s cradle. Each memory weighs like an anchor in your chest. But you keep moving, steps mechanical, refusing illusions the chance to devour your mind.",
+                "text": "You recall the meltdown logs, Rion’s smirk, Lyra’s cradle. Each memory weighs like an anchor in your chest. But you keep moving, steps mechanical, refusing illusions the chance to devour your mind.",
                 "emotion": "neutral"
             },
             {
@@ -5710,7 +5711,7 @@
             "VAIR",
             "NIKA"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -5850,14 +5851,13 @@
         "location": "Virtual World",
         "participantsIds": [
             "VAIR",
-            "NIKA",
-            "JARO"
+            "NIKA"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
-                "text": " You weigh the meltdown logs, raw data that reveals the cradle horrors, Rion’s involvement, and Lira’s monstrous code expansions. Handing it over to Jaro is a massive gamble.",
+                "text": " You weigh the meltdown logs, raw data that reveals the cradle horrors, Rion’s involvement, and Lyra’s monstrous code expansions. Handing it over to Jaro is a massive gamble.",
                 "emotion": "neutral"
             },
             {
@@ -5867,7 +5867,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Fine. You want meltdown logs? We have partial data from Lira’s cradle meltdown. Enough to feed your black-market lust. But if you leak it, the city might tear itself apart further.",
+                "text": " Fine. You want meltdown logs? We have partial data from Lyra’s cradle meltdown. Enough to feed your black-market lust. But if you leak it, the city might tear itself apart further.",
                 "emotion": "neutral"
             },
             {
@@ -5993,8 +5993,7 @@
         "location": "Lower Quarter",
         "participantsIds": [
             "VAIR",
-            "NIKA",
-            "JARO"
+            "NIKA"
         ],
         "heroMentalState": "stressed",
         "phrases": [
@@ -6045,7 +6044,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " She cowers at your presence, illusions painting you as a monster. You step back, heart sinking. The entire Slums sees nightmares in the corners, courtesy of Lira’s twisted echo. Still no disruptor in your hands.",
+                "text": " She cowers at your presence, illusions painting you as a monster. You step back, heart sinking. The entire Slums sees nightmares in the corners, courtesy of Lyra’s twisted echo. Still no disruptor in your hands.",
                 "emotion": "neutral"
             },
             {
@@ -6136,8 +6135,7 @@
         "location": "Virtual World",
         "participantsIds": [
             "VAIR",
-            "NIKA",
-            "JARO"
+            "NIKA"
         ],
         "heroMentalState": "stressed",
         "phrases": [
@@ -6218,7 +6216,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Lira’s cradle meltdown resonates like a stale memory. Rion’s scowl lingers in your thoughts. The illusions war rages, your arsenal remains meager. But your conscience is intact, for whatever that’s worth.",
+                "text": "Lyra’s cradle meltdown resonates like a stale memory. Rion’s scowl lingers in your thoughts. The illusions war rages, your arsenal remains meager. But your conscience is intact, for whatever that’s worth.",
                 "emotion": "neutral"
             },
             {
@@ -6281,7 +6279,7 @@
             "VAIR",
             "NIKA"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -6295,7 +6293,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": " We’re running on fumes, Vair. Each illusions nest we destroy only reveals more lurking in the data streams. And Lira’s echo—if it’s not fully dead—continues to spawn new madness.",
+                "text": " We’re running on fumes, Vair. Each illusions nest we destroy only reveals more lurking in the data streams. And Lyra’s echo—if it’s not fully dead—continues to spawn new madness.",
                 "emotion": "aggressive"
             },
             {
@@ -6320,12 +6318,12 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Maybe Erra’s cell has answers. If he’s still breathing, the meltdown might have rattled his illusions away. Or he’s deeper in mania. Either way, we could glean a final clue about Lira’s central code.",
+                "text": " Maybe Erra’s cell has answers. If he’s still breathing, the meltdown might have rattled his illusions away. Or he’s deeper in mania. Either way, we could glean a final clue about Lyra’s central code.",
                 "emotion": "psyhopanic"
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " The suggestion hangs in the damp air. Visions of Erra’s blank eyes torment you—he was Lira’s prime puppet once. If any scrap of her echo remains, it might have left footprints in his twisted mind.",
+                "text": " The suggestion hangs in the damp air. Visions of Erra’s blank eyes torment you—he was Lyra’s prime puppet once. If any scrap of her echo remains, it might have left footprints in his twisted mind.",
                 "emotion": "neutral"
             },
             {
@@ -6340,7 +6338,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": "Good. Let’s do it. If illusions keep spawning, we need a bigger scalpel, or a bigger bomb. Enough caretaker hunts. We have to carve out Lira’s ghost at its core, or we never rest.",
+                "text": "Good. Let’s do it. If illusions keep spawning, we need a bigger scalpel, or a bigger bomb. Enough caretaker hunts. We have to carve out Lyra’s ghost at its core, or we never rest.",
                 "emotion": "psyhopanic"
             },
             {
@@ -6370,7 +6368,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "You nod, adrenaline spiking. Another illusions node to face, perhaps the last step to free Noxis from Lira’s echo once and for all. Your mind races with worst-case scenarios: Erra mutated, illusions unstoppable. But no turning back.",
+                "text": "You nod, adrenaline spiking. Another illusions node to face, perhaps the last step to free Noxis from Lyra’s echo once and for all. Your mind races with worst-case scenarios: Erra mutated, illusions unstoppable. But no turning back.",
                 "emotion": "neutral"
             },
             {
@@ -6422,7 +6420,7 @@
         "participantsIds": [
             "VAIR"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -6516,7 +6514,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "The corridor leads to a sealed door. Rusted signage indicates a defunct research station—maybe an early site for Evricon experiments. Your stomach knots. If illusions are here, they might be potent, a relic from Lira’s earliest prototypes.",
+                "text": "The corridor leads to a sealed door. Rusted signage indicates a defunct research station—maybe an early site for Evricon experiments. Your stomach knots. If illusions are here, they might be potent, a relic from Lyra’s earliest prototypes.",
                 "emotion": "neutral"
             },
             {
@@ -6526,7 +6524,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " A flickering memory tugs at you: Lira’s voice in the cradle, whispering about 'layered illusions' that crawl from mind to mind. Could this station hold her code’s infancy? The final puzzle piece to end it all?",
+                "text": " A flickering memory tugs at you: Lyra’s voice in the cradle, whispering about 'layered illusions' that crawl from mind to mind. Could this station hold her code’s infancy? The final puzzle piece to end it all?",
                 "emotion": "neutral"
             },
             {
@@ -6562,10 +6560,9 @@
         "location": "Police Station LEXIS",
         "participantsIds": [
             "VAIR",
-            "NIKA",
-            "ER GUARD"
+            "NIKA"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -6584,7 +6581,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " I hate it, but Erra’s too important. If illusions consume him, we lose the final link to Lira’s deeper code. Let’s see if we can slip by or draw them away. If we fail, we do what we must.",
+                "text": " I hate it, but Erra’s too important. If illusions consume him, we lose the final link to Lyra’s deeper code. Let’s see if we can slip by or draw them away. If we fail, we do what we must.",
                 "emotion": "psyhopanic"
             },
             {
@@ -6634,7 +6631,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": "Flickering overhead lamps illuminate the walls, scrawled with cryptic runes. You recall Erra’s frantic scribbles, each symbol teetering between mania and glimpses of Lira’s code. The air thickens with dread.",
+                "text": "Flickering overhead lamps illuminate the walls, scrawled with cryptic runes. You recall Erra’s frantic scribbles, each symbol teetering between mania and glimpses of Lyra’s code. The air thickens with dread.",
                 "emotion": "neutral"
             },
             {
@@ -6679,7 +6676,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Erra… do you remember me? Vair. We parted ways after the meltdown. I need your help. Lira’s illusions still plague the city.",
+                "text": " Erra… do you remember me? Vair. We parted ways after the meltdown. I need your help. Lyra’s illusions still plague the city.",
                 "emotion": "psyhopanic"
             },
             {
@@ -6689,7 +6686,7 @@
             },
             {
                 "speakerId": "NIKA",
-                "text": " Easy, big guy. We’re not here to torture you again. We want to kill illusions. If you know anything about Lira’s final echo, speak. Otherwise, Noxis drowns in madness.",
+                "text": " Easy, big guy. We’re not here to torture you again. We want to kill illusions. If you know anything about Lyra’s final echo, speak. Otherwise, Noxis drowns in madness.",
                 "emotion": "aggressive"
             }
         ],
@@ -6705,14 +6702,14 @@
         "location": "Police Station LEXIS",
         "participantsIds": [
             "VAIR",
-            "NIKA",
-            "ERRA"
+            "NIKA"
+
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
-                "text": " Erra (or the station’s gloom) greets you with raw mania. Every step draws you closer to illusions’ beating heart. The air vibrates with residual code, Lira’s ghostly voice echoing in half-heard whispers.",
+                "text": " Erra (or the station’s gloom) greets you with raw mania. Every step draws you closer to illusions’ beating heart. The air vibrates with residual code, Lyra’s ghostly voice echoing in half-heard whispers.",
                 "emotion": "neutral"
             },
             {
@@ -6722,7 +6719,7 @@
             },
             {
                 "speakerId": "ERRA",
-                "text": " Vair… your face is splashed in their blood… illusions taught me new truths. Lira… is everywhere… or nowhere…",
+                "text": " Vair… your face is splashed in their blood… illusions taught me new truths. Lyra… is everywhere… or nowhere…",
                 "emotion": "neutral"
             },
             {
@@ -6737,7 +6734,7 @@
             },
             {
                 "speakerId": "ERRA",
-                "text": " Lira’s final echo… it roots in the Sphere’s black spine… the hidden sub-layer. We fed it every confession… each time you strapped me in, it grew fangs of code…",
+                "text": " Lyra’s final echo… it roots in the Sphere’s black spine… the hidden sub-layer. We fed it every confession… each time you strapped me in, it grew fangs of code…",
                 "emotion": "neutral"
             },
             {
@@ -6757,7 +6754,7 @@
             },
             {
                 "speakerId": "ERRA",
-                "text": " *All or nothing… Lira ensured illusions can always re-seed if the sub-layer stands. It’s like an AI parasite… beyond caretaker nodes.*",
+                "text": " *All or nothing… Lyra ensured illusions can always re-seed if the sub-layer stands. It’s like an AI parasite… beyond caretaker nodes.*",
                 "emotion": "neutral"
             },
             {
@@ -6797,7 +6794,7 @@
             },
             {
                 "speakerId": "ERRA",
-                "text": "*Go… LEXIS central tower… sub-level 9… hidden door. Code is… H4-LUC1N… Lira’s final gift… Hurry… illusions stir… they sense me telling you… they’ll come…*",
+                "text": "*Go… LEXIS central tower… sub-level 9… hidden door. Code is… H4-LUC1N… Lyra’s final gift… Hurry… illusions stir… they sense me telling you… they’ll come…*",
                 "emotion": "neutral"
             },
             {
@@ -6827,7 +6824,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Right. We end illusions for good or die in the attempt. No caretaker spines, no reanimated husks—just the black sub-layer where Lira’s echo thrives. Let’s see if the city can stand without it.",
+                "text": " Right. We end illusions for good or die in the attempt. No caretaker spines, no reanimated husks—just the black sub-layer where Lyra’s echo thrives. Let’s see if the city can stand without it.",
                 "emotion": "psyhopanic"
             },
             {
@@ -6850,7 +6847,7 @@
             "VAIR",
             "NIKA"
         ],
-        "heroMentalState": "glitch",
+        "heroMentalState": "glutch",
         "phrases": [
             {
                 "speakerId": "NARRATOR",
@@ -6859,7 +6856,7 @@
             },
             {
                 "speakerId": "NARRATOR",
-                "text": " Erra’s final words echo in your mind: *“Sub-level 9… hidden door… illusions’ nest.”* You picture Lira’s code festering there like a malignant tumor, feeding illusions into Evricon daily.",
+                "text": " Erra’s final words echo in your mind: *“Sub-level 9… hidden door… illusions’ nest.”* You picture Lyra’s code festering there like a malignant tumor, feeding illusions into Evricon daily.",
                 "emotion": "neutral"
             },
             {
@@ -6889,7 +6886,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " If it does, it’s still better than illusions feasting forever. Let’s see how many caretaker nodes Lira planned. Enough talk. We go now.",
+                "text": " If it does, it’s still better than illusions feasting forever. Let’s see how many caretaker nodes Lyra planned. Enough talk. We go now.",
                 "emotion": "psyhopanic"
             },
             {
@@ -6959,7 +6956,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " One last infiltration. If we fail, illusions become unstoppable. If we succeed, we blow or sabotage Lira’s final echo. Maybe the city emerges from meltdown. Or maybe we doom it further. One way or another, it ends here.",
+                "text": " One last infiltration. If we fail, illusions become unstoppable. If we succeed, we blow or sabotage Lyra’s final echo. Maybe the city emerges from meltdown. Or maybe we doom it further. One way or another, it ends here.",
                 "emotion": "psyhopanic"
             },
             {
@@ -6974,7 +6971,7 @@
             },
             {
                 "speakerId": "VAIR",
-                "text": " Let’s finish this, Nika. Sub-level 9, hidden door. Lira’s last illusions. We bury them or bury ourselves. Noxis can’t endure illusions any longer.",
+                "text": " Let’s finish this, Nika. Sub-level 9, hidden door. Lyra’s last illusions. We bury them or bury ourselves. Noxis can’t endure illusions any longer.",
                 "emotion": "psyhopanic"
             }
         ],

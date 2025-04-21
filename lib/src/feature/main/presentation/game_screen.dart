@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 import 'dart:ui';
 
@@ -60,6 +61,8 @@ class _GameScreenState extends State<GameScreen> {
     final speakerName = allDossiers
         .firstWhere(
           (element) => element.name == _speakerId,
+      orElse: (
+              () =>  allDossiers.firstWhere((test)=> test.name == "LYRA"))
         )
         .name;
     if (speakerName.isEmpty) return; // Speaker not found, do nothing
@@ -263,7 +266,7 @@ void _buildDossierDialog(DialogueState state, BuildContext context) {
                   ),
                   Gap(10),
                   Container(
-                    width: getWidth(context, percent: 0.65),
+                    width: getWidth(context, percent: 0.6),
                     height: getHeight(context, percent: 0.55),
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
@@ -281,7 +284,7 @@ void _buildDossierDialog(DialogueState state, BuildContext context) {
                         Gap(10),
                         SingleChildScrollView(
                           child: SizedBox(
-                            width: getWidth(context, percent: 0.4),
+                            width: getWidth(context, percent: 0.35),
                             child: Column(
                               children: [
                                 Text(
@@ -462,13 +465,14 @@ class _AnimatedCharacterState extends State<AnimatedCharacter> with SingleTicker
   }
 
   Widget _buildCharacterImage() {
+    print(widget.character.name);
     return Image.asset(
       widget.emotion ?? 'assets/images/${widget.character.name} neutral.webp',
-      height: getHeight(context, percent: 0.7),
+      height: getHeight(context, percent: 0.6),
       fit: BoxFit.contain,
       errorBuilder: (context, error, stackTrace) => Image.asset(
         'assets/images/${widget.character.name} neutral.webp',
-        height: getHeight(context, percent: 0.7),
+        height: getHeight(context, percent: 0.6),
         fit: BoxFit.contain,
       ),
     );
@@ -499,56 +503,73 @@ class DialogueBox extends StatefulWidget {
 }
 
 class _DialogueBoxState extends State<DialogueBox> {
-  final ScrollController _scrollController = ScrollController(); // 👈 ①
-  double _scrollProgress = 0; // 👈 ②
+  final ScrollController _scrollController = ScrollController();
+  double _scrollProgress = 0;
   bool isPlay = false;
   int _visibleTextLength = 0;
   final AudioPlayer _narratorAudioPlayer = AudioPlayer();
-  AudioPlayer _audioPlayer = AudioPlayer();
+  AudioPlayer _audioPlayer = AudioPlayer()..setVolume(0.3);
   bool _isTextFullyVisible = false;
   bool _isNarratorSpeaking = false;
+  Timer? _textAnimationTimer; // Track the animation timer
 
   @override
   void initState() {
     super.initState();
     _startTextAnimation();
+    _scrollController.addListener(_handleScroll);
+  }
 
-    _scrollController.addListener(_handleScroll); // 👈 ③
+  @override
+  void dispose() {
+    _textAnimationTimer?.cancel(); // Cancel any ongoing animation
+    _stopNarratorAudio();
+    _narratorAudioPlayer.dispose();
+    _audioPlayer.dispose(); // Dispose the second audio player
+    _scrollController.dispose(); // Dispose the scroll controller
+    super.dispose();
   }
 
   Future<void> audiotext() async {
-    if (widget.textaudio != null && _visibleTextLength == 0) {
-      await _audioPlayer.play(AssetSource('audio/${widget.textaudio}.mp3'));
-      isPlay = true;
+    if (widget.textaudio != null && _visibleTextLength == 0 && mounted) {
+      try {
+        await _audioPlayer.play(AssetSource('audio/${widget.textaudio}.mp3'));
+        if (mounted) {
+          setState(() {
+            isPlay = true;
+          });
+        }
+      } catch (e) {
+        if (mounted) {
+          setState(() {
+            isPlay = false;
+          });
+        }
+      }
     }
   }
 
   void _handleScroll() {
-    // позиция может быть 0, пока виджет ещё не отрисовался
+    if (!mounted) return;
     if (!_scrollController.hasClients ||
         !_scrollController.position.hasContentDimensions) return;
 
     final max = _scrollController.position.maxScrollExtent;
     final offset = _scrollController.offset;
-    setState(() {
-      _scrollProgress = max == 0 ? 0 : (offset / max).clamp(0.0, 1.0);
-    });
-  }
-
-  @override
-  void dispose() {
-    _scrollController.removeListener(_handleScroll);
-    _scrollController.dispose();
-    _stopNarratorAudio();
-    _narratorAudioPlayer.dispose();
-    super.dispose();
+    if (mounted) {
+      setState(() {
+        _scrollProgress = max == 0 ? 0 : (offset / max).clamp(0.0, 1.0);
+      });
+    }
   }
 
   void _startTextAnimation() {
-    if (_isTextFullyVisible) return;
+    if (_isTextFullyVisible || !mounted) return;
     if (widget.phrase == null) return;
 
-    Future.delayed(const Duration(milliseconds: 50), () {
+    _textAnimationTimer?.cancel(); // Cancel previous timer if any
+    _textAnimationTimer = Timer(const Duration(milliseconds: 50), () {
+      if (!mounted) return;
       if (widget.phrase != null &&
           _visibleTextLength < widget.phrase!.text.length &&
           !_isTextFullyVisible) {
@@ -556,14 +577,15 @@ class _DialogueBoxState extends State<DialogueBox> {
           _visibleTextLength++;
         });
         _startTextAnimation();
-      } else {
+        return;
+      } else if (mounted) {
         setState(() {
           _isTextFullyVisible = true;
           if (widget.phrase?.speakerId == 'NARRATOR') {
-            _stopNarratorAudio();
+
           }
         });
-      }
+      } _stopNarratorAudio();
     });
   }
 
@@ -572,53 +594,61 @@ class _DialogueBoxState extends State<DialogueBox> {
     super.didUpdateWidget(oldWidget);
 
     if (widget.phrase != oldWidget.phrase) {
-      // 1. Сбрасываем счётчик символов
-      _visibleTextLength = 0;
-      _isTextFullyVisible = false;
-
-      // 2. Запускаем печать текста
-      _startTextAnimation();
-
-      // 3. Управляем звуком так, как было раньше
-      if (widget.phrase?.speakerId == 'NARRATOR') {
-        _startNarratorAudio();
-      } else {
-        _stopNarratorAudio();
+      _textAnimationTimer?.cancel(); // Cancel previous animation
+      if (mounted) {
+        setState(() {
+          _visibleTextLength = 0;
+          _isTextFullyVisible = false;
+        });
       }
+      _startTextAnimation();
     }
   }
 
-  void _startNarratorAudio() async {
-    if (_isNarratorSpeaking) return;
+  Future<void> _startNarratorAudio() async {
+    if (_isNarratorSpeaking || !mounted) return;
 
     try {
-      _isNarratorSpeaking = true;
+      if (mounted) {
+        setState(() {
+          _isNarratorSpeaking = true;
+        });
+      }
       await _narratorAudioPlayer.setReleaseMode(ReleaseMode.loop);
       await _narratorAudioPlayer.setVolume(0.2);
       await _narratorAudioPlayer.play(AssetSource('audio/narrator.mp3'));
     } catch (e) {
-      print('Error playing narrator audio: $e');
-      _isNarratorSpeaking = false;
+      if (mounted) {
+        setState(() {
+          _isNarratorSpeaking = false;
+        });
+      }
     }
   }
 
-  void _stopNarratorAudio() async {
+  Future<void> _stopNarratorAudio() async {
     if (!_isNarratorSpeaking) return;
 
     try {
       await _narratorAudioPlayer.stop();
-      _isNarratorSpeaking = false;
+      if (mounted) {
+        setState(() {
+          _isNarratorSpeaking = false;
+        });
+      }
     } catch (e) {
       print('Error stopping narrator audio: $e');
     }
   }
 
   void _showFullText() {
-    if (widget.phrase == null) return;
+    if (widget.phrase == null || !mounted) return;
+    _textAnimationTimer?.cancel(); // Cancel ongoing animation
     setState(() {
       _visibleTextLength = widget.phrase!.text.length;
       _isTextFullyVisible = true;
-    });
+
+    });_stopNarratorAudio();
   }
 
   @override
@@ -627,32 +657,33 @@ class _DialogueBoxState extends State<DialogueBox> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     Color textColor = Colors.white;
-    if (widget.phrase != null) {
+    if (widget.phrase != null ) {
       lastmood = widget.mood;
       switch (widget.phrase!.speakerId) {
         case 'VAIR':
           textColor = Colors.green;
-          audiotext();
+          if(!_isTextFullyVisible){ audiotext();_stopNarratorAudio();}
+
           break;
         case 'ERRAS':
           textColor = Colors.purple;
-          audiotext();
+          if(!_isTextFullyVisible){ audiotext();_stopNarratorAudio();}
           break;
         case 'LYRA':
           textColor = Colors.blue;
-          audiotext();
+          if(!_isTextFullyVisible){ audiotext();_stopNarratorAudio();}
           break;
         case 'NIKA':
           textColor = Colors.orange;
-          audiotext();
+          if(!_isTextFullyVisible){ audiotext();_stopNarratorAudio();}
           break;
         case 'RION':
           textColor = Colors.red;
-          audiotext();
+          if(!_isTextFullyVisible){ audiotext();_stopNarratorAudio();}
           break;
         case 'NARRATOR':
-          textColor = Colors.grey.shade300;
-          _startNarratorAudio();
+          textColor = Colors.grey.shade300; if(!_isTextFullyVisible){ _startNarratorAudio();}
+
           break;
         default:
           textColor = Colors.white;
@@ -661,156 +692,158 @@ class _DialogueBoxState extends State<DialogueBox> {
 
     return PopScope(
       onPopInvoked: (_) => _stopNarratorAudio(),
-      child: SizedBox(
-        // 👉 занимает всю высоту
-        width: screenWidth * 0.35, // 👉 30 % ширины
-        height: screenHeight,
-        child: GestureDetector(
-          onTap: () {
-            if (!_isTextFullyVisible && widget.phrase != null) {
-              _showFullText();
-              _stopNarratorAudio();
-            } else {
-              widget.onDialogueTap();
-              setState(() {
-                _isTextFullyVisible = false;
-                _visibleTextLength = 0;
-                _startTextAnimation();
-              });
-            }
-          },
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/dialog.webp"),
-                fit: BoxFit.fill,
+      child: SafeArea(
+        bottom: false,
+        child: SizedBox(
+          // 👉 занимает всю высоту
+          width: screenWidth * 0.35, // 👉 30 % ширины
+          height: screenHeight,
+          child: GestureDetector(
+            onTap: () {
+              if (!_isTextFullyVisible && widget.phrase != null) {
+                _showFullText();
+              } else {
+                widget.onDialogueTap();
+                setState(() {
+                  _isTextFullyVisible = false;
+                  _visibleTextLength = 0;
+                  _startTextAnimation();
+                });
+              }
+            },
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/dialog.webp"),
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (widget.phrase != null)
-                  SizedBox(
-                    height: screenHeight * 0.5,
-                    child: Scrollbar(
-                      controller: _scrollController,
-                      thumbVisibility: true,
-                      child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (widget.phrase != null)
+                    SizedBox(
+                      height: screenHeight * 0.5,
+                      child: Scrollbar(
                         controller: _scrollController,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            if (widget.phrase != null) ...[
-                              Text(
-                                widget.phrase!.speakerId,
-                                style: TextStyle(
-                                  color: textColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 24,
-                                  fontFamily: "Jersey25",
+                        thumbVisibility: true,
+                        child: SingleChildScrollView(
+                          controller: _scrollController,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              if (widget.phrase != null) ...[
+                                Text(
+                                  widget.phrase!.speakerId,
+                                  style: TextStyle(
+                                    color: textColor,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 24,
+                                    fontFamily: "Jersey25",
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                widget.phrase!.text
-                                    .substring(0, _visibleTextLength),
-                                style: const TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.white,
-                                    fontFamily: "Orbitron"),
-                              ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  widget.phrase!.text
+                                      .substring(0, _visibleTextLength),
+                                  style: const TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                      fontFamily: "Orbitron"),
+                                ),
+                              ],
                             ],
-                          ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-
-                // ---------- 2. Кнопки выбора ----------
-                if (widget.phrase == null && widget.choices.isNotEmpty)
-                  ...widget.choices.map(
-                    (choice) => Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0),
-                      child: AnimatedButton(
-                        onPressed: () {
-                          widget.onTap(choice);
-                          _visibleTextLength = 0;
-                          _isTextFullyVisible = false;
-                          _startTextAnimation();
-                        },
-                        child: Container(
-                            padding: const EdgeInsets.all(16),
-                            decoration: BoxDecoration(
-                                color: const Color(0x00000075),
-                                border: Border.all(
-                                  color: const Color(0xFFFFFF00),
-                                  width: 2.0,
-                                )),
-                            child: Text(
-                              choice.choiceText,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: [
-                                    Color(0xFFB2FF00),
-                                    Color(0xFFFFBB00),
-                                    Color(0xFFFF4D00),
-                                  ][Random().nextInt(3)],
-                                  fontSize: 16,
-                                  fontFamily: "Jersey25"),
-                            )),
+        
+                  // ---------- 2. Кнопки выбора ----------
+                  if (widget.phrase == null && widget.choices.isNotEmpty)
+                    ...widget.choices.map(
+                      (choice) => Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: AnimatedButton(
+                          onPressed: () {
+                            widget.onTap(choice);
+                            _visibleTextLength = 0;
+                            _isTextFullyVisible = false;
+                            _startTextAnimation();
+                          },
+                          child: Container(
+                              padding: const EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                  color: const Color(0x00000075),
+                                  border: Border.all(
+                                    color: const Color(0xFFFFFF00),
+                                    width: 2.0,
+                                  )),
+                              child: Text(
+                                choice.choiceText,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: [
+                                      Color(0xFFB2FF00),
+                                      Color(0xFFFFBB00),
+                                      Color(0xFFFF4D00),
+                                    ][Random().nextInt(3)],
+                                    fontSize: 16,
+                                    fontFamily: "Jersey25"),
+                              )),
+                        ),
                       ),
                     ),
-                  ),
-
-                Spacer(),
-                Container(
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                        color: const Color(0x00000075),
-                        border: Border.all(
-                          color: const Color(0xFFFFFF00),
-                          width: 2.0,
-                        )),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Column(
-                          children: [
-                            AppIcon(
-                                asset: "assets/images/$lastmood.webp",
-                                width: 110),
-                            Text(
-                              lastmood,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontFamily: "Jersey25"),
-                            )
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            AnimatedButton(
-                                onPressed: () =>
-                                    _buildDossierDialog(widget.state, context),
-                                child: AppIcon(
-                                  asset: "assets/images/dossier.webp",
-                                  width: 64,
-                                  height: 70,
-                                )),
-                            AnimatedButton(
-                                onPressed: () => context.pop(),
-                                child: AppIcon(
-                                  asset: "assets/images/MENU.webp",
-                                  width: 91,
-                                )),
-                          ],
-                        )
-                      ],
-                    )),
-              ],
+        
+                  Spacer(),
+                  Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                          color: const Color(0x00000075),
+                          border: Border.all(
+                            color: const Color(0xFFFFFF00),
+                            width: 2.0,
+                          )),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Column(
+                            children: [
+                              AppIcon(
+                                  asset: "assets/images/$lastmood.webp",
+                                  width: 110),
+                              Text(
+                                lastmood,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontFamily: "Jersey25"),
+                              )
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              AnimatedButton(
+                                  onPressed: () =>
+                                      _buildDossierDialog(widget.state, context),
+                                  child: AppIcon(
+                                    asset: "assets/images/dossier.webp",
+                                    width: 64,
+                                    height: 70,
+                                  )),
+                              AnimatedButton(
+                                  onPressed: () => context.pop(),
+                                  child: AppIcon(
+                                    asset: "assets/images/MENU.webp",
+                                    width: 91,
+                                  )),
+                            ],
+                          )
+                        ],
+                      )),
+                ],
+              ),
             ),
           ),
         ),
